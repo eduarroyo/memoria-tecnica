@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt,twoside,final]{book}
+\documentclass[a4paper,12pt,twoside,final]{scrbook}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish,es-nodecimaldot]{babel} % International, rec. by RAE: http://www.tex-tipografia.com/marca_decimal.html
 
@@ -52,7 +52,7 @@
 % PAGE STYLE
 \usepackage[twoside,bindingoffset=0mm,headheight=16pt,margin=25mm]{geometry} %,verbose,showframe
 \usepackage{fancyhdr} % Encabezados
-\pagestyle{fancy}
+%\pagestyle{fancy}
 % XXX Evitar el binding en la portada pero no en el resto del documento
 
 
@@ -132,7 +132,6 @@
 \vspace{2.7cm}
 \end{center}
 
-
 %-------------------------------------------------------------------------------
 \clearpage
 
@@ -141,44 +140,41 @@
 
 \cleardoublepage
 %-------------------------------------------------------------------------------
-
+\frontmatter
 \tableofcontents
-%\listoffigures
+\listoffigures
 \listoftables
 
-\clearpage 
-
+\cleardoublepage
+\mainmatter
 \include{01-introduccion}
-\clearpage
-\include{02-objetivos}
-\clearpage
-\include{03-fases-del-desarrollo}
-\clearpage
-\include{04-recursos}
-\clearpage
+\cleardoublepage
+\include{02-definicion-del-problema}
+\cleardoublepage
+\include{03-antecedentes}
+\cleardoublepage
+\include{04-objetivos}
+\cleardoublepage
+\include{05-recursos}
+\cleardoublepage
+\include{06-aplicacion-web}
+\cleardoublepage
+\include{07-servicio-web}
+\cleardoublepage
+\include{08-aplicacion-movil}
+\cleardoublepage
+\include{09-seguridad}
+\cleardoublepage
+\include{10-futuras-mejoras}
+\cleardoublepage
+\include{11-conclusiones}
 
 % BIBLIOGRAFÍA -----------------------------------------------------------------
 \bibliographystyle{ieeetr}
-\bibliography{00-anteproyecto}
-\addcontentsline{toc}{section}{Bibliografía}
+\renewcommand{\refname}{Bibliografía}
+\bibliography{00-memoria-tecnica}
+\addcontentsline{toc}{part}{Bibliografía}
 \clearpage
-% ------------------------------------------------------------------------------
-
-
-% PÁGINA DE FIRMAS -------------------------------------------------------------
-\noindent
-\begin{minipage}[c][4cm][c]{.5\textwidth}
-  \centering
-    El alumno
-    \vfill
-    Fdo.: Eduardo Arroyo Ramírez
-\end{minipage}%
-\begin{minipage}[c][4cm][c]{.5\textwidth}
-  \centering
-    El director
-    \vfill
-    Fdo.: Domingo Ortiz Boyer
-\end{minipage}
 % ------------------------------------------------------------------------------
 
 \end{document}
