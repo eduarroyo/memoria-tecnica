@@ -5,6 +5,14 @@
 \usepackage{booktabs}
 \usepackage[hidelinks]{hyperref}
 
+
+\usepackage{tgpagella} % text only
+\usepackage{mathpazo}  % math & text
+
+
+\usepackage{setspace}
+\spacing{1.2}
+
 % COLOR
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
 % Colores para estilo Proyecto Docente (tonos naranjas)
@@ -146,27 +154,23 @@
 
 \cleardoublepage
 \mainmatter
-\include{01-introduccion}
+\include{capitulos/01-introduccion}
 \cleardoublepage
-\include{02-definicion-del-problema}
+\include{capitulos/02-objetivos}
 \cleardoublepage
-\include{03-antecedentes}
+\include{capitulos/03-recursos}
 \cleardoublepage
-\include{04-objetivos}
+\include{capitulos/04-aplicacion-web}
 \cleardoublepage
-\include{05-recursos}
+\include{capitulos/05-servicio-web}
 \cleardoublepage
-\include{06-aplicacion-web}
+\include{capitulos/06-aplicacion-movil-tipo}
 \cleardoublepage
-\include{07-servicio-web}
+\include{capitulos/07-seguridad}
 \cleardoublepage
-\include{08-aplicacion-movil}
+\include{capitulos/08-futuras-mejoras}
 \cleardoublepage
-\include{09-seguridad}
-\cleardoublepage
-\include{10-futuras-mejoras}
-\cleardoublepage
-\include{11-conclusiones}
+\include{capitulos/09-conclusiones}
 
 % BIBLIOGRAFÍA -----------------------------------------------------------------
 \bibliographystyle{ieeetr}
