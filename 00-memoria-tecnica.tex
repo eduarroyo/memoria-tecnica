@@ -5,9 +5,10 @@
 \usepackage{booktabs}
 \usepackage[hidelinks]{hyperref}
 
-
 \usepackage{tgpagella} % text only
 \usepackage{mathpazo}  % math & text
+
+
 
 
 \usepackage{setspace}
@@ -27,6 +28,8 @@
  \definecolor{epsc:verde}{HTML}{00B299}
 
 \usepackage{tikz} % used in cover to place images
+\usepackage[simplified]{pgf-umlcd}
+\usepackage{pgf-umlsd}
 
 \usepackage{datetime} % allow formal date format
 % "Month, YEAR" date format, in spanish with the month uppercased not interfering other dates
@@ -154,23 +157,24 @@
 
 \cleardoublepage
 \mainmatter
-\include{capitulos/01-introduccion}
+\include{capitulos/010-introduccion}
 \cleardoublepage
-\include{capitulos/02-objetivos}
+\include{capitulos/020-objetivos}
 \cleardoublepage
-\include{capitulos/03-recursos}
+\include{capitulos/030-recursos}
 \cleardoublepage
-\include{capitulos/04-aplicacion-web}
+\include{capitulos/040-analisis-requisitos}
 \cleardoublepage
-\include{capitulos/05-servicio-web}
+\include{capitulos/050-diseño}
 \cleardoublepage
-\include{capitulos/06-aplicacion-movil-tipo}
+\include{capitulos/060-implementacion}
 \cleardoublepage
-\include{capitulos/07-seguridad}
+\include{capitulos/070-pruebas}
 \cleardoublepage
-\include{capitulos/08-futuras-mejoras}
+\include{capitulos/080-futuras-mejoras}
 \cleardoublepage
-\include{capitulos/09-conclusiones}
+\include{capitulos/100-conclusiones}
+\cleardoublepage
 
 % BIBLIOGRAFÍA -----------------------------------------------------------------
 \bibliographystyle{ieeetr}
