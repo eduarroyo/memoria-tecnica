@@ -11,37 +11,44 @@ Con el fin de identificar los actores, conceptos y actividades del sistema se el
 \begin{itemize}
     \item Publicar un comunicado
     \item Programar un comunicado
-    \item Consultar law lista de comunicados
+    \item Consultar la lista de comunicados
     \item Consultar la lista de comunicados por categoría
     \item Consultar un detalle de comunicado
-    \item 
+    \item zxcv
 \end{itemize}
 
 
 \section{Modelo de dominio}
 
-\begin{tikzpicture}[show background grid]
-    \begin{class}[text width=6cm]{Class}{0 ,0}
-        \attribute{+Public }
-        \attribute{\#Protected }
-        \attribute{-Private }
-        \attribute{$\sim$ Package }
-    \end{class}
-    \begin{class}[text width=7cm]{BankAccount}{7,0}
-        \attribute{+owner:String}
-        \attribute{+balance:Dollar s}
-        \operation{+deposit(amount:Dollars)}
-        \operation{+withdrawal(amount:Dollars)}
-        \operation{\#updateBalance(newBalance:Dollars)}
-    \end{class}
-\end{tikzpicture}
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[show background grid]
+        \begin{class}[text width=6cm]{Class}{0 ,0}
+            \attribute{+Public }
+            \attribute{\#Protected }
+            \attribute{-Private }
+            \attribute{$\sim$ Package }
+        \end{class}
+        \begin{class}[text width=7cm]{BankAccount}{7,0}
+            \attribute{+owner:String}
+            \attribute{+balance:Dollar s}
+            \operation{+deposit(amount:Dollars)}
+            \operation{+withdrawal(amount:Dollars)}
+            \operation{\#updateBalance(newBalance:Dollars)}
+        \end{class}
+    \end{tikzpicture}
+    \caption{Modelo de dominio}
+\end{figure}
 
-\begin{sequencediagram}
-    \newthread{t}{:Thread}
-    \newinst{a}{:A}
-    \newinst{b}{:B}
-    \begin{call}{t}{funcA()}{a}{return}
-        \begin{call}{a}{funcA()}{b}{return}
+\begin{figure}
+    \begin{sequencediagram}
+        \newthread{t}{:Thread}
+        \newinst{a}{:A}
+        \newinst{b}{:B}
+        \begin{call}{t}{funcA()}{a}{return}
+            \begin{call}{a}{funcA()}{b}{return}
+            \end{call}
         \end{call}
-    \end{call}
-\end{sequencediagram}
+    \end{sequencediagram}
+    \caption{Modelo de interacción}
+\end{figure}
