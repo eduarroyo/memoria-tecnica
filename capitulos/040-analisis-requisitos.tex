@@ -1,26 +1,101 @@
 \chapter{Análisis de requisitos}
-Este apartado se centra en la investigación del problema y los requisitos. Aquí se definirán los conceptos en el dominio del problema.
+En este capítulo se identificarán los requisitos del sistema. Los requisitos son una descripción de las necesidades o deseos del producto \cite{Larman2004}. Los requisitos pueden ser de dos tipos:
+\begin{enumerate}
+    \item \textbf{Funcionales} son los que tratan sobre las funciones que debe realizar la aplicación.
+    \item \textbf{No funcionales} son los que definen los criterios de calidad del sistema, como pueden ser rendimiento, extensibilidad, usabilidad\dots
+\end{enumerate}
 
-\section{Modelo de casos de uso}
+\emph{PushNews} ofrece diferentes funciones dependiendo del tipo de usuario (perfil) que esté accediendo. Por lo tanto, antes de presentar la lista de requisitos clasificados, es interesante identificar los diferentes perfiles de usuario.
 
-¿Qué es un modelo de casos de uso?
-Formato utilizado
-Listado de casos de uso formato breve con identificador único
-Con el fin de identificar los actores, conceptos y actividades del sistema se elaborará un \emph{modelo de casos de uso} \cite{Jacobson1999} \cite{Larman2004}
+\section {Perfiles de usuario}
+A continuación se identifican los distintos perfiles de usuario que intervienen en el sistema.
 
-\begin{itemize}
-    \item Publicar un comunicado
-    \item Programar un comunicado
-    \item Consultar la lista de comunicados
-    \item Consultar la lista de comunicados por categoría
-    \item Consultar un detalle de comunicado
-    \item zxcv
-\end{itemize}
+\subsection{Lector anónimo}
+Un lector puede ser cualquier usuario, incluso sin estar previamente registrado o identificado en el sistema. Los objetivos de un usuario lector son básicamente encontrar y visualizar las comunicaciones publicadas y los recursos adjuntos (fotografías, documentos, etc.).
 
+\subsection{Editor}
+Un usuario editor debe estar registrado en el sistema e identificarse antes de tener acceso a las funciones propias de su perfil. El editor redacta y publica comunicaciones, tiene acceso a las métricas y también puede administrar la organización a la que pertenece (usuarios, categorías de publicaciones, etc.).
+
+\subsection{Administrador}
+El administrador es el encargado del mantenimiento del sistema. Gestiona y configura el servicio, administras organizaciones y puede actuar como editor en cualquier organización. 
+
+\section{Requisitos funcionales}
+
+\subsection{Funciones básicas}
+\begin{table}[ht]
+    \centering
+    \begin{tabularx}{\textwidth}{|cX|}
+    \rowcolor[HTML]{9B9B9B} 
+    {\color[HTML]{FFFFFF} Ref \#} &
+      \multicolumn{1}{l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Función}} \\ \hline
+    R101\label{R101} &  \\
+         &  \\
+    R    &  \\ \hline
+    \end{tabularx}
+    \caption{Funciones básicas}
+    \label{cuadro:funciones-basicas }
+\end{table}
+
+\subsection{Funciones para lectores}
+\begin{table}[ht]
+    \centering
+    \begin{tabularx}{\textwidth}{|cX|}
+    \rowcolor[HTML]{9B9B9B} 
+    {\color[HTML]{FFFFFF} Ref \#} &
+      \multicolumn{1}{l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Función}} \\ \hline
+    R201\label{R201} & Visualización de la lista de comunicaciones \\
+    R202\label{R202} & Visualización de detalle de una comunicación \\
+    R203\label{R203} & Descarga de adjuntos de una comunicación \\ 
+    R204\label{R204} & Consulta de otros datos relacionados con la organización (teléfonos, localizaciones\dots) \\
+    \hline
+    \end{tabularx}
+    \caption{Funciones para lectores}
+    \label{cuadro:funciones-lectores }
+\end{table}
+
+\subsection{Funciones para editores}
+
+\begin{table}[ht]
+    \centering
+    \begin{tabularx}{\textwidth}{|cX|}
+    \rowcolor[HTML]{9B9B9B} 
+    {\color[HTML]{FFFFFF} Ref \#} &
+      \multicolumn{1}{l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Función}} \\ \hline
+    R301\label{R301} & Administración de comunicaciones \\
+    R302\label{R302} & Visualización de datos extendidos de comunicaciones (estado, fecha de creación, fecha de publicación\dots) \\
+    R303\label{R303} & Administración de categorías de comunicaciones \\
+    R304\label{R304} & Administración de otros datos de la aplicación (teléfonos, localizaciones\dots) \\ 
+    R305\label{R305} & Consulta de métricas de los comunicaciones \\ 
+    \hline
+    \end{tabularx}
+    \caption{Funciones para editores}
+    \label{cuadro:funciones-editores }
+\end{table}
+
+\subsection{Funciones para administradores}
+
+\begin{table}[ht]
+    \centering
+    \begin{tabularx}{\textwidth}{|cX|}
+    \rowcolor[HTML]{9B9B9B} 
+    {\color[HTML]{FFFFFF} Ref \#} &
+      \multicolumn{1}{l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Función}} \\ \hline
+    R401\label{R401} & Administración de aplicaciones \\
+    R402\label{R402} & Administración de características de aplicaciones \\
+    R403\label{R403} & Administración de configuración del servicio \\
+    R404\label{R404} & Administración de usuarios \\ 
+    R405\label{R405} & Consulta de métricas de las comunicaciones \\ 
+    \hline
+    \end{tabularx}
+    \caption{Funciones para administradores}
+    \label{cuadro:funciones-administradores }
+\end{table}
+
+\section{Requisitos no funcionales}
 
 \section{Modelo de dominio}
 
-\begin{figure}
+\begin{figure}[ht]
     \centering
     \begin{tikzpicture}[show background grid]
         \begin{class}[text width=6cm]{Class}{0 ,0}
