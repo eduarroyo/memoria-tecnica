@@ -21,8 +21,8 @@ Modelo-vista-controlador (MVC) es un patrón de arquitectura de software que sep
         \node[mynode, right=of dummy] (modelo) {Modelo};  
         
         \draw[myarrow] (controlador.south) -- (modelo.north);	
-        \draw[myarrow] (controlador.south) -- (vista.north);
-        \draw[myarrow] (vista.east) -- (modelo.west);
+        \draw[myarrow] (vista.north) -- (controlador.south);
+        \draw[myarrow] (modelo.west) -- (vista.east);
     \end{tikzpicture}
     \medskip
     \caption{Esquema de la arquitectura Modelo-Vista-Controlador} 
