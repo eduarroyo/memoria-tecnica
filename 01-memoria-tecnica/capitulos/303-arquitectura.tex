@@ -1,7 +1,4 @@
-\chapter{Diseño}
-
-La solución constará de 
-En este apartado se describirá, la arquitectura de la solución, cada una de las partes de las que consta y la interfaz de usuario.
+\chapter{Arquitectura}
 
 \section{Patrón MVC}
 
@@ -9,7 +6,7 @@ Modelo-vista-controlador (MVC) es un patrón de arquitectura de software que sep
 
 \begin{figure}[h]
     \centering
-    \begin{tikzpicture}[node distance=1cm, auto]  
+    \begin{tikzpicture}[node distance=1cm, auto]
         \tikzset{
             mynode/.style={rectangle,rounded corners,draw=black, top color=white, bottom color=yellow!50,very thick, inner sep=1em, minimum size=3em, text centered},
             myarrow/.style={->, >=latex', shorten >=1pt, thick},
@@ -18,52 +15,14 @@ Modelo-vista-controlador (MVC) es un patrón de arquitectura de software que sep
         \node[mynode] (controlador) {Controlador};
         \node[below=3cm of controlador] (dummy) {}; 
         \node[mynode, left=of dummy] (vista) {Vista};
-        \node[mynode, right=of dummy] (modelo) {Modelo};  
+        \node[mynode, right=of dummy] (modelo) {Modelo};
         
         \draw[myarrow] (controlador.south) -- (modelo.north);	
         \draw[myarrow] (vista.north) -- (controlador.south);
         \draw[myarrow] (modelo.west) -- (vista.east);
     \end{tikzpicture}
     \medskip
-    \caption{Esquema de la arquitectura Modelo-Vista-Controlador} 
+    \caption{Esquema de la arquitectura Modelo-Vista-Controlador}
 \end{figure}
 
-\section{Bibliotecas de servicios}
-
-Soportan la lógica de negocio, el esquema de autenticación y autorización y el acceso a datos. Enfoque por tipo de entidad.
-
-\subsection{Modelo de datos de persistencia}
-
-ORM Entity Framework, enfoque Code First, Migrations
-
-\subsection{Operaciones de negocio}
-
-\section{Aplicación WEB}
-
-\subsection{Filtros de acción}
-
-\subsection{Controladores}
-
-\subsection{Modelos}
-
-\subsection{Vistas}
-
-
-\section{La parte cliente}
-
-kendo, solicitudes ajax
-
-\subsection{Área pública}
-
-\subsection{Área privada}
-
-
-Autenticación con Windows Identity Foundation.
-
-\section{Servicio WEB}
-
-\subsection{WEBAPI}
-
-\subsection{Seguridad}
-
-\section{Aplicación móvil tipo}
+\section{Artefactos}

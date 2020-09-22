@@ -1,14 +1,12 @@
-\chapter{Análisis de requisitos}
-En este capítulo se identificarán los requisitos del sistema. Los requisitos son una descripción de las necesidades o deseos del producto \cite{Larman2004}. Los requisitos pueden ser de dos tipos:
+\chapter{Especificación de requisitos}
+En este apartado se identificarán los requisitos del sistema. Los requisitos son una descripción de las necesidades o deseos del producto \cite{Larman2004}. Los requisitos pueden ser de dos tipos:
 \begin{enumerate}
     \item \textbf{Funcionales} son los que tratan sobre las funciones que debe realizar la aplicación.
     \item \textbf{No funcionales} son los que definen los criterios de calidad del sistema, como pueden ser rendimiento, extensibilidad, usabilidad\dots
 \end{enumerate}
 
-A continuación \emph{PushNews} ofrece diferentes funciones dependiendo del tipo de usuario (perfil) que esté accediendo. Por lo tanto, antes de presentar la lista de requisitos clasificados, es interesante identificar los diferentes perfiles de usuario.
-
-\section {Perfiles de usuario}
-A continuación se identifican los distintos perfiles de usuario que intervienen en el sistema.
+\section {Actores}
+\emph{PushNews} ofrece diferentes funciones dependiendo del tipo de usuario (perfil) que esté accediendo. Por lo tanto, antes de presentar la lista de requisitos clasificados, es interesante identificar los diferentes perfiles de usuario.
 
 \subsection{Lector anónimo}
 Un lector puede ser cualquier usuario, incluso sin estar previamente registrado o identificado en el sistema. Los objetivos de un usuario lector son básicamente encontrar y visualizar las comunicaciones publicadas y los recursos adjuntos (fotografías, documentos, etc.).
@@ -17,10 +15,12 @@ Un lector puede ser cualquier usuario, incluso sin estar previamente registrado 
 Un usuario editor debe estar registrado en el sistema e identificarse antes de tener acceso a las funciones propias de su perfil. El editor redacta y publica comunicaciones, tiene acceso a las métricas y también puede administrar la organización a la que pertenece (usuarios, categorías de publicaciones, etc.).
 
 \subsection{Administrador}
-El administrador es el encargado del mantenimiento del sistema. Gestiona y configura el servicio, administras organizaciones y puede actuar como editor en cualquier organización. 
+El administrador es el encargado del mantenimiento del sistema. Gestiona y configura el servicio, administras organizaciones y puede actuar como editor en cualquier organización.
+
+\section{Descripción modular}
 
 \section{Requisitos funcionales}
-%DDII-IEI
+
 \subsection{Funciones básicas}
 \begin{table}[ht]
     \centering
@@ -52,6 +52,7 @@ El administrador es el encargado del mantenimiento del sistema. Gestiona y confi
     \caption{Funciones para lectores}
     \label{cuadro:funciones-lectores }
 \end{table}
+
 
 \subsection{Funciones para editores}
 
@@ -88,42 +89,7 @@ El administrador es el encargado del mantenimiento del sistema. Gestiona y confi
     \hline
     \end{tabularx}
     \caption{Funciones para administradores}
-    \label{cuadro:funciones-administradores }
+    \label{cuadro:funciones-administradores}
 \end{table}
 
 \section{Requisitos no funcionales}
-
-\section{Modelo de dominio}
-
-\begin{figure}[ht]
-    \centering
-    \begin{tikzpicture}[show background grid]
-        \begin{class}[text width=6cm]{Class}{0 ,0}
-            \attribute{+Public }
-            \attribute{\#Protected }
-            \attribute{-Private }
-            \attribute{$\sim$ Package }
-        \end{class}
-        \begin{class}[text width=7cm]{BankAccount}{7,0}
-            \attribute{+owner:String}
-            \attribute{+balance:Dollar s}
-            \operation{+deposit(amount:Dollars)}
-            \operation{+withdrawal(amount:Dollars)}
-            \operation{\#updateBalance(newBalance:Dollars)}
-        \end{class}
-    \end{tikzpicture}
-    \caption{Modelo de dominio}
-\end{figure}
-
-\begin{figure}
-    \begin{sequencediagram}
-        \newthread{t}{:Thread}
-        \newinst{a}{:A}
-        \newinst{b}{:B}
-        \begin{call}{t}{funcA()}{a}{return}
-            \begin{call}{a}{funcA()}{b}{return}
-            \end{call}
-        \end{call}
-    \end{sequencediagram}
-    \caption{Modelo de interacción}
-\end{figure}
