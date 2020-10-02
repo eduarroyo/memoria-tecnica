@@ -8,53 +8,93 @@ En este apartado se identificarán los requisitos del sistema. Los requisitos so
 \section {Actores}
 \emph{PushNews} ofrece diferentes funciones dependiendo del tipo de usuario (perfil) que esté accediendo. Por lo tanto, antes de presentar la lista de requisitos clasificados, es interesante identificar los diferentes perfiles de usuario.
 
-\subsection{Lector anónimo}
-Un lector puede ser cualquier usuario, incluso sin estar previamente registrado o identificado en el sistema. Los objetivos de un usuario lector son básicamente encontrar y visualizar las comunicaciones publicadas y sus recursos adjuntos (fotografías, documentos, mapas, etc.).
+\subsection{Lector}
+Un lector puede ser cualquier usuario, incluso sin estar previamente registrado o identificado en el sistema. En las organizaciones que así lo requieran, los lectores no podrán ser anónimos, sino que deberán estar registrados como asociados. Los objetivos de un lector son encontrar y visualizar las comunicaciones publicadas y sus recursos adjuntos (fotografías, documentos, mapas, etc.).
 
 \subsection{Editor}
-Un usuario editor debe estar registrado en el sistema e identificarse antes de tener acceso a las funciones propias de su perfil. El editor redacta y publica comunicaciones, tiene acceso a las métricas y también puede administrar algunos aspectos de la organización a la que pertenece (categorías de publicaciones, datos de interés, etc.).
+Un editor se encarga de redactar y publicar comunicaciones, tiene acceso a las métricas de éstas y también puede administrar algunos aspectos de las organizaciones de las que forme parte. Debe ser un usuario registrado en el sistema e identificarse antes de tener acceso a las funciones propias de su perfil.
 
 \subsection{Administrador}
-El administrador es el encargado del mantenimiento del sistema. Gestiona y configura el servicio, administras organizaciones y puede actuar como editor en cualquier organización.
+El administrador es el encargado del mantenimiento del sistema. Gestiona y configura el servicio, administra las organizaciones y puede actuar como editor de cualquier organización.
 
 \section{Descripción modular}
+En esta sección se realizará una descomposición del sistema en módulos conceptuales cada uno de los cuales se describirá brevemente.
 
-\subsection{Área pública}
+\subsection*{Comunicaciones}
+Las comunicaciones son el concepto fundamental del sistema. La comunicación es una pieza de contenido que una organización publica para informar a sus lectores. El módulo de comunicaciones engloba todas las funcionalidades relacionadas con este concepto como la creación, publicación, consulta, conteo de visitas, etc.
 
-\subsubsection{Lista de comunicaciones}
-\subsubsection{Presentación de comunicación}
-\subsubsection{Presentación de lista genérica}
-Teléfonos de interés, localizaciones...
+\subsection*{Usuarios}
+En este módulo recae la responsabilidad de definir quién tiene acceso a la parte privada del sistema y qué funciones puede realizar cada uno dentro de éste. Algunas de sus funciones son la creación de usuarios, cambio de perfil de un usuario, cambio de clave de acceso, etc.
 
-\subsection{Área privada}
-Aplicación web - Área privada
-Perfil de usuario
-Escritorio
-Comunicaciones - Comunicaciones
-Comunicaciones - Categorías
-Comunicaciones - Teléfonos de interés
-Comunicaciones - Localizaciones
-Administración - Aplicaciones
-Administración - Características de aplicaciones
-Administración - usuarios
-Administración - Parámetros
+\subsection*{Organizaciones}
+Cada organización representa un cliente, una aplicación móvil en el mercado. El módulo de organizaciones es el responsable de registrar los datos necesarios de cada una de ellas como las ApiKeys, las URLs de la tienda de aplicaciones, el nombre o el logotipo. Además, de la organización depende la mayoría de las operaciones del sistema, que se realizan dentro del ámbito de una organización.
+
+\subsection*{Características de aplicación}
+El módulo de características de aplicación es el encargado de definir el conjunto de funcionalidades opcionales disponibles para las organizaciones que lo soliciten.
+
+\subsection*{Módulos de listado genérico}
+Es un tipo de módulo para realizar las operaciones básicas de listado, creación, eliminación y modificación sobre un tipo de entidad cualquiera que no tenga procesos de negocio asociados. En esta definición entran módulos como el de lista de teléfonos de interés o el de lista de localizaciones geográficas.
 
 \section{Requisitos funcionales}
 
-\subsection{Funciones básicas}
+\subsection{Funciones de seguridad}
 \begin{table}[ht]
     \centering
     \begin{tabularx}{\textwidth}{|cX|}
     \rowcolor[HTML]{9B9B9B} 
     {\color[HTML]{FFFFFF} Ref \#} &
       \multicolumn{1}{l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Función}} \\ \hline
-    R101\label{R101} &  \\
-         &  \\
-    R    &  \\ \hline
+    R101\label{R101} & El sistema permitirá identificarse de forma segura mediante un correo electrónico y una contraseña \\
+    R102\label{R102} & El sistema permitirá a un usuario identificado cambiar su contraseña.  \\
+    R103\label{R}    & El sistema limitará el acceso de los usuarios a las funciones de su perfil (lector, editor, administrador) \\
+    R104\label{R}    &  \\
+    R105\label{R}    &  \\ \hline
     \end{tabularx}
-    \caption{Funciones básicas}
-    \label{cuadro:funciones-basicas }
+    \caption{Funciones de seguridad}
+    \label{cuadro:funciones-de-seguridad }
 \end{table}
+
+
+\subsection{Comunicaciones}
+\begin{itemize}
+  \item Listado público
+  \item Consulta privada
+  \item Consulta pública (contabilizar para estadísticas)
+  \item Compartir en redes sociales
+  \item Listado privado
+  \item Creación
+  \item Publicación diferida
+  \item Modificación
+  \item Eliminación
+  \item Activación/Desactivación
+\end{itemize}
+
+\subsection{Usuarios}
+\begin{itemize}
+  \item Listado de usuarios
+  \item Creación de usuario
+  \item Activación/Desactivación
+  \item Modificar un usuario
+  \item Eliminar un usuario
+  \item Cambiar contraseña propia
+  \item Cambiar clave de un usuario
+\end{itemize}
+
+\subsection{Organizaciones}
+\begin{itemize}
+  \item Listado de organizaciones
+  \item Creación de organización
+  \item Activación/Desactivación
+  \item Modificar una organización
+  \item Cambiar características de aplicación
+\end{itemize}
+
+\subsection{Características de aplicaciones}
+\begin{itemize}
+  \item Listado de características
+  \item Activación/Desactivación
+\end{itemize}
+
 
 \subsection{Funciones para lectores}
 \begin{table}[ht]
