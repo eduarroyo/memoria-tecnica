@@ -26,3 +26,19 @@ Modelo-vista-controlador (MVC) es un patrón de arquitectura de software que sep
 \end{figure}
 
 \section{Artefactos}
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[every fit/.style={inner sep=0pt, outer sep=0pt, draw}]
+      \begin{scope}
+        \node [fit={( 0,0) (12,1)}, label=center:{Acceso a datos}] {};
+        \node [fit={( 0,1) (12,2)}, label=center:{Biblioteca de Negocio}] {};
+        \node [fit={( 0,2) ( 4,3)}, label=center:{Aplicación WEB}] {};
+        \node [fit={( 4,2) ( 9,3)}, label=center:{Servicio WEB}] {};
+        \node [fit={( 9,2) (12,3)}, label=center:{Pr. Auxiliares}] {};
+        \node [fit={( 4,3) ( 6,4)}, label=center:{App 1}] {};
+        \node [fit={( 6,3) ( 7,4)}, label=center:{\dots}] {};
+        \node [fit={( 7,3) ( 9,4)}, label=center:{App N}] {};
+      \end{scope}
+    \end{tikzpicture}
+  \end{figure}
