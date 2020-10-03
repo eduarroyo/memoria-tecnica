@@ -1,12 +1,12 @@
 \chapter{Especificación de requisitos}
-En este apartado se identificarán los requisitos del sistema. Los requisitos son una descripción de las necesidades o deseos del producto \cite{Larman2004}. Los requisitos pueden ser de dos tipos:
+En este apartado se identificarán los requisitos del sistema. Los requisitos son una descripción de las necesidades o deseos del producto \cite{Larman2004} y pueden ser de dos tipos:
 \begin{enumerate}
     \item \textbf{Funcionales} son los que tratan sobre las funciones que debe realizar la aplicación.
     \item \textbf{No funcionales} son los que definen los criterios de calidad del sistema, como pueden ser rendimiento, extensibilidad, usabilidad\dots
 \end{enumerate}
 
 \section {Actores}
-\emph{PushNews} ofrece diferentes funciones dependiendo del tipo de usuario (perfil) que esté accediendo. Por lo tanto, antes de presentar la lista de requisitos clasificados, es interesante identificar los diferentes perfiles de usuario.
+\emph{PushNews} ofrece diferentes funciones dependiendo del perfil del usuario que esté accediendo. Por lo tanto, antes de presentar la lista de requisitos clasificados, es interesante identificar los diferentes perfiles de usuario.
 
 \subsection{Lector}
 Un lector puede ser cualquier usuario, incluso sin estar previamente registrado o identificado en el sistema. En las organizaciones que así lo requieran, los lectores no podrán ser anónimos, sino que deberán estar registrados como asociados. Los objetivos de un lector son encontrar y visualizar las comunicaciones publicadas y sus recursos adjuntos (fotografías, documentos, mapas, etc.).
@@ -18,7 +18,7 @@ Un editor se encarga de redactar y publicar comunicaciones, tiene acceso a las m
 El administrador es el encargado del mantenimiento del sistema. Gestiona y configura el servicio, administra las organizaciones y puede actuar como editor de cualquier organización.
 
 \section{Descripción modular}
-En esta sección se realizará una descomposición del sistema en módulos conceptuales cada uno de los cuales se describirá brevemente.
+Conceptualmente, el sistema PushNews se puede descomponer en varios módulos que agrupan funcionalidades relacionadas entre si. A continuación se describen los módulos en que se divide el sistema.
 
 \subsection*{Comunicaciones}
 Las comunicaciones son el concepto fundamental del sistema. La comunicación es una pieza de contenido que una organización publica para informar a sus lectores. El módulo de comunicaciones engloba todas las funcionalidades relacionadas con este concepto como la creación, publicación, consulta, conteo de visitas, etc.
@@ -36,120 +36,80 @@ El módulo de características de aplicación es el encargado de definir el conj
 Es un tipo de módulo para realizar las operaciones básicas de listado, creación, eliminación y modificación sobre un tipo de entidad cualquiera que no tenga procesos de negocio asociados. En esta definición entran módulos como el de lista de teléfonos de interés o el de lista de localizaciones geográficas.
 
 \section{Requisitos funcionales}
+En esta sección se expondrá la relación de requisitos funcionales del sistema clasificados módulo. Además, para cada requisito se indicará el perfil o los perfiles de usuario que participan en la operación: ``A'' para administrador, ``E'' para editor y ``L'' para lector.
 
-\subsection{Funciones de seguridad}
-\begin{table}[ht]
-    \centering
-    \begin{tabularx}{\textwidth}{|cX|}
-    \rowcolor[HTML]{9B9B9B} 
-    {\color[HTML]{FFFFFF} Ref \#} &
-      \multicolumn{1}{l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Función}} \\ \hline
-    R101\label{R101} & El sistema permitirá identificarse de forma segura mediante un correo electrónico y una contraseña \\
-    R102\label{R102} & El sistema permitirá a un usuario identificado cambiar su contraseña.  \\
-    R103\label{R}    & El sistema limitará el acceso de los usuarios a las funciones de su perfil (lector, editor, administrador) \\
-    R104\label{R}    &  \\
-    R105\label{R}    &  \\ \hline
-    \end{tabularx}
-    \caption{Funciones de seguridad}
-    \label{cuadro:funciones-de-seguridad }
+\subsection{Requisitos funcionales de seguridad}
+\begin{table}[hbt!]
+  \centering
+  \setlength\extrarowheight{14pt}
+  \begin{tabularx}{\textwidth}{cXc}
+    RF101\label{RF101} & Acceso de usuarios mediante correo electrónico y contraseña & A, E \\
+    RF102\label{RF102} & Cambio de la propia contraseña. & A, E \\
+  \end{tabularx}
+  \label{cuadro:requistios-de-seguridad }
 \end{table}
+\FloatBarrier
 
-
-\subsection{Comunicaciones}
-\begin{itemize}
-  \item Listado público
-  \item Consulta privada
-  \item Consulta pública (contabilizar para estadísticas)
-  \item Compartir en redes sociales
-  \item Listado privado
-  \item Creación
-  \item Publicación diferida
-  \item Modificación
-  \item Eliminación
-  \item Activación/Desactivación
-\end{itemize}
-
-\subsection{Usuarios}
-\begin{itemize}
-  \item Listado de usuarios
-  \item Creación de usuario
-  \item Activación/Desactivación
-  \item Modificar un usuario
-  \item Eliminar un usuario
-  \item Cambiar contraseña propia
-  \item Cambiar clave de un usuario
-\end{itemize}
-
-\subsection{Organizaciones}
-\begin{itemize}
-  \item Listado de organizaciones
-  \item Creación de organización
-  \item Activación/Desactivación
-  \item Modificar una organización
-  \item Cambiar características de aplicación
-\end{itemize}
-
-\subsection{Características de aplicaciones}
-\begin{itemize}
-  \item Listado de características
-  \item Activación/Desactivación
-\end{itemize}
-
-
-\subsection{Funciones para lectores}
-\begin{table}[ht]
-    \centering
-    \begin{tabularx}{\textwidth}{|cX|}
-    \rowcolor[HTML]{9B9B9B} 
-    {\color[HTML]{FFFFFF} Ref \#} &
-      \multicolumn{1}{l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Función}} \\ \hline
-    R201\label{R201} & Visualización de la lista de comunicaciones \\
-    R202\label{R202} & Visualización de detalle de una comunicación \\
-    R203\label{R203} & Descarga de adjuntos de una comunicación \\ 
-    R204\label{R204} & Consulta de otros datos relacionados con la organización (teléfonos, localizaciones\dots) \\
-    \hline
-    \end{tabularx}
-    \caption{Funciones para lectores}
-    \label{cuadro:funciones-lectores }
+\subsection{Requisitos funcionales de comunicaciones}
+\begin{table}[hbt!]
+  \centering
+  \setlength\extrarowheight{14pt}
+  \begin{tabularx}{\textwidth}{cXc}
+    RF201\label{RF201} & Listado de las comunicaciones publicadas de la organización actual, mostrando únicamente los atributos públicos de las comunicaciones. & L \\
+    RF202\label{RF202} & Listado de las comunicaciones publicadas de la organización actual, mostrando además los atributos no públicos como por ejemplo el estado de las notificaciones, el nº de visitas, etc. & A, E \\
+    RF203\label{RF203} & Consulta pública de una comunicación publicada. Cada vez que se realice esta operación, se contabilizará la visita de cara a las métricas de impacto de la comunicación. & L \\
+    RF204\label{RF203} & Previsualización de comunicación sin que esta operación se contabilice de cara a las métricas de impacto. & A, E \\
+    RF204\label{RF204} & Publicación de comunicaciones en redes sociales. & L \\
+    RF205\label{RF205} & Creación de comunicaciones dentro de una organización y publicación instantánea. & A, E \\
+    RF206\label{RF206} & Creación de comunicaciones con publicación programada para un momento posterior. & A, E \\
+    RF207\label{RF207} & Modificación del contenido de una publicación. & A, E \\
+    RF208\label{RF208} & Eliminación de una publicación. & A, E \\
+    RF209\label{RF209} & Desactivación/Activación de una comunicación. Una publicación desactivada no es visible públicamente. & A, E \\
+    RF210\label{RF210} & Consulta de métricas de impacto de comunicaciones. & A, E
+  \end{tabularx}
+  \label{cuadro:requistios-de-comunicaciones }
 \end{table}
+\FloatBarrier
 
-
-\subsection{Funciones para editores}
-
-\begin{table}[ht]
-    \centering
-    \begin{tabularx}{\textwidth}{|cX|}
-    \rowcolor[HTML]{9B9B9B} 
-    {\color[HTML]{FFFFFF} Ref \#} &
-      \multicolumn{1}{l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Función}} \\ \hline
-    R301\label{R301} & Administración de comunicaciones \\
-    R302\label{R302} & Visualización de datos extendidos de comunicaciones (estado, fecha de creación, fecha de publicación\dots) \\
-    R303\label{R303} & Administración de categorías de comunicaciones \\
-    R304\label{R304} & Administración de otros datos de la aplicación (teléfonos, localizaciones\dots) \\ 
-    R305\label{R305} & Consulta de métricas de los comunicaciones \\ 
-    \hline
-    \end{tabularx}
-    \caption{Funciones para editores}
-    \label{cuadro:funciones-editores }
+\subsection{Requisitos funcionales de usuarios}
+\begin{table}[hbt!]
+  \setlength\extrarowheight{14pt}
+  \centering
+  \begin{tabularx}{\textwidth}{cXc}
+    RF301\label{RF301} & Listado de los usuarios registrados en el sistema. & A \\
+    RF302\label{RF302} & Creación de usuarios. & A \\
+    RF303\label{RF303} & Desactivación/Activación de un usuario. Un usuario desactivado no puede acceder al sistema. & A \\
+    RF304\label{RF304} & Modificación de los datos de un usuario. Por ejemplo el nombre, el correo electrónico y también el perfil o las aplicaciones asociadas. & A \\
+    RF305\label{RF305} & Eliminación de un usuario. & A \\
+    RF307\label{RF307} & Cambio de clave de un usuario. & A \\
+  \end{tabularx}
+  \label{cuadro:requisitos-de-usuarios}
 \end{table}
+\FloatBarrier
 
-\subsection{Funciones para administradores}
+\subsection{Requisitos funcionales de organizaciones}
+\begin{table}[hbt!]
+  \centering
+  \setlength\extrarowheight{14pt}
+  \begin{tabularx}{\textwidth}{cXc}
+    RF401\label{RF401} & Listado de organizaciones. & A \\
+    RF402\label{RF402} & Creación de organizaciones. & A \\
+    RF403\label{RF403} & Activación/Desactivación de una organización. Una organización desactivada no es accesible para los usuarios. & A \\
+    RF404\label{RF404} & Modificación de una organización. & A \\
+  \end{tabularx}
+  \label{cuadro:requisitos-de-organizaciones}
+\end{table}
+\FloatBarrier
 
-\begin{table}[ht]
-    \centering
-    \begin{tabularx}{\textwidth}{|cX|}
-    \rowcolor[HTML]{9B9B9B} 
-    {\color[HTML]{FFFFFF} Ref \#} &
-      \multicolumn{1}{l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Función}} \\ \hline
-    R401\label{R401} & Administración de aplicaciones \\
-    R402\label{R402} & Administración de características de aplicaciones \\
-    R403\label{R403} & Administración de configuración del servicio \\
-    R404\label{R404} & Administración de usuarios \\ 
-    R405\label{R405} & Consulta de métricas de las comunicaciones \\ 
-    \hline
-    \end{tabularx}
-    \caption{Funciones para administradores}
-    \label{cuadro:funciones-administradores}
+\subsection{Requisitos funcionales de características debe aplicaciones}
+\begin{table}[hbt!]
+  \centering
+  \setlength\extrarowheight{14pt}
+  \begin{tabularx}{\textwidth}{cXc}
+    RF401\label{RF401} & Listado de características & A, E \\
+    RF403\label{RF403} & Activación/Desactivación. Una característica desactivada dejará de estar disponible en las aplicaciones que la tengan y no se podrá añadir a una organización. & A \\
+  \end{tabularx}
+  \label{cuadro:requisitos-de-aplicaciones}
 \end{table}
 
 \section{Requisitos no funcionales}
