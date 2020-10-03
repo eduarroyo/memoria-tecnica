@@ -38,78 +38,71 @@ Es un tipo de módulo para realizar las operaciones básicas de listado, creaci�
 \section{Requisitos funcionales}
 En esta sección se expondrá la relación de requisitos funcionales del sistema clasificados módulo. Además, para cada requisito se indicará el perfil o los perfiles de usuario que participan en la operación: ``A'' para administrador, ``E'' para editor y ``L'' para lector.
 
+
+\renewcommand{\arraystretch}{1.5} % Aumentar la separación entre filas para las tablas de esta sección.
+
 \subsection{Requisitos funcionales de seguridad}
-\begin{table}[hbt!]
-  \centering
-  \setlength\extrarowheight{14pt}
-  \begin{tabularx}{\textwidth}{cXc}
-    RF101\label{RF101} & Acceso de usuarios mediante correo electrónico y contraseña & A, E \\
-    RF102\label{RF102} & Cambio de la propia contraseña. & A, E \\
-  \end{tabularx}
-  \label{cuadro:requistios-de-seguridad }
-\end{table}
-\FloatBarrier
+
+\begin{longtable}{lp{13cm}c}
+  RF101\label{RF101} & Acceso de usuarios mediante correo electrónico y contraseña & A, E \\
+  RF102\label{RF102} & Cambio de la propia contraseña. & A, E \\
+  \label{cuadro:requisitos-funcionales-de-seguridad}
+\end{longtable}
 
 \subsection{Requisitos funcionales de comunicaciones}
-\begin{table}[hbt!]
-  \centering
-  \setlength\extrarowheight{14pt}
-  \begin{tabularx}{\textwidth}{cXc}
-    RF201\label{RF201} & Listado de las comunicaciones publicadas de la organización actual, mostrando únicamente los atributos públicos de las comunicaciones. & L \\
-    RF202\label{RF202} & Listado de las comunicaciones publicadas de la organización actual, mostrando además los atributos no públicos como por ejemplo el estado de las notificaciones, el nº de visitas, etc. & A, E \\
-    RF203\label{RF203} & Consulta pública de una comunicación publicada. Cada vez que se realice esta operación, se contabilizará la visita de cara a las métricas de impacto de la comunicación. & L \\
-    RF204\label{RF203} & Previsualización de comunicación sin que esta operación se contabilice de cara a las métricas de impacto. & A, E \\
-    RF204\label{RF204} & Publicación de comunicaciones en redes sociales. & L \\
-    RF205\label{RF205} & Creación de comunicaciones dentro de una organización y publicación instantánea. & A, E \\
-    RF206\label{RF206} & Creación de comunicaciones con publicación programada para un momento posterior. & A, E \\
-    RF207\label{RF207} & Modificación del contenido de una publicación. & A, E \\
-    RF208\label{RF208} & Eliminación de una publicación. & A, E \\
-    RF209\label{RF209} & Desactivación/Activación de una comunicación. Una publicación desactivada no es visible públicamente. & A, E \\
-    RF210\label{RF210} & Consulta de métricas de impacto de comunicaciones. & A, E
-  \end{tabularx}
-  \label{cuadro:requistios-de-comunicaciones }
-\end{table}
-\FloatBarrier
+\begin{longtable}{lp{13cm}c}
+  RF201\label{RF201} & Listado de las comunicaciones publicadas de la organización actual, mostrando únicamente los atributos públicos de las comunicaciones. & L \\
+  RF202\label{RF202} & Listado de las comunicaciones publicadas de la organización actual, mostrando además los atributos no públicos como por ejemplo el estado de las notificaciones, el nº de visitas, etc. & A, E \\
+  RF203\label{RF203} & Consulta pública de una comunicación publicada. Cada vez que se realice esta operación, se contabilizará la visita de cara a las métricas de impacto de la comunicación. & L \\
+  RF204\label{RF203} & Previsualización de comunicación sin que esta operación se contabilice de cara a las métricas de impacto. & A, E \\
+  RF205\label{RF205} & Compartición de comunicaciones en redes sociales. & L \\
+  RF206\label{RF206} & Creación de comunicaciones dentro de una organización y publicación instantánea. & A, E \\
+  RF207\label{RF207} & Creación de comunicaciones con publicación programada para un momento posterior. & A, E \\
+  RF208\label{RF208} & Modificación del contenido de una publicación. & A, E \\
+  RF209\label{RF209} & Eliminación de una publicación. & A, E \\
+  RF210\label{RF210} & Desactivación/Activación de una comunicación. Una publicación desactivada no es visible públicamente. & A, E \\
+  RF211\label{RF211} & Consulta de métricas de impacto de comunicaciones. & A, E \\
+  \label{cuadro:requisitos-funcionales-de-comunicaciones}
+\end{longtable}
 
 \subsection{Requisitos funcionales de usuarios}
-\begin{table}[hbt!]
-  \setlength\extrarowheight{14pt}
-  \centering
-  \begin{tabularx}{\textwidth}{cXc}
-    RF301\label{RF301} & Listado de los usuarios registrados en el sistema. & A \\
-    RF302\label{RF302} & Creación de usuarios. & A \\
-    RF303\label{RF303} & Desactivación/Activación de un usuario. Un usuario desactivado no puede acceder al sistema. & A \\
-    RF304\label{RF304} & Modificación de los datos de un usuario. Por ejemplo el nombre, el correo electrónico y también el perfil o las aplicaciones asociadas. & A \\
-    RF305\label{RF305} & Eliminación de un usuario. & A \\
-    RF307\label{RF307} & Cambio de clave de un usuario. & A \\
-  \end{tabularx}
-  \label{cuadro:requisitos-de-usuarios}
-\end{table}
-\FloatBarrier
+\begin{longtable}{lp{13cm}c}
+  RF301\label{RF301} & Listado de los usuarios registrados en el sistema. & A \\
+  RF302\label{RF302} & Creación de usuarios. & A \\
+  RF303\label{RF303} & Desactivación/Activación de un usuario. Un usuario desactivado no puede acceder al sistema. & A \\
+  RF304\label{RF304} & Modificación de los datos de un usuario. Por ejemplo el nombre, el correo electrónico y también el perfil o las aplicaciones asociadas. & A \\
+  RF305\label{RF305} & Eliminación de un usuario. & A \\
+  RF307\label{RF307} & Cambio de clave de un usuario. & A \\
+  \label{cuadro:requisitos-funcionales-de-usuarios}
+\end{longtable}
 
 \subsection{Requisitos funcionales de organizaciones}
-\begin{table}[hbt!]
-  \centering
-  \setlength\extrarowheight{14pt}
-  \begin{tabularx}{\textwidth}{cXc}
-    RF401\label{RF401} & Listado de organizaciones. & A \\
-    RF402\label{RF402} & Creación de organizaciones. & A \\
-    RF403\label{RF403} & Activación/Desactivación de una organización. Una organización desactivada no es accesible para los usuarios. & A \\
-    RF404\label{RF404} & Modificación de una organización. & A \\
-  \end{tabularx}
-  \label{cuadro:requisitos-de-organizaciones}
-\end{table}
-\FloatBarrier
+\begin{longtable}{lp{13cm}c}
+  RF401\label{RF401} & Listado de organizaciones. & A \\
+  RF402\label{RF402} & Creación de organizaciones. & A \\
+  RF403\label{RF403} & Activación/Desactivación de una organización. Una organización desactivada no es accesible para los usuarios. & A \\
+  RF404\label{RF404} & Modificación de una organización. & A \\
+  \label{cuadro:requisitos-funcionales-de-organizaciones}
+\end{longtable}
 
 \subsection{Requisitos funcionales de características debe aplicaciones}
-\begin{table}[hbt!]
-  \centering
-  \setlength\extrarowheight{14pt}
-  \begin{tabularx}{\textwidth}{cXc}
-    RF401\label{RF401} & Listado de características & A, E \\
-    RF403\label{RF403} & Activación/Desactivación. Una característica desactivada dejará de estar disponible en las aplicaciones que la tengan y no se podrá añadir a una organización. & A \\
-  \end{tabularx}
-  \label{cuadro:requisitos-de-aplicaciones}
-\end{table}
+\begin{longtable}{lp{13cm}c}
+  RF401\label{RF401} & Listado de características & A, E \\
+  RF402\label{RF402} & Activación/Desactivación. Una característica desactivada dejará de estar disponible en las aplicaciones que la tengan y no se podrá añadir a una organización. & A \\
+  \label{cuadro:requisitos-funcionales-de-aplicaciones}
+\end{longtable}
 
 \section{Requisitos no funcionales}
+\begin{longtable}{lp{14cm}}
+  RNF101\label{RNF101} & Se utilizará la notación UML durante el proceso de desarrollo. \\
+  RNF102\label{RNF102} & Se utilizará el protocolo de comunicación web estándar HTTP1.1 que es un protocolo de transferencia de hipertextos basado principalmente en el lenguaje HTML. \\
+  RNF103\label{RNF103} & La parte WEB y las aplicaciones auxiliares deben desarrollarse usando tecnología .NET de Microsoft. \\
+  RNF105\label{RNF104} & El sistema deberá tener controlados y responder correctamente ante posibles errores, mediante mensajes descriptivos que identifiquen el problema causado y su posible solución. \\
+  RNF106\label{RNF105} & El sistema deberá responder robustamente antes posibles intentos de acceso no autorizados. \\
+  RNF107\label{RNF106} & La interfaz del sistema deberá ser sencilla e intuitiva para el usuario. \\
+  RNF108\label{RNF107} & Siempre que sea posible, se usarán estándares en el desarrollo de la aplicación informática. \\
+  RNF109\label{RNF108} & El tiempo de respuesta del sistema deberá ser el menor posible. \\
+  \label{cuadro:requisitos-no-funcionales}
+\end{longtable}
+
+\renewcommand{\arraystretch}{1} % Recuperar la separación entre filas por defecto.
