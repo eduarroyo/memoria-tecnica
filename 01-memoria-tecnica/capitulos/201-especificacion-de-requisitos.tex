@@ -42,15 +42,16 @@ En esta sección se expondrá la relación de requisitos funcionales del sistema
 \renewcommand{\arraystretch}{1.5} % Aumentar la separación entre filas para las tablas de esta sección.
 
 \subsection{Requisitos funcionales de seguridad}
-
-\begin{longtable}{lp{13cm}c}
+\label{cuadro:requisitos-funcionales-de-seguridad}
+\begin{longtable}{lp{13cm}r}
   RF101\label{RF101} & Acceso de usuarios mediante correo electrónico y contraseña & A, E \\
   RF102\label{RF102} & Cambio de la propia contraseña. & A, E \\
-  \label{cuadro:requisitos-funcionales-de-seguridad}
+  \caption{Requisitos funcionales de seguridad} \\
 \end{longtable}
 
 \subsection{Requisitos funcionales de comunicaciones}
-\begin{longtable}{lp{13cm}c}
+\label{cuadro:requisitos-funcionales-de-comunicaciones}
+\begin{longtable}{lp{13cm}r}
   RF201\label{RF201} & Listado de las comunicaciones publicadas de la organización actual, mostrando únicamente los atributos públicos de las comunicaciones. & L \\
   RF202\label{RF202} & Listado de las comunicaciones publicadas de la organización actual, mostrando además los atributos no públicos como por ejemplo el estado de las notificaciones, el nº de visitas, etc. & A, E \\
   RF203\label{RF203} & Consulta pública de una comunicación publicada. Cada vez que se realice esta operación, se contabilizará la visita de cara a las métricas de impacto de la comunicación. & L \\
@@ -62,38 +63,43 @@ En esta sección se expondrá la relación de requisitos funcionales del sistema
   RF209\label{RF209} & Eliminación de una publicación. & A, E \\
   RF210\label{RF210} & Desactivación/Activación de una comunicación. Una publicación desactivada no es visible públicamente. & A, E \\
   RF211\label{RF211} & Consulta de métricas de impacto de comunicaciones. & A, E \\
-  \label{cuadro:requisitos-funcionales-de-comunicaciones}
+  \caption{Requisitos funcionales de comunicaciones} \\
 \end{longtable}
 
 \subsection{Requisitos funcionales de usuarios}
-\begin{longtable}{lp{13cm}c}
+\label{cuadro:requisitos-funcionales-de-usuarios}
+\begin{longtable}{lp{13cm}r}
   RF301\label{RF301} & Listado de los usuarios registrados en el sistema. & A \\
   RF302\label{RF302} & Creación de usuarios. & A \\
   RF303\label{RF303} & Desactivación/Activación de un usuario. Un usuario desactivado no puede acceder al sistema. & A \\
   RF304\label{RF304} & Modificación de los datos de un usuario. Por ejemplo el nombre, el correo electrónico y también el perfil o las aplicaciones asociadas. & A \\
   RF305\label{RF305} & Eliminación de un usuario. & A \\
   RF307\label{RF307} & Cambio de clave de un usuario. & A \\
-  \label{cuadro:requisitos-funcionales-de-usuarios}
+  \caption{Requisitos funcionales de usuarios} \\
 \end{longtable}
 
 \subsection{Requisitos funcionales de organizaciones}
-\begin{longtable}{lp{13cm}c}
+\label{cuadro:requisitos-funcionales-de-organizaciones}
+\begin{longtable}{lp{13cm}r}
   RF401\label{RF401} & Listado de organizaciones. & A \\
   RF402\label{RF402} & Creación de organizaciones. & A \\
   RF403\label{RF403} & Activación/Desactivación de una organización. Una organización desactivada no es accesible para los usuarios. & A \\
   RF404\label{RF404} & Modificación de una organización. & A \\
-  \label{cuadro:requisitos-funcionales-de-organizaciones}
+  \caption{Requisitos funcionales de organizaciones} \\
 \end{longtable}
 
 \subsection{Requisitos funcionales de características debe aplicaciones}
-\begin{longtable}{lp{13cm}c}
-  RF401\label{RF401} & Listado de características & A, E \\
+\label{cuadro:requisitos-funcionales-de-aplicaciones}
+\begin{longtable}{lp{13cm}r}
+  RF401\label{RF401} & Listado de características disponibles. & A, E \\
   RF402\label{RF402} & Activación/Desactivación. Una característica desactivada dejará de estar disponible en las aplicaciones que la tengan y no se podrá añadir a una organización. & A \\
-  \label{cuadro:requisitos-funcionales-de-aplicaciones}
+  \caption{Requisitos funcionales de características de aplicaciones} \\
 \end{longtable}
 
 \section{Requisitos no funcionales}
-\begin{longtable}{lp{14cm}}
+
+\label{cuadro:requisitos-no-funcionales}
+\begin{longtable}{lp{13.7cm}}  
   RNF101\label{RNF101} & Se utilizará la notación UML durante el proceso de desarrollo. \\
   RNF102\label{RNF102} & Se utilizará el protocolo de comunicación web estándar HTTP\footnote{Hypertext Transfer Protocol} que es un protocolo de transferencia de hipertextos basado principalmente en el lenguaje HTML\footnote{Hypertext Markup Language }. \\
   RNF103\label{RNF103} & La parte WEB y las aplicaciones auxiliares deben desarrollarse usando tecnología .NET de Microsoft. \\
@@ -102,7 +108,14 @@ En esta sección se expondrá la relación de requisitos funcionales del sistema
   RNF107\label{RNF106} & La interfaz del sistema deberá ser sencilla e intuitiva para el usuario. \\
   RNF108\label{RNF107} & Siempre que sea posible, se usarán estándares en el desarrollo de la aplicación informática. \\
   RNF109\label{RNF108} & El tiempo de respuesta del sistema deberá ser el menor posible. \\
-  \label{cuadro:requisitos-no-funcionales}
+  \caption{Requisitos no funcionales} \\
 \end{longtable}
 
 \renewcommand{\arraystretch}{1} % Recuperar la separación entre filas por defecto.
+
+
+\section{Requisitos de la interfaz}
+La interfaz de usuario es el medio con el que el usuario se comunica con el software. En todo proyecto software es fundamental definir cómo debe 
+
+\section{Requisitos de la información}
+
