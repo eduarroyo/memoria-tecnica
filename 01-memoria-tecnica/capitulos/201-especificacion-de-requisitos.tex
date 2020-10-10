@@ -20,19 +20,19 @@ El administrador es el encargado del mantenimiento del sistema. Gestiona y confi
 \section{Descripción modular}
 Conceptualmente, el sistema PushNews se puede descomponer en varios módulos que agrupan funcionalidades relacionadas entre si. A continuación se describen los módulos en que se divide el sistema.
 
-\subsection*{Comunicaciones}
+\subsection{Comunicaciones}
 Las comunicaciones son el concepto fundamental del sistema. La comunicación es una pieza de contenido que una organización publica para informar a sus lectores. El módulo de comunicaciones engloba todas las funcionalidades relacionadas con este concepto como la creación, publicación, consulta, conteo de visitas, etc.
 
-\subsection*{Usuarios}
+\subsection{Usuarios}
 En este módulo recae la responsabilidad de definir quién tiene acceso a la parte privada del sistema y qué funciones puede realizar cada uno dentro de éste. Algunas de sus funciones son la creación de usuarios, cambio de perfil de un usuario, cambio de clave de acceso, etc.
 
-\subsection*{Organizaciones}
+\subsection{Organizaciones}
 Cada organización representa un cliente, una aplicación móvil en el mercado. El módulo de organizaciones es el responsable de registrar los datos necesarios de cada una de ellas como las ApiKeys, las URLs de la tienda de aplicaciones, el nombre o el logotipo. Además, de la organización depende la mayoría de las operaciones del sistema, que se realizan dentro del ámbito de una organización.
 
-\subsection*{Características de aplicación}
+\subsection{Características de aplicación}
 El módulo de características de aplicación es el encargado de definir el conjunto de funcionalidades opcionales disponibles para las organizaciones que lo soliciten.
 
-\subsection*{Módulos de listado genérico}
+\subsection{Módulos de listado genérico}
 Es un tipo de módulo para realizar las operaciones básicas de listado, creación, eliminación y modificación sobre un tipo de entidad cualquiera que no tenga procesos de negocio asociados. En esta definición entran módulos como el de lista de teléfonos de interés o el de lista de localizaciones geográficas.
 
 \section{Requisitos funcionales}
@@ -43,7 +43,7 @@ En esta sección se expondrá la relación de requisitos funcionales del sistema
 
 \subsection{Requisitos funcionales de seguridad}
 \label{cuadro:requisitos-funcionales-de-seguridad}
-\begin{longtable}{lp{13cm}r}
+\begin{longtable}{l|p{13cm}|r}
   RF101\label{RF101} & Acceso de usuarios mediante correo electrónico y contraseña & A, E \\
   RF102\label{RF102} & Cambio de la propia contraseña. & A, E \\
   \caption{Requisitos funcionales de seguridad} \\
@@ -51,24 +51,25 @@ En esta sección se expondrá la relación de requisitos funcionales del sistema
 
 \subsection{Requisitos funcionales de comunicaciones}
 \label{cuadro:requisitos-funcionales-de-comunicaciones}
-\begin{longtable}{lp{13cm}r}
+\begin{longtable}{l|p{13cm}|r}
   RF201\label{RF201} & Listado de las comunicaciones publicadas de la organización actual, mostrando únicamente los atributos públicos de las comunicaciones. & L \\
   RF202\label{RF202} & Listado de las comunicaciones publicadas de la organización actual, mostrando además los atributos no públicos como por ejemplo el estado de las notificaciones, el nº de visitas, etc. & A, E \\
   RF203\label{RF203} & Consulta pública de una comunicación publicada. Cada vez que se realice esta operación, se contabilizará la visita de cara a las métricas de impacto de la comunicación. & L \\
-  RF204\label{RF203} & Previsualización de comunicación sin que esta operación se contabilice de cara a las métricas de impacto. & A, E \\
-  RF205\label{RF205} & Compartición de comunicaciones en redes sociales. & L \\
-  RF206\label{RF206} & Creación de comunicaciones dentro de una organización y publicación instantánea. & A, E \\
-  RF207\label{RF207} & Creación de comunicaciones con publicación programada para un momento posterior. & A, E \\
-  RF208\label{RF208} & Modificación del contenido de una publicación. & A, E \\
-  RF209\label{RF209} & Eliminación de una publicación. & A, E \\
-  RF210\label{RF210} & Desactivación/Activación de una comunicación. Una publicación desactivada no es visible públicamente. & A, E \\
-  RF211\label{RF211} & Consulta de métricas de impacto de comunicaciones. & A, E \\
+  RF204\label{RF204} & Cada vista pública de una comunicación será accesible desde un navegador mediante una URL específica. & L \\
+  RF205\label{RF205} & Previsualización de comunicación sin que esta operación se contabilice de cara a las métricas de impacto. & A, E \\
+  RF206\label{RF206} & Compartición de comunicaciones en redes sociales. & L \\
+  RF207\label{RF207} & Creación de comunicaciones dentro de una organización y publicación instantánea. & A, E \\
+  RF208\label{RF208} & Creación de comunicaciones con publicación programada para un momento posterior. & A, E \\
+  RF209\label{RF209} & Modificación del contenido de una publicación. & A, E \\
+  RF210\label{RF210} & Eliminación de una publicación. & A, E \\
+  RF211\label{RF211} & Desactivación/Activación de una comunicación. Una publicación desactivada no es visible públicamente. & A, E \\
+  RF212\label{RF212} & Consulta de métricas de impacto de comunicaciones. & A, E \\
   \caption{Requisitos funcionales de comunicaciones} \\
 \end{longtable}
 
 \subsection{Requisitos funcionales de usuarios}
 \label{cuadro:requisitos-funcionales-de-usuarios}
-\begin{longtable}{lp{13cm}r}
+\begin{longtable}{l|p{13cm}|r}
   RF301\label{RF301} & Listado de los usuarios registrados en el sistema. & A \\
   RF302\label{RF302} & Creación de usuarios. & A \\
   RF303\label{RF303} & Desactivación/Activación de un usuario. Un usuario desactivado no puede acceder al sistema. & A \\
@@ -80,7 +81,7 @@ En esta sección se expondrá la relación de requisitos funcionales del sistema
 
 \subsection{Requisitos funcionales de organizaciones}
 \label{cuadro:requisitos-funcionales-de-organizaciones}
-\begin{longtable}{lp{13cm}r}
+\begin{longtable}{l|p{13cm}|r}
   RF401\label{RF401} & Listado de organizaciones. & A \\
   RF402\label{RF402} & Creación de organizaciones. & A \\
   RF403\label{RF403} & Activación/Desactivación de una organización. Una organización desactivada no es accesible para los usuarios. & A \\
@@ -88,18 +89,28 @@ En esta sección se expondrá la relación de requisitos funcionales del sistema
   \caption{Requisitos funcionales de organizaciones} \\
 \end{longtable}
 
-\subsection{Requisitos funcionales de características debe aplicaciones}
+\subsection{Requisitos funcionales de características de aplicaciones}
 \label{cuadro:requisitos-funcionales-de-aplicaciones}
-\begin{longtable}{lp{13cm}r}
+\begin{longtable}{l|p{13cm}|r}
   RF401\label{RF401} & Listado de características disponibles. & A, E \\
   RF402\label{RF402} & Activación/Desactivación. Una característica desactivada dejará de estar disponible en las aplicaciones que la tengan y no se podrá añadir a una organización. & A \\
   \caption{Requisitos funcionales de características de aplicaciones} \\
 \end{longtable}
 
+\subsection{Requisitos funcionales de módulo de listado genérico}
+\label{cuadro:requisitos-funcionales-de-organizaciones}
+\begin{longtable}{l|p{13cm}|r}
+  RF401\label{RF401} & Listado de entidades. & A, E \\
+  RF402\label{RF402} & Creación de entidades. & A \\
+  RF403\label{RF403} & Activación/Desactivación de una organización\footnote{Este requisito se aplicará sólo si el tipo de entidad lo requiere.}. Una organización entidad no es accesible para los usuarios. & A \\
+  RF404\label{RF404} & Modificación de entidades. & A \\
+  \caption{Requisitos funcionales de módulo de listado genérico} \\
+\end{longtable}
+
 \section{Requisitos no funcionales}
 
 \label{cuadro:requisitos-no-funcionales}
-\begin{longtable}{lp{13.7cm}}  
+\begin{longtable}{l|p{13.7cm}}  
   RNF101\label{RNF101} & Se utilizará la notación UML durante el proceso de desarrollo. \\
   RNF102\label{RNF102} & Se utilizará el protocolo de comunicación web estándar HTTP\footnote{Hypertext Transfer Protocol} que es un protocolo de transferencia de hipertextos basado principalmente en el lenguaje HTML\footnote{Hypertext Markup Language }. \\
   RNF103\label{RNF103} & La parte WEB y las aplicaciones auxiliares deben desarrollarse usando tecnología .NET de Microsoft. \\
@@ -114,8 +125,52 @@ En esta sección se expondrá la relación de requisitos funcionales del sistema
 \renewcommand{\arraystretch}{1} % Recuperar la separación entre filas por defecto.
 
 
-\section{Requisitos de la interfaz}
-La interfaz de usuario es el medio con el que el usuario se comunica con el software. En todo proyecto software es fundamental definir cómo debe 
+\section{Requisitos de la interfaz de usuario}
+La interfaz de usuario es el medio con que el usuario puede comunicarse con una máquina, equipo, computadora o dispositivo, y comprende todos los puntos de contacto entre el usuario y el equipo\cite{Interfaz}. En cualquier producto software se busca que la interfaz de usuario sea ``amigable e intuitiva''. 
+
+A continuación se definen los requisitos de la interfaz:
+
+\label{cuadro:requisitos-de-la-interfaz}
+\begin{longtable}{l|p{13.7cm}}
+  RIF101\label{RIF101} & Será agradable y simple. \\
+  RIF102\label{RIF102} & Se dividirá en módulos funcionales accesibles desde un menú lateral. \\
+  RIF103\label{RIF103} & Los nombres de las secciones serán simples y descriptivos. \\
+  RIF104\label{RIF104} & Los menús mostrarán sólo los elementos permitidos para el perfil del usuario. \\
+  RIF105\label{RIF105} & Se mostrarán mensajes informativos, de confirmación o de error al usuario. \\
+  RIF106\label{RIF106} & Se limitará la entrada de datos en los campos de formularios a formatos válidos siempre que sea posible. \\
+  \caption{Requisitos de la interfaz de usuario} \\
+\end{longtable}
+
+\subsection{Elementos de la Interfaz}
+En este subapartado se describen brevemente los elementos que debe tener la interfaz de la aplicación WEB. 
+
+\subsubsection*{Barra de título}
+En la franja horizontal superior de la interfaz se podrán ver el nombre de la aplicación con el logotipo, la aplicación y el usuario activos.
+
+\subsubsection*{Menú}
+El menú se dispondrá verticalmente en la zona izquierda de la interfaz. En él deberán mostrarse ordenados los módulos de la herramienta que sean accesibles para el usuario actual. Dichos módulos se clasificarán en, al menos dos apartados: 
+
+\begin{enumerate}
+  \item \textbf{Comunicaciones}, que agrupará los módulos de gestión de comunicaciones accesibles para editores. En este apartado del menú aparecerían módulos como ``Comunicaciones'' o ``Categorías''.
+  \item \textbf{Administración}, que contendrá los módulos administrativos, disponibles sólo para administradores. Ejemplos de elementos de este apartado serían ``Aplicaciones'' o ``Usuarios''.
+\end{enumerate}
+
+\subsubsection*{Bloque central}
+La zona restante de la interfaz se denominará ``Bloque central''. En ella se visualizará el contenido del módulo actual que el usuario esté utilizando, Su contenido podrá ser un listado o rejilla, un formulario o una previsualización de una comunicación correspondientes a alguno de los módulos existentes.
+
+\subsection{Características de la interfaz}
+\subsubsection*{Apariencia}
+La interfaz será de tipo aplicación web, dividida en módulos accesibles desde el menú. Los módulos serán de tipo listado/rejilla, formulario o detalle. El aspecto general de la interfaz deberá ser limpio y claro. Los colores estarán restringidos a una paleta predefinida.
+\subsubsection*{Usabilidad}
+La entrada de datos se realizará a través de componentes comunes como botones, enlaces, cajas de texto, listas, etc. Los listados estarán paginados para facilitar la lectura y no incurrir en exceso de información.
+\subsubsection*{Seguridad}
+La interfaz prevendrá el uso de elementos no autorizados para el perfil actual. Se solicitará confirmación al usuario antes de realizar una acción  destructiva (borrado, desactivación, etc.).
+
 
 \section{Requisitos de la información}
-
+\label{cuadro:requisitos-de-la-informacion}
+\begin{longtable}{lp{13.7cm}}
+  RIN101\label{RF101} &  \\
+  RIN102\label{RF102} &  \\
+  \caption{Requisitos de la información} \\
+\end{longtable}
