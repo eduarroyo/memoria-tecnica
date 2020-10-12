@@ -15,19 +15,19 @@ Un lector puede ser cualquier usuario, incluso sin estar previamente registrado 
 Un editor se encarga de redactar y publicar comunicaciones, tiene acceso a las métricas de éstas y también puede administrar algunos aspectos de las organizaciones de las que forme parte. Debe ser un usuario registrado en el sistema e identificarse antes de tener acceso a las funciones propias de su perfil.
 
 \subsection{Administrador}
-El administrador es el encargado del mantenimiento del sistema. Gestiona y configura el servicio, administra las organizaciones y puede actuar como editor de cualquier organización.
+El administrador es el encargado del mantenimiento del sistema. Gestiona y configura el servicio, administra las organizaciones y puede actuar como editor de cualquier aplicación.
 
 \section{Descripción modular}
 Conceptualmente, el sistema PushNews se puede descomponer en varios módulos que agrupan funcionalidades relacionadas entre si. A continuación se describen los módulos en que se divide el sistema.
 
 \subsection{Comunicaciones}
-Las comunicaciones son el concepto fundamental del sistema. La comunicación es una pieza de contenido que una organización publica para informar a sus lectores. El módulo de comunicaciones engloba todas las funcionalidades relacionadas con este concepto como la creación, publicación, consulta, conteo de visitas, etc.
+Las comunicaciones son el concepto fundamental del sistema. La comunicación es una pieza de contenido que una aplicación publica para informar a sus lectores. El módulo de comunicaciones engloba todas las funcionalidades relacionadas con este concepto como la creación, publicación, consulta, etc.
 
 \subsection{Usuarios}
 En este módulo recae la responsabilidad de definir quién tiene acceso a la parte privada del sistema y qué funciones puede realizar cada uno dentro de éste. Algunas de sus funciones son la creación de usuarios, cambio de perfil de un usuario, cambio de clave de acceso, etc.
 
-\subsection{Organizaciones}
-Cada organización representa un cliente, una aplicación móvil en el mercado. El módulo de organizaciones es el responsable de registrar los datos necesarios de cada una de ellas como las ApiKeys, las URLs de la tienda de aplicaciones, el nombre o el logotipo. Además, de la organización depende la mayoría de las operaciones del sistema, que se realizan dentro del ámbito de una organización.
+\subsection{Aplicaciones}
+Cada aplicación representa un cliente, una aplicación móvil en el mercado. El módulo de organizaciones es el responsable de registrar los datos necesarios de cada una de ellas como las ApiKeys, las URLs de la tienda de aplicaciones, el nombre o el logotipo. Además, de la aplicación dependen la mayoría de las operaciones del sistema, que se realizan dentro del ámbito de una aplicación.
 
 \subsection{Características de aplicación}
 El módulo de características de aplicación es el encargado de definir el conjunto de funcionalidades opcionales disponibles para las organizaciones que lo soliciten.
@@ -52,13 +52,13 @@ En esta sección se expondrá la relación de requisitos funcionales del sistema
 \subsection{Requisitos funcionales de comunicaciones}
 \label{cuadro:requisitos-funcionales-de-comunicaciones}
 \begin{longtable}{l|p{13cm}|r}
-  RF201\label{RF201} & Listado de las comunicaciones publicadas de la organización actual, mostrando únicamente los atributos públicos de las comunicaciones. & L \\
-  RF202\label{RF202} & Listado de las comunicaciones publicadas de la organización actual, mostrando además los atributos no públicos como por ejemplo el estado de las notificaciones, el nº de visitas, etc. & A, E \\
+  RF201\label{RF201} & Listado de las comunicaciones publicadas de la aplicación actual, mostrando únicamente los atributos públicos de las comunicaciones. & L \\
+  RF202\label{RF202} & Listado de las comunicaciones publicadas de la aplicación actual, mostrando además los atributos no públicos como por ejemplo el estado de las notificaciones, el nº de visitas, etc. & A, E \\
   RF203\label{RF203} & Consulta pública de una comunicación publicada. Cada vez que se realice esta operación, se contabilizará la visita de cara a las métricas de impacto de la comunicación. & L \\
   RF204\label{RF204} & Cada vista pública de una comunicación será accesible desde un navegador mediante una URL específica. & L \\
   RF205\label{RF205} & Previsualización de comunicación sin que esta operación se contabilice de cara a las métricas de impacto. & A, E \\
   RF206\label{RF206} & Compartición de comunicaciones en redes sociales. & L \\
-  RF207\label{RF207} & Creación de comunicaciones dentro de una organización y publicación instantánea. & A, E \\
+  RF207\label{RF207} & Creación de comunicaciones dentro de una aplicación y publicación instantánea. & A, E \\
   RF208\label{RF208} & Creación de comunicaciones con publicación programada para un momento posterior. & A, E \\
   RF209\label{RF209} & Modificación del contenido de una publicación. & A, E \\
   RF210\label{RF210} & Eliminación de una publicación. & A, E \\
@@ -84,8 +84,8 @@ En esta sección se expondrá la relación de requisitos funcionales del sistema
 \begin{longtable}{l|p{13cm}|r}
   RF401\label{RF401} & Listado de organizaciones. & A \\
   RF402\label{RF402} & Creación de organizaciones. & A \\
-  RF403\label{RF403} & Activación/Desactivación de una organización. Una organización desactivada no es accesible para los usuarios. & A \\
-  RF404\label{RF404} & Modificación de una organización. & A \\
+  RF403\label{RF403} & Activación/Desactivación de una aplicación. Una aplicación desactivada no es accesible para los usuarios. & A \\
+  RF404\label{RF404} & Modificación de una aplicación. & A \\
   \caption{Requisitos funcionales de organizaciones} \\
 \end{longtable}
 
@@ -93,7 +93,7 @@ En esta sección se expondrá la relación de requisitos funcionales del sistema
 \label{cuadro:requisitos-funcionales-de-aplicaciones}
 \begin{longtable}{l|p{13cm}|r}
   RF401\label{RF401} & Listado de características disponibles. & A, E \\
-  RF402\label{RF402} & Activación/Desactivación. Una característica desactivada dejará de estar disponible en las aplicaciones que la tengan y no se podrá añadir a una organización. & A \\
+  RF402\label{RF402} & Activación/Desactivación. Una característica desactivada dejará de estar disponible en las aplicaciones que la tengan y no se podrá añadir a una aplicación. & A \\
   \caption{Requisitos funcionales de características de aplicaciones} \\
 \end{longtable}
 
@@ -102,7 +102,7 @@ En esta sección se expondrá la relación de requisitos funcionales del sistema
 \begin{longtable}{l|p{13cm}|r}
   RF401\label{RF401} & Listado de entidades. & A, E \\
   RF402\label{RF402} & Creación de entidades. & A \\
-  RF403\label{RF403} & Activación/Desactivación de una organización\footnote{Este requisito se aplicará sólo si el tipo de entidad lo requiere.}. Una organización entidad no es accesible para los usuarios. & A \\
+  RF403\label{RF403} & Activación/Desactivación de una entidad\footnote{Este requisito se aplicará sólo si el tipo de entidad lo requiere.}. Una entidad no es accesible para los usuarios. & A \\
   RF404\label{RF404} & Modificación de entidades. & A \\
   \caption{Requisitos funcionales de módulo de listado genérico} \\
 \end{longtable}
