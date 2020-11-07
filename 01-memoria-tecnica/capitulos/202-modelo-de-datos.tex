@@ -19,68 +19,131 @@ No habrá aplicaciones con el mismo nombre ni el mismo subdominio.
 \end{description}
 
 \subsubsection*{Atributos de la entidad}
+En la tabla \ref{cuadro:atributos-tipo-entidad-aplicaciones} se describen todos los atributos de la entidad. Así mismo, en la tabla \ref{cuadro:ejemplo-aplicacion} se muestra un ejemplo de los valores que tendría un registro de aplicación.
 
 \begin{table}[ht]
     \rowcolors{2}{gray!25}{white}
-    \resizebox{\textwidth}{!}{%
-    \begin{tabular}{|lcp{2.8cm}cp{5cm}|}
+    \centering
+    %\resizebox{\textwidth}{!}{%
+    \begin{tabular}{|lccp{8.4cm}|}
         \hline
         \rowcolor[HTML]{9B9B9B}
         \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
-        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Tipo}} &
         \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Dominio}} &
-        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Opcional}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
         \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
-        AplicacionID & Clave & N\textsuperscript{os} Naturales & \xmark & Identificador de aplicación \\
-        Nombre & - & Alfanumérico & \cmark & Nombre de la aplicación \\
-        Versión & - & Alfanumérico & \cmark & Versión de la aplicación \\
-        CloudKey & - & Alfanumérico & \cmark & APIKEY del servicio de mensajería PUSH \\
-        Usuario & - & Alfanumérico & \cmark & Usuario del servicio de mensajería PUSH \\
-        Clave & - & Alfanumérico & \cmark & Contraseña del servicio de mensajería PUSH \\
-        SubDominio & - & Alfanumérico & \cmark & Subdominio de la aplicación \\
-        ClaveSuscripcion & - & Alfanumérico & \cmark & Clave para lectores en aplicaciones  \\
-        RequerirClaveSuscripcion & - & Alfanumérico & \cmark & Nombre de la aplicación \\
-        LogotipoID & - & Alfanumérico & \cmark & Nombre de la aplicación \\
-        Tipo & - & Alfanumérico & \cmark & Nombre de la aplicación \\
-        ApiKey & - & Alfanumérico & \cmark & Clave de seguridad de la API.\\
-        PlayStoreUrl & - & Alfanumérico & \cmark & Url de la aplicación en la PlayStore \\
-        AppStoreUrl & - & Alfanumérico & \cmark & Url de la aplicación en la AppStore. \\
-        ApiKeyExternos & - & Alfanumérico & \cmark & Clave de seguridad de la api para clientes de terceros. \\
-        PermitirAccesoApiExternos & - & Alfanumérico & \cmark & Activa/Desactiva la API para clientes de terceros. \\
+        AplicacionID & N\textsuperscript{os} Naturales & \cmark & Identificador de aplicación \\
+        Nombre & Alfanumérico & \cmark & Nombre de la aplicación \\
+        Versión & Alfanumérico & \cmark & Versión de la aplicación \\
+        Activo & Booleano & \cmark & Aplicación activa/inactiva \\
+        SubDominio & Alfanumérico & \cmark & Subdominio de la aplicación \\
+        CloudKey & Alfanumérico & \cmark & APIKEY del servicio de mensajería PUSH \\
+        Usuario & Alfanumérico & \xmark & Usuario del servicio de mensajería PUSH \\
+        Clave & Alfanumérico & \xmark & Contraseña del servicio de mensajería PUSH \\
+        LogotipoID & n\textsuperscript{os} Naturales & \xmark & ID del documento con el logotipo \\
+        ApiKey & Alfanumérico & \cmark & Clave de seguridad de la API.\\
+        PlayStoreUrl & URL & \xmark & Url de la aplicación en la PlayStore \\
+        AppStoreUrl & URL & \xmark & Url de la aplicación en la AppStore. \\
         \hline
-    \end{tabular}}
+    \end{tabular}%}
     \caption{Atributos del tipo de entidad Aplicaciones}
     \label{cuadro:atributos-tipo-entidad-aplicaciones}
 \end{table} 
 
 \begin{table}[ht]
-    \rowcolors{2}{gray!25}{white}\centering
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    %\resizebox{\textwidth}{!}{%
     \begin{tabular}{|ll|}
         \hline
         \rowcolor[HTML]{9B9B9B} 
         \multicolumn{1}{|c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Valor}} \\ \hline
         AplicacionID & 1 \\
-        Nombre & `Escuela Politécnica Superior de Córdoba' \\
-        Version & `1.0.0.0' \\
-        Activo & 1 \\
-        CloudKey & NULL \\
-        SubDominio & `epsc' \\
-        Usuario & NULL \\
-        Clave & NULL \\
-        ClaveSuscripcion & NULL \\
-        RequerirClaveSuscripcion & 0 \\
+        Nombre & ``Escuela Politécnica Superior de Córdoba'' \\
+        Versión & ``1.0.0.0'' \\
+        Activo & Verdadero \\
+        SubDominio & ``epsc'' \\
+        CloudKey & <texto encriptado> \\
+        Usuario & epspush \\
+        Clave & <texto encriptado> \\
         LogotipoID & 8 \\
         ApiKey & `AIzaSyCqhjgrPTPSOFyLyos5gfN47TJ0HnNA\_LA' \\
-        PlayStoreURL & `https://play.google.com/\dots?id=com.pushnews.epsc' \\
-        iTunesUrl & `https://apps.apple.com/\dots/pushnews-epsc' \\
-        ApiKeyExternos & `' \\
-        PermitirAccesoApiExternos & 0 \\ \hline
-    \end{tabular}
+        PlayStoreUrl & `https://play.google.com/\dots?id=com.pushnews.epsc' \\
+        AppStoreUrl & `https://apps.apple.com/\dots/pushnews-epsc' \\
+        \hline
+    \end{tabular}%}
     \caption{Ejemplo de registro de tipo Aplicación}
     \label{cuadro:ejemplo-aplicacion}
 \end{table}
 
 \subsection{Usuarios}
+
+\subsubsection*{Descripción}
+Almacena los datos de los usuarios del sistema.
+\subsubsection*{Restricciones}
+No habrá usuarios con el mismo email.
+\subsubsection*{Características}
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=5.5cm,font=\normalfont]
+    \item[Nombre] Usuarios
+    \item[Identificador principal] UsuarioID
+    \item[Atributos heredados] RolID (Roles.RolID)
+    \item[Identificador alternativo] Email
+\end{description}
+
+\subsubsection*{Atributos de la entidad}
+En la tabla \ref{cuadro:atributos-tipo-entidad-usuarios} se describen todos los atributos de la entidad. Así mismo, en la tabla \ref{cuadro:ejemplo-usuario} se muestra un ejemplo de los valores que tendría un registro de usuario.
+
+\begin{table}[ht]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    %\resizebox{\textwidth}{!}{%
+    \begin{tabular}{|lccp{7.5cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Dominio}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        UsuarioID & N\textsuperscript{os} Naturales & \cmark & Identificador de usuario \\
+        Email & Alfanumérico & \cmark & Email del usuario \\
+        Nombre & Alfanumérico & \cmark & Nombre del usuario \\
+        Apellidos & Alfanumérico & \cmark & Apellidos del usuario \\
+        Clave & Alfanumérico & \cmark & Clave de acceso del usuario \\
+        Activo & Booleano & \cmark & Aplicación activa/inactiva \\
+        EmailConfirmado & Booleano & \cmark & El usuario ha confirmado el email \\
+        Creado & Fecha & \cmark & Fecha de creación del registro \\
+        Actualizado & Fecha & \xmark & Fecha de actualización del registro \\
+        RolID & N\textsuperscript{os} Naturales & \cmark & ID del rol del usuario\\
+        \hline
+    \end{tabular}%}
+    \caption{Atributos del tipo de entidad Usuarios}
+    \label{cuadro:atributos-tipo-entidad-usuarios}
+\end{table}
+
+
+\begin{table}[ht]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    %\resizebox{\textwidth}{!}{%
+    \begin{tabular}{|ll|}
+        \hline
+        \rowcolor[HTML]{9B9B9B} 
+        \multicolumn{1}{|c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Valor}} \\ \hline
+        UsuarioID & 1 \\
+        Email & ``joselopez@mailsrv.com'' \\
+        Nombre & ``José'' \\
+        Apellidos & ``López Pérez'' \\
+        Clave & <texto encriptado> \\
+        Activo & Verdadero \\
+        EmailConfirmado & Falso \\
+        Creado & 2020-11-07 11:03:00 \\
+        Actualizado & 2020-11-08 16:52:00 \\
+        RolID & 1 \\
+        \hline
+    \end{tabular}%}
+    \caption{Ejemplo de registro de tipo Usuario}
+    \label{cuadro:ejemplo-usuario}
+\end{table}
 
 \subsection{Comunicaciones}
 
