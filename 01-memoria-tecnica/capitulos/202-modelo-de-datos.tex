@@ -741,57 +741,64 @@ La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicacion-categorias} muestra c
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Categoria-Comunicaciones}
+\subsection{Categorías-Comunicación}
 \subsubsection*{Descripción}
+Esta relación representa la pertenencia de una determinada comunicación a una categoría (por ejemplo "Noticias", "Deportes", etc.).
+
 \subsubsection*{Características}
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
-    \item[Nombre] 
-    \item[Tipo] 
-    \item[Cardinalidad] 
-    \item[Atrib. heredados] 
+    \item[Nombre] C-C
+    \item[Tipo] Fuerte
+    \item[Cardinalidad] 1:N 
 \end{description}
+
 \subsubsection*{Atributos de la interrelación}
-La tabla \ref{cuadro:ejemplo-tipo-interrelacion-categorias-comunicaciones} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
+La tabla \ref{cuadro:ejemplo-tipo-interrelacion-categoria-comunicaciones} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
 \begin{table}[h]
     \rowcolors{2}{gray!25}{white}
     \centering
-    \begin{tabular}{|llcp{7.3cm}|}
+    \begin{tabular}{|llclp{5.5cm}|}
         \hline
         \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
         \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
-        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Dominio}} &
         \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
         \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
-        <atributo> & $\mathbb N$ & \cmark & <descripción del atributo> \\
+        Comunicaciones & CategoriaID & \cmark & 8 & ID de la categoría a la que pertenece una publicación \\
         \hline
     \end{tabular}
-    \caption{Ejemplo de interrelación Categorías-Comunicaciones}
-    \label{cuadro:ejemplo-tipo-interrelacion-categorias-comunicaciones}
+    \caption{Ejemplo de interrelación Categoría-Comunicaciones}
+    \label{cuadro:ejemplo-tipo-interrelacion-categoria-comunicaciones}
 \end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Usuarios-Comunicaciones}
 \subsubsection*{Descripción}
+Esta relación indica el usuario editor que ha publicado cada comunicación.
+
 \subsubsection*{Características}
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
-    \item[Nombre] 
-    \item[Tipo] 
-    \item[Cardinalidad] 
-    \item[Atrib. heredados] 
+    \item[Nombre] U-C
+    \item[Tipo] Fuerte
+    \item[Cardinalidad] 1:N 
 \end{description}
+
 \subsubsection*{Atributos de la interrelación}
+La tabla \ref{cuadro:ejemplo-tipo-interrelacion-usuarios-comunicaciones} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
 \begin{table}[h]
     \rowcolors{2}{gray!25}{white}
     \centering
-    \begin{tabular}{|llcp{7.3cm}|}
+    \begin{tabular}{|llclp{6.5cm}|}
         \hline
         \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
         \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
-        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Dominio}} &
         \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
         \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
-        <atributo> & $\mathbb N$ & \cmark & <descripción del atributo> \\
+        Comunicaciones & UsuarioID & \cmark & 79 & ID del usuario que publica la comunicación \\
         \hline
     \end{tabular}
     \caption{Ejemplo de interrelación Usuarios-Comunicaciones}
@@ -801,13 +808,15 @@ La tabla \ref{cuadro:ejemplo-tipo-interrelacion-categorias-comunicaciones} muest
 %%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Documentos-Comunicaciones (a)}
+
 \subsubsection*{Descripción}
+Esta relación representa un documento adjunto a una comunicación.
+
 \subsubsection*{Características}
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
-    \item[Nombre] 
-    \item[Tipo] 
-    \item[Cardinalidad] 
-    \item[Atrib. heredados] 
+    \item[Nombre] C-DA
+    \item[Tipo] Fuerte
+    \item[Cardinalidad] (0,1):1
 \end{description}
 \subsubsection*{Atributos de la interrelación}
 La tabla \ref{cuadro:tipo-interrelacion-documentos-comunicaciones-a} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
@@ -815,14 +824,15 @@ La tabla \ref{cuadro:tipo-interrelacion-documentos-comunicaciones-a} muestra có
     \rowcolors{2}{gray!25}{white}
     \centering
     %\resizebox{\textwidth}{!}{%
-    \begin{tabular}{|llcp{7.3cm}|}
+    \begin{tabular}{|llclp{4.2cm}|}
         \hline
         \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
         \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
-        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Dominio}} &
         \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
         \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
-        <atributo> & $\mathbb N$ & \cmark & <descripción del atributo> \\
+        Comunicaciones & AdjuntoDocumentoID & \xmark & 249 & ID del documento adjunto \\
         \hline
     \end{tabular}%}
     \caption{Ejemplo de interrelación Documentos-Comunicaciones (a)}
@@ -833,25 +843,13 @@ La tabla \ref{cuadro:tipo-interrelacion-documentos-comunicaciones-a} muestra có
 
 \subsection{Documentos-Comunicaciones (b)}
 \subsubsection*{Descripción}
-\subsubsection*{Características}
-\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
-    \item[Nombre] 
-    \item[Tipo] 
-    \item[Cardinalidad] 
-    \item[Atrib. heredados] 
-\end{description}
-\subsubsection*{Atributos de la interrelación}
-
-\subsection{Comunicaciones-Accesos-Terminales}
-\subsubsection*{Descripción}
-Los accesos representan la lectura de una comunicación por parte de un terminal. Cada vez que se produce dicha lectura, se genera un registro de acceso que relaciona el terminal con la comunicación leída y se almacena la fecha y hora de lectura.
+Esta relación representa una imagen adjunta a una comunicación.
 
 \subsubsection*{Características}
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
-    \item[Nombre] C-A-T
+    \item[Nombre] C-DI
     \item[Tipo] Fuerte
-    \item[Cardinalidad] Ninguno
-    \item[Atrib. heredados] AplicacionID (Aplicaciones), TerminalID (Terminales)
+    \item[Cardinalidad] (0,1):1
 \end{description}
 
 \subsubsection*{Atributos de la interrelación}
@@ -860,18 +858,54 @@ La tabla \ref{cuadro:tipo-interrelacion-documentos-comunicaciones-b} muestra có
     \rowcolors{2}{gray!25}{white}
     \centering
     %\resizebox{\textwidth}{!}{%
-    \begin{tabular}{|llcp{7.3cm}|}
+    \begin{tabular}{|llclp{4.2cm}|}
         \hline
         \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
         \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
-        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Dominio}} &
         \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
         \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
-        <atributo> & $\mathbb N$ & \cmark & <descripción del atributo> \\
+        Comunicaciones & ImagenDocumentoID & \xmark & 249 & ID del documento adjunto \\
         \hline
     \end{tabular}%}
-    \caption{interrelación Documentos-Comunicaciones (b)}
+    \caption{Ejemplo de interrelación Documentos-Comunicaciones (b)}
     \label{cuadro:tipo-interrelacion-documentos-comunicaciones-b}
+\end{table}
+
+\subsection{Comunicaciones-Accesos-Terminales}
+\subsubsection*{Descripción}
+Esta relación representa un acceso a una comunicación realizado por un terminal.
+
+\subsubsection*{Características}
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] C-A-T
+    \item[Tipo] Fuerte
+    \item[Cardinalidad] 1:N:N
+\end{description}
+
+\subsubsection*{Atributos de la interrelación}
+La tabla \ref{cuadro:tipo-interrelacion-comunicaciones-accesos-terminales} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    %\resizebox{\textwidth}{!}{%
+    \begin{tabular}{|llclp{5.2cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        Comunicaciones & ComunicacionID & \cmark & 618 & ID de la comunicación que es accedida \\
+        Terminales & TerminalID & \cmark & 123 & ID del terminal que realiza el acceso \\
+         & ComunicacionAccesoID & \cmark & 531 & ID del acceso \\
+         & Fecha & \cmark & 2020-11-20 10:37:12 & Fecha y hora del acceso \\
+        \hline
+    \end{tabular}%}
+    \caption{Ejemplo de interrelación Comunicaciones-Accesos-Terminales}
+    \label{cuadro:tipo-interrelacion-comunicaciones-accesos-terminales}
 \end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
