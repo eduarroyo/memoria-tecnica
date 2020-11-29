@@ -3,7 +3,8 @@ En este capítulo se estudiará la estructura de datos del sistema mediante un \
 Primero se identificarán y detallarán los tipos de entidad, luego los tipos de interrelación y finalmente se sintetizará todo el modelo en un diagrama E-R.
 
 \section {Análisis de los tipos de entidad}
-En este apartado se definirán y describirán los tipos de entidad encontrados. 
+Los tipos de entidad representan conceptos del mundo real. Las entidades son son instancias de dichos tipos. Una entidad se diferencia de cualquier otra incluso si las dos son del mismo tipo.
+Los tipos de entidad pueden ser fuertes, si la existencia de sus entidades no depende de la existencia de otras en el dominio del problema, o débiles si para existir necesitan la existencia de una entidad fuerte. Así mismo, las entidades débiles pueden serlo por identificación o por existencia.
 
 \subsection{Aplicaciones}
 \subsubsection*{Descripción}
@@ -13,7 +14,7 @@ Este tipo de entidad representa las aplicaciones móviles de pushnews. Por cada 
 No habrá aplicaciones con el mismo nombre tampoco con el mismo subdominio.
 
 \subsubsection*{Características}
-\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4cm,font=\normalfont]
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
     \item[Nombre] Aplicaciones
     \item[Id. principal] AplicacionID
     \item[Id. alternativo] Subdominio
@@ -23,7 +24,7 @@ No habrá aplicaciones con el mismo nombre tampoco con el mismo subdominio.
 \subsubsection*{Atributos de la entidad}
 En la tabla \ref{cuadro:atributos-tipo-entidad-aplicaciones} se describen todos los atributos de la entidad. Así mismo, en la tabla \ref{cuadro:ejemplo-aplicacion} se muestra un ejemplo de los valores que tendría un registro de aplicación.
 
-\begin{table}[h!]
+\begin{table}[h]
     \rowcolors{2}{gray!25}{white}
     \centering
     %\resizebox{\textwidth}{!}{%
@@ -52,7 +53,7 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-aplicaciones} se describen todos 
     \label{cuadro:atributos-tipo-entidad-aplicaciones}
 \end{table} 
 
-\begin{table}[h!]
+\begin{table}[h]
     \rowcolors{2}{gray!25}{white}
     \centering
     %\resizebox{\textwidth}{!}{%
@@ -89,7 +90,7 @@ Los usuarios tienen un rol de editor o administrador. Un editor se vincula a una
 No habrá usuarios con el mismo email.
 
 \subsubsection*{Características}
-\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4cm,font=\normalfont]
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
     \item[Nombre] Usuarios
     \item[Id. principal] UsuarioID
     \item[Id. alternativo] Email
@@ -99,7 +100,7 @@ No habrá usuarios con el mismo email.
 \subsubsection*{Atributos de la entidad}
 En la tabla \ref{cuadro:atributos-tipo-entidad-usuarios} se describen todos los atributos de la entidad. Así mismo, en la tabla \ref{cuadro:ejemplo-usuario} se muestra un ejemplo de los valores que tendría un registro de usuario.
 
-\begin{table}[h!]
+\begin{table}[h]
     \rowcolors{2}{gray!25}{white}
     \centering
     %\resizebox{\textwidth}{!}{%
@@ -127,7 +128,7 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-usuarios} se describen todos los 
 \end{table}
 
 
-\begin{table}[h!]
+\begin{table}[h]
     \rowcolors{2}{gray!25}{white}
     \centering
     %\resizebox{\textwidth}{!}{%
@@ -151,6 +152,304 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-usuarios} se describen todos los 
     \label{cuadro:ejemplo-usuario}
 \end{table}
 
+\subsection{Categorías}
+
+\subsubsection*{Descripción}
+Las categorías se definen para cada aplicación y agrupan las comunicaciones por temática. Tienen un nombre y un icono que las representa. Se ordenan según el criterio de los editores, para lo que cuentan con un campo orden. Pueden estar activas o inactivas. Si una categoría está inactiva, las comunicaciones de esta categoría no serán visibles ni se podrán crear nuevas comunicaciones en esta categoría.
+
+\subsubsection*{Restricciones}
+Ninguna
+
+\subsubsection*{Características}
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] Usuarios
+    \item[Id. principal] CategoriaID
+    \item[Id. alternativo] Ninguno
+    \item[Atrib. heredados] AplicacionID (Aplicaciones)
+\end{description}
+
+\subsubsection*{Atributos de la entidad}
+En la tabla \ref{cuadro:atributos-tipo-entidad-categorias} se describen todos los atributos de la entidad. Así mismo, en la tabla \ref{cuadro:ejemplo-categoria} se muestra un ejemplo de los valores que tendría un registro de categoría.
+
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    %\resizebox{\textwidth}{!}{%
+    \begin{tabular}{|llcp{7.5cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Dominio}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        CategoriaID & $\mathbb N$ & \cmark & Identificador de la categoría \\
+        AplicaciónID & $\mathbb N$ & \cmark & Identificador de la aplicación de la categoría \\
+        Nombre & Alfanumérico & \cmark & Nombre de la categoría \\
+        Icono & Alfanumérico & \cmark & Icono (fontawesome) de la categoría \\
+        Orden & $\mathbb N$ & \cmark & Orden de la categoría \\
+        Activo & Booleano & \cmark & Comunicación activa/inactiva \\
+        \hline
+    \end{tabular}%}
+    \caption{Atributos del tipo de entidad Categorías}
+    \label{cuadro:atributos-tipo-entidad-categorias}
+\end{table}
+
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    %\resizebox{\textwidth}{!}{%
+    \begin{tabular}{|ll|}
+        \hline
+        \rowcolor[HTML]{9B9B9B} 
+        \multicolumn{1}{|c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Valor}} \\ \hline
+        CategoriaID & 17 \\
+        AplicacionID & 3 \\
+        Nombre & ``Secretaría'' \\
+        Icono & ``fa-leanpub'' \\
+        Orden & 3 \\
+        Activo & Verdadero \\
+        \hline
+    \end{tabular}
+    \caption{Ejemplo de registro de tipo Categorías}
+    \label{cuadro:ejemplo-categoria}
+\end{table}
+
+\subsection{Características de aplicaciones}
+
+\subsubsection*{Descripción}
+Las características son funcionalidades que se pueden habilitar o deshabilitar para cada aplicación. Ejemplos de características serían la posibilidad de incrustar un vídeo de Youtube en las comunicaciones o el acceso al módulo de directorio comercial.
+
+\subsubsection*{Restricciones}
+No habrá dos características con el mismo nombre.
+
+\subsubsection*{Características}
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] AplicacionesCaracteristicas
+    \item[Id. principal] AplicacionCaracteristicaID
+    \item[Id. alternativo] Ninguno
+    \item[Atrib. heredados] Ninguno
+\end{description}
+
+\subsubsection*{Atributos de la entidad}
+En la tabla \ref{cuadro:atributos-tipo-entidad-caracteristicas} se describen todos los atributos de la entidad. Así mismo, en la tabla \ref{cuadro:ejemplo-caracteristica} se muestra un ejemplo de los valores que tendría un registro de característica.
+
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    %\resizebox{\textwidth}{!}{%
+    \begin{tabular}{|llcp{5.9cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Dominio}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        AplicacionCaracteristicaID & $\mathbb N$ & \cmark & Identificador de la característica \\
+        Nombre & Alfanumérico & \cmark & Nombre de la característica \\
+        Activo & Booleano & \cmark & Característica activa/inactiva \\
+        \hline
+    \end{tabular}%}
+    \caption{Atributos del tipo de entidad Características}
+    \label{cuadro:atributos-tipo-entidad-caracteristicas}
+\end{table}
+
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    %\resizebox{\textwidth}{!}{%
+    \begin{tabular}{|ll|}
+        \hline
+        \rowcolor[HTML]{9B9B9B} 
+        \multicolumn{1}{|c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Valor}} \\ \hline
+        AplicacionCaracteristicaID & 4 \\
+        Nombre & ``DirectorioComercial'' \\
+        Activo & Verdadero \\
+        \hline
+    \end{tabular}
+    \caption{Ejemplo de registro de tipo Características}
+    \label{cuadro:ejemplo-caracteristica}
+\end{table}
+
+\subsection{Terminales}
+
+\subsubsection*{Descripción}
+Los terminales son los dispositivos o navegadores que utilizan los lectores para acceder a las comunicaciones. Un terminal se registra en el sistema la primera vez que solicita la lectura de una comunicación, relacionado con la aplicación que está utilizando. Se guarda la fecha y la IP de la última conexión del dispositivo.
+
+\subsubsection*{Restricciones}
+Ninguna.
+
+\subsubsection*{Características}
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] Terminales
+    \item[Id. principal] TerminalID
+    \item[Id. alternativo] Ninguno
+    \item[Atrib. heredados] AplicacionID (Aplicaciones)
+\end{description}
+
+\subsubsection*{Atributos de la entidad}
+En la tabla \ref{cuadro:atributos-tipo-entidad-terminales} se describen todos los atributos de la entidad. Así mismo, en la tabla \ref{cuadro:ejemplo-terminal} se muestra un ejemplo de los valores que tendría un registro de terminal.
+
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    %\resizebox{\textwidth}{!}{%
+    \begin{tabular}{|llcp{5.9cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Dominio}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        TerminalID & $\mathbb N$ & \cmark & Identificador del terminal \\
+        AplicacionID & $\mathbb N$ & \cmark & Identificador de la aplicación \\
+        Nombre & Alfanumérico & \cmark & Nombre del terminal \\
+        UltimaConexionFecha & Fecha & \cmark & Fecha de la última conexión \\
+        UltimaConexionIP & Alfanumérico & \xmark & IP de la última conexión \\
+        \hline
+    \end{tabular}%}
+    \caption{Atributos del tipo de entidad Terminales}
+    \label{cuadro:atributos-tipo-entidad-terminales}
+\end{table}
+
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    %\resizebox{\textwidth}{!}{%
+    \begin{tabular}{|ll|}
+        \hline
+        \rowcolor[HTML]{9B9B9B} 
+        \multicolumn{1}{|c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Valor}} \\ \hline
+        TerminalID & 4 \\
+        AplicacionID & 17 \\
+        Nombre & <UID-del-dispositivo> \\
+        UltimaConexionFecha & 2020-11-08 11:32:14 \\
+        UltimaConexionIP & ``87.30.18.207'' \\
+        \hline
+    \end{tabular}
+    \caption{Ejemplo de registro de tipo Terminal}
+    \label{cuadro:ejemplo-terminal}
+\end{table}
+
+\subsection{Documentos}
+
+\subsubsection*{Descripción}
+Documento es cualquier archivo que se adjunte a otras entidades como Comunicaciones, Aplicaciones (logotipo), etc. Este tipo de entidad es el catálogo de los archivos en disco que están asociados a contenidos del sistema. Los documentos se registran asociados a la aplicación a la que pertenecen y mantienen información sobre la ruta en disco, el nombre del recurso, el tipo MIME, el tamaño y la fecha de creación. Los documentos pueden ser de dos tipos: Adjunto e Imagen. La lista de tipos está pensada para añadir fácilmente otros tipos en caso de que surja la necesidad.
+
+\subsubsection*{Restricciones}
+Ninguna
+
+\subsubsection*{Características}
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] Documentos
+    \item[Id. principal] DocumentoID
+    \item[Id. alternativo] Ninguno
+    \item[Atrib. heredados] AplicacionID (Aplicaciones)
+\end{description}
+
+\subsubsection*{Atributos de la entidad}
+En la tabla \ref{cuadro:atributos-tipo-entidad-documentos} se describen todos los atributos de la entidad. Así mismo, en la tabla \ref{cuadro:ejemplo-documento} se muestra un ejemplo de los valores que tendría un registro de documento.
+
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    %\resizebox{\textwidth}{!}{%
+    \begin{tabular}{|llcp{5.9cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Dominio}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        DocumentoID & $\mathbb N$ & \cmark & Identificador del documento \\
+        AplicacionID & $\mathbb N$ & \cmark & Identificador de la aplicación \\
+        Tipo & $\mathbb N$ & \cmark & Tipo de documento \\
+        Nombre & Alfanumérico & \cmark & Nombre del archivo al descargar \\
+        Ruta & Ruta de disco & \cmark & Ruta del archivo \\
+        Mime & Tipos MIME & \cmark & Tipo MIME del archivo \\
+        Tamaño & $\mathbb R > 0$ & \cmark & Tamaño del fichero en MB \\
+        Fecha & Fecha & \cmark & Fecha de creación \\
+        \hline
+    \end{tabular}%}
+    \caption{Atributos del tipo de entidad Documentos}
+    \label{cuadro:atributos-tipo-entidad-documentos}
+\end{table}
+
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    %\resizebox{\textwidth}{!}{%
+    \begin{tabular}{|ll|}
+        \hline
+        \rowcolor[HTML]{9B9B9B} 
+        \multicolumn{1}{|c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Valor}} \\ \hline
+        DocumentoID & 84 \\
+        AplicacionID & 6 \\
+        Tipo & 1 \\
+        Nombre & ``CartelJornadas.png'' \\
+        Ruta & ``6/CartelJornadas\_H2NF67.png'' \\
+        Mime & image/png \\
+        Tamaño & 3,6 \\
+        Fecha & 2020-11-14 13:22:41 \\
+        \hline
+    \end{tabular}
+    \caption{Ejemplo de registro de tipo Documento}
+    \label{cuadro:ejemplo-documento}
+\end{table}
+
+\subsection{Roles}
+
+\subsubsection*{Descripción}
+Esta entidad representa los tipos de privilegios de acceso que pueden tener los usuarios.
+
+\subsubsection*{Restricciones}
+Ninguna
+
+\subsubsection*{Características}
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] Roles
+    \item[Id. principal] RolID
+    \item[Id. alternativo] Ninguno
+    \item[Atrib. heredados] Ninguno
+\end{description}
+
+\subsubsection*{Atributos de la entidad}
+En la tabla \ref{cuadro:atributos-tipo-entidad-roles} se describen todos los atributos de la entidad. Así mismo, en la tabla \ref{cuadro:ejemplo-rol} se muestra un ejemplo de los valores que tendría un registro de documento.
+
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    %\resizebox{\textwidth}{!}{%
+    \begin{tabular}{|llcp{5.9cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Dominio}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        RolID & $\mathbb N$ & \cmark & Identificador del rol \\
+        Nombre & Alfanumérico & \cmark & Nombre del rol \\
+        \hline
+    \end{tabular}%}
+    \caption{Atributos del tipo de entidad Roles}
+    \label{cuadro:atributos-tipo-entidad-roles}
+\end{table}
+
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    %\resizebox{\textwidth}{!}{%
+    \begin{tabular}{|ll|}
+        \hline
+        \rowcolor[HTML]{9B9B9B} 
+        \multicolumn{1}{|c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Valor}} \\ \hline
+        RolID & 1 \\
+        Nombre & ``Administrador'' \\
+        \hline
+    \end{tabular}
+    \caption{Ejemplo de registro de tipo Rol}
+    \label{cuadro:ejemplo-rol}
+\end{table}
+
 \subsection{Comunicaciones}
 
 \subsubsection*{Descripción}
@@ -160,7 +459,7 @@ Una comunicación es una publicación realizada por un editor en una aplicación
 No habrá usuarios con el mismo email.
 
 \subsubsection*{Características}
-\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4cm,font=\normalfont]
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
     \item[Nombre] Comunicaciones
     \item[Id. principal] ComunicacionID
     \item[Id. alternativo] Ninguno
@@ -170,11 +469,11 @@ No habrá usuarios con el mismo email.
 \subsubsection*{Atributos de la entidad}
 En la tabla \ref{cuadro:atributos-tipo-entidad-comunicaciones} se describen todos los atributos de la entidad. Así mismo, en la tabla \ref{cuadro:ejemplo-comunicacion} se muestra un ejemplo de los valores que tendría un registro de característica.
 
-\begin{table}[ht]
+\begin{table}[h!]
     \rowcolors{2}{gray!25}{white}
     \centering
     %\resizebox{\textwidth}{!}{%
-    \begin{tabular}{|llcp{7.2cm}|}
+    \begin{tabular}{|llcp{6.7cm}|}
         \hline
         \rowcolor[HTML]{9B9B9B}
         \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
@@ -222,7 +521,7 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-comunicaciones} se describen todo
     \label{cuadro:atributos-tipo-entidad-comunicaciones}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[h!]
     \rowcolors{2}{gray!25}{white}
     \centering
     %\resizebox{\textwidth}{!}{%
@@ -271,141 +570,317 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-comunicaciones} se describen todo
     \label{cuadro:ejemplo-comunicacion}
 \end{table}
 
-\subsection{Categorías}
-
-\subsubsection*{Descripción}
-Las categorías se definen para cada aplicación y agrupan las comunicaciones por temática. Tienen un nombre y un icono que las representa. Se ordenan según el criterio de los editores, para lo que cuentan con un campo orden. Pueden estar activas o inactivas. Si una categoría está inactiva, las comunicaciones de esta categoría no serán visibles ni se podrán crear nuevas comunicaciones en esta categoría.
-
-\subsubsection*{Restricciones}
-Ninguna
-
-\subsubsection*{Características}
-\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4cm,font=\normalfont]
-    \item[Nombre] Usuarios
-    \item[Id. principal] CategoriaID
-    \item[Id. alternativo] Ninguno
-    \item[Atrib. heredados] AplicacionID (Aplicaciones)
-\end{description}
-
-\subsubsection*{Atributos de la entidad}
-En la tabla \ref{cuadro:atributos-tipo-entidad-categorias} se describen todos los atributos de la entidad. Así mismo, en la tabla \ref{cuadro:ejemplo-categoria} se muestra un ejemplo de los valores que tendría un registro de categoría.
-
-\begin{table}[h!]
-    \rowcolors{2}{gray!25}{white}
-    \centering
-    %\resizebox{\textwidth}{!}{%
-    \begin{tabular}{|llcp{7.5cm}|}
-        \hline
-        \rowcolor[HTML]{9B9B9B}
-        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
-        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Dominio}} &
-        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
-        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
-        CategoriaID & $\mathbb N$ & \cmark & Identificador de la categoría \\
-        AplicaciónID & $\mathbb N$ & \cmark & Identificador de la aplicación de la categoría \\
-        Nombre & Alfanumérico & \cmark & Nombre de la categoría \\
-        Icono & Alfanumérico & \cmark & Icono (fontawesome) de la categoría \\
-        Orden & $\mathbb N$ & \cmark & Orden de la categoría \\
-        Activo & Booleano & \cmark & Comunicación activa/inactiva \\
-        \hline
-    \end{tabular}%}
-    \caption{Atributos del tipo de entidad Categorías}
-    \label{cuadro:atributos-tipo-entidad-categorias}
-\end{table}
-
-\begin{table}[h!]
-    \rowcolors{2}{gray!25}{white}
-    \centering
-    %\resizebox{\textwidth}{!}{%
-    \begin{tabular}{|ll|}
-        \hline
-        \rowcolor[HTML]{9B9B9B} 
-        \multicolumn{1}{|c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Valor}} \\ \hline
-        CategoriaID & 17 \\
-        AplicacionID & 3 \\
-        Nombre & ``Secretaría'' \\
-        Icono & ``fa-leanpub'' \\
-        Orden & 3 \\
-        Activo & Verdadero \\
-        \hline
-    \end{tabular}
-    \caption{Ejemplo de registro de tipo Categorías}
-    \label{cuadro:ejemplo-categoria}
-\end{table}
-
-\subsection{Características de aplicaciones}
-
-\subsubsection*{Descripción}
-Las características son funcionalidades que se pueden habilitar o deshabilitar para cada aplicación. Ejemplos de características serían la posibilidad de incrustar un vídeo de Youtube en las comunicaciones o el acceso al módulo de directorio comercial.
-
-\subsubsection*{Restricciones}
-No habrá dos características con el mismo nombre.
-
-\subsubsection*{Características}
-\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4cm,font=\normalfont]
-    \item[Nombre] AplicacionesCaracteristicas
-    \item[Id. principal] AplicacionCaracteristicaID
-    \item[Id. alternativo] Ninguno
-    \item[Atrib. heredados] Ninguno
-\end{description}
-
-\subsubsection*{Atributos de la entidad}
-En la tabla \ref{cuadro:atributos-tipo-entidad-caracteristicas} se describen todos los atributos de la entidad. Así mismo, en la tabla \ref{cuadro:ejemplo-caracteristica} se muestra un ejemplo de los valores que tendría un registro de característica.
-
-\begin{table}[h!]
-    \rowcolors{2}{gray!25}{white}
-    \centering
-    %\resizebox{\textwidth}{!}{%
-    \begin{tabular}{|llcp{5.9cm}|}
-        \hline
-        \rowcolor[HTML]{9B9B9B}
-        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
-        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Dominio}} &
-        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
-        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
-        AplicacionCaracteristicaID & $\mathbb N$ & \cmark & Identificador de la característica \\
-        Nombre & Alfanumérico & \cmark & Nombre de la característica \\
-        Activo & Booleano & \cmark & Característica activa/inactiva \\
-        \hline
-    \end{tabular}%}
-    \caption{Atributos del tipo de entidad Características}
-    \label{cuadro:atributos-tipo-entidad-caracteristicas}
-\end{table}
-
-\begin{table}[h!]
-    \rowcolors{2}{gray!25}{white}
-    \centering
-    %\resizebox{\textwidth}{!}{%
-    \begin{tabular}{|ll|}
-        \hline
-        \rowcolor[HTML]{9B9B9B} 
-        \multicolumn{1}{|c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Valor}} \\ \hline
-        AplicacionCaracteristicaID & 4 \\
-        Nombre & ``DirectorioComercial'' \\
-        Activo & Verdadero \\
-        \hline
-    \end{tabular}
-    \caption{Ejemplo de registro de tipo Características}
-    \label{cuadro:ejemplo-caracteristica}
-\end{table}
-
-\subsection{Terminales}
-
-\subsection{Accesos}
-
-
 \section {Análisis de los tipos de interrelación}
+Las relaciones entre los tipos de entidad generan información. Estas relaciones pueden ser débiles o fuertes y también se caracterizan por la cardinalidad.
+Las interrelaciones fuertes si se dan entre dos entidades fuertes o débiles si participa al menos una entidad débil.
 
-\subsection{Aplicación-Característica}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% RELACIONES EN LAS QUE APLICACIÓN ES FUERTE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Aplicaciones-Características}
+\subsubsection*{Descripción}
+La relación entre las aplicaciones y las características representa cuáles son las características con las que cuenta cada aplicación. Cada característica representa una funcionalidad opcional que está disponible en las aplicaciones con la que se asocia.
 
-\subsection{Aplicación-Usuario}
+\subsubsection*{Características}
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] A-C
+    \item[Tipo] Fuerte
+    \item[Cardinalidad] M:N
+\end{description}
 
-\subsection{Aplicación-Categoría}
+\subsubsection*{Atributos de la interrelación}
+La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicaciones-caracteristicas} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    \begin{tabular}{|llclp{5.8cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        Aplicaciones & AplicacionID & \cmark & 14 & ID de la aplicación que tiene la característica asociada. \\
+        Características & CaracteristicaID & \cmark & 25 & ID de la característica que se asocia a la aplicación. \\
+        \hline
+    \end{tabular}
+    \caption{Ejemplo de interrelación Aplicaciones-Características}
+    \label{cuadro:ejemplo-tipo-interrelacion-aplicaciones-caracteristicas}
+\end{table}
 
-\subsection{Aplicación-Terminal}
+%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Categoría-Comunicación}
+\subsection{Aplicación-Terminales}
+\subsubsection*{Descripción}
+Esta relación representa a qué aplicación accede cada terminal. Un terminal que tuviera instaladas diferentes apps de PushNews generaría un registro por cada aplicación con igual nombre pero distinto AplicacionID.
+
+\subsubsection*{Características}
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] A-t
+    \item[Tipo] Fuerte
+    \item[Cardinalidad] 1:N
+\end{description}
+
+\subsubsection*{Atributos de la interrelación}
+La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicacion-terminales} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    \begin{tabular}{|llclp{6.9cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        Terminales & AplicacionID & \cmark & 14 & Identificador de la aplicación a la que accede el terminal \\
+        \hline
+    \end{tabular}
+    \caption{Ejemplo de interrelación Aplicación-Terminales}
+    \label{cuadro:ejemplo-tipo-interrelacion-aplicacion-terminales}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Aplicación-Usuarios}
+\subsubsection*{Descripción}
+La relación entre Aplicaciones y Usuarios indica a qué aplicaciones tiene acceso cada usuario editor. El mismo usuario puede tener acceso como editor a varias aplicaciones, lo que permite que una misma persona administre las comunicaciones de varias organizaciones.
+
+\subsubsection*{Características}
+La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicaciones-usuarios} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] A-U
+    \item[Tipo] Fuerte
+    \item[Cardinalidad] M:N
+\end{description}
+\subsubsection*{Atributos de la interrelación}
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    \begin{tabular}{|llclp{6.5cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        Aplicaciones & AplicacionID & \cmark & 14 & ID de la aplicación con la que se asocia un usuario. \\
+        Usuarios & UsuarioID & \cmark & 25 & ID del usuario asociado a una aplicación. \\
+        \hline
+    \end{tabular}
+    \caption{Ejemplo de interrelación Aplicaciones-Usuarios}
+    \label{cuadro:ejemplo-tipo-interrelacion-aplicaciones-usuarios}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Aplicación-Documentos}
+\subsubsection*{Descripción}
+Esta relación representa que cada documento pertenece a una aplicación. Cualquiera que sea la naturaleza del documento, este siempre estará asociado a una determinada aplicación.
+
+\subsubsection*{Características}
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] A-D
+    \item[Tipo] Fuerte
+    \item[Cardinalidad] 1:N
+\end{description}
+
+\subsubsection*{Atributos de la interrelación}
+La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicacion-documentos} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    \begin{tabular}{|llclp{6.6cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        Documentos & AplicacionID & \cmark & 14 & ID de la aplicación con la que se asocia un documento. \\
+        \hline
+    \end{tabular}
+    \caption{Ejemplo de interrelación Aplicación-Documentos}
+    \label{cuadro:ejemplo-tipo-interrelacion-aplicacion-documentos}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Aplicación-Categorías}
+\subsubsection*{Descripción}
+Dado que las comunicaciones de una aplicación siempre se publican bajo una determinada categoría, es necesario definir para cada aplicación el conjunto de categorías de que dispone. Esta relación representa a qué aplicación pertenece cada categoría.
+
+\subsubsection*{Características}
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] A-C
+    \item[Tipo] Fuerte
+    \item[Cardinalidad] 1:N
+\end{description}
+
+\subsubsection*{Atributos de la interrelación}
+La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicacion-categorias} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    \begin{tabular}{|llclp{7cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        Categorías & AplicacionID & \cmark & 14 & ID de la aplicación con la que se asocia una categoría. \\
+        \hline
+    \end{tabular}
+    \caption{Ejemplo de interrelación Aplicación-Categorías}
+    \label{cuadro:ejemplo-tipo-interrelacion-aplicacion-categorias}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Categoria-Comunicaciones}
+\subsubsection*{Descripción}
+\subsubsection*{Características}
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] 
+    \item[Tipo] 
+    \item[Cardinalidad] 
+    \item[Atrib. heredados] 
+\end{description}
+\subsubsection*{Atributos de la interrelación}
+La tabla \ref{cuadro:ejemplo-tipo-interrelacion-categorias-comunicaciones} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    \begin{tabular}{|llcp{7.3cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Dominio}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        <atributo> & $\mathbb N$ & \cmark & <descripción del atributo> \\
+        \hline
+    \end{tabular}
+    \caption{Ejemplo de interrelación Categorías-Comunicaciones}
+    \label{cuadro:ejemplo-tipo-interrelacion-categorias-comunicaciones}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Usuarios-Comunicaciones}
+\subsubsection*{Descripción}
+\subsubsection*{Características}
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] 
+    \item[Tipo] 
+    \item[Cardinalidad] 
+    \item[Atrib. heredados] 
+\end{description}
+\subsubsection*{Atributos de la interrelación}
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    \begin{tabular}{|llcp{7.3cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Dominio}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        <atributo> & $\mathbb N$ & \cmark & <descripción del atributo> \\
+        \hline
+    \end{tabular}
+    \caption{Ejemplo de interrelación Usuarios-Comunicaciones}
+    \label{cuadro:ejemplo-tipo-interrelacion-usuarios-comunicaciones}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Documentos-Comunicaciones (a)}
+\subsubsection*{Descripción}
+\subsubsection*{Características}
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] 
+    \item[Tipo] 
+    \item[Cardinalidad] 
+    \item[Atrib. heredados] 
+\end{description}
+\subsubsection*{Atributos de la interrelación}
+La tabla \ref{cuadro:tipo-interrelacion-documentos-comunicaciones-a} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    %\resizebox{\textwidth}{!}{%
+    \begin{tabular}{|llcp{7.3cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Dominio}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        <atributo> & $\mathbb N$ & \cmark & <descripción del atributo> \\
+        \hline
+    \end{tabular}%}
+    \caption{Ejemplo de interrelación Documentos-Comunicaciones (a)}
+    \label{cuadro:tipo-interrelacion-documentos-comunicaciones-a}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Documentos-Comunicaciones (b)}
+\subsubsection*{Descripción}
+\subsubsection*{Características}
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] 
+    \item[Tipo] 
+    \item[Cardinalidad] 
+    \item[Atrib. heredados] 
+\end{description}
+\subsubsection*{Atributos de la interrelación}
 
 \subsection{Comunicaciones-Accesos-Terminales}
+\subsubsection*{Descripción}
+Los accesos representan la lectura de una comunicación por parte de un terminal. Cada vez que se produce dicha lectura, se genera un registro de acceso que relaciona el terminal con la comunicación leída y se almacena la fecha y hora de lectura.
+
+\subsubsection*{Características}
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] C-A-T
+    \item[Tipo] Fuerte
+    \item[Cardinalidad] Ninguno
+    \item[Atrib. heredados] AplicacionID (Aplicaciones), TerminalID (Terminales)
+\end{description}
+
+\subsubsection*{Atributos de la interrelación}
+La tabla \ref{cuadro:tipo-interrelacion-documentos-comunicaciones-b} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    %\resizebox{\textwidth}{!}{%
+    \begin{tabular}{|llcp{7.3cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Dominio}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        <atributo> & $\mathbb N$ & \cmark & <descripción del atributo> \\
+        \hline
+    \end{tabular}%}
+    \caption{interrelación Documentos-Comunicaciones (b)}
+    \label{cuadro:tipo-interrelacion-documentos-comunicaciones-b}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Modelo Entidad-Interrelación}
+Hola
