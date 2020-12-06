@@ -450,6 +450,196 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-roles} se describen todos los atr
     \label{cuadro:ejemplo-rol}
 \end{table}
 
+\subsection{Localizaciones}
+
+\subsubsection*{Descripción}
+Las localizaciones representan lugares de interés para los usuarios de la aplicación. Por ejemplo, para la aplicación de un Ayuntamiento, ejemplos de localizaciones serían la oficina de información turística, la dirección del propio Ayuntamiento, la comisaría de policía, etc. Las localizaciones contienen datos como las coordenadas, la dirección y la descripción de un lugar.
+
+\subsection*{Restricciones}
+Ninguna
+
+\subsection*{Características}
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] Localizaciones
+    \item[Id. principal] LocalizacionID
+    \item[Id. alternativo] Ninguno
+    \item[Atrib. heredados] AplicacionID (Aplicaciones)
+\end{description}
+
+\subsubsection*{Atributos de la entidad}
+En la tabla \ref{cuadro:atributos-tipo-entidad-localizaciones} se describen todos los atributos de la entidad. Así mismo, en la tabla \ref{cuadro:ejemplo-localizacion} se muestra un ejemplo de los valores que tendría un registro de localización.
+
+\begin{table}[h!]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    %\resizebox{\textwidth}{!}{%
+    \begin{tabular}{|llcp{6.7cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Dominio}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        LocalizacionID & $\mathbb N$ & \cmark & Identificador de la localización \\
+        AplicacionID & $\mathbb N$ & \cmark & Identificador de la aplicación asociada \\
+        Fecha & Fecha & \cmark & Fecha de creación \\
+        Longitud & $\mathbb R\in(-180, 180)$ & \cmark & Coordenadas: Longitud \\
+        Latitud & $\mathbb R\in(-90, 90)$ & \cmark & Coordenadas: Latitud \\
+        Descripción & Alfanumérico & \cmark & Descripción de la localización \\
+        Activo & Booleano & \cmark & Localización activa/inactiva \\
+        \hline
+    \end{tabular}%}
+    \caption{Atributos del tipo de entidad Localizaciones}
+    \label{cuadro:atributos-tipo-entidad-localizaciones}
+\end{table}
+
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    %\resizebox{\textwidth}{!}{%
+    \begin{tabular}{|ll|}
+        \hline
+        \rowcolor[HTML]{9B9B9B} 
+        \multicolumn{1}{|c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Valor}} \\ \hline
+        LocalizacionID & 35 \\
+        AplicacionID & 14 \\
+        Fecha & 2020-12-06 18:42:14 \\
+        Longitud & -5.074807 \\
+        Latitud & 37.536277 \\
+        Descripción & ``Centro de salud''\\
+        Activo & Verdadero \\
+        \hline
+    \end{tabular}%}
+    \caption{Ejemplo de registro de tipo Localización}
+    \label{cuadro:ejemplo-localizacion}
+\end{table}
+
+\subsection{Teléfonos}
+
+\subsubsection*{Descripción}
+Los teléfonos representan teléfonos de interés para los usuarios de la aplicación. Por ejemplo, para la aplicación de un Ayuntamiento, ejemplos de localizaciones serían el teléfono de información turística, el de atención al público del Ayuntamiento, el del museo municipal\dots Los datos que contiene un registro de esta entidad son el número telefónico y la descripción.
+
+\subsection*{Restricciones}
+Ninguna
+
+\subsection*{Características}
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] Telefonos
+    \item[Id. principal] TelefonoID
+    \item[Id. alternativo] Ninguno
+    \item[Atrib. heredados] AplicacionID (Aplicaciones)
+\end{description}
+
+\subsubsection*{Atributos de la entidad}
+En la tabla \ref{cuadro:atributos-tipo-entidad-telefonos} se describen todos los atributos de la entidad. Así mismo, en la tabla \ref{cuadro:ejemplo-telefono} se muestra un ejemplo de los valores que tendría un registro de teléfono.
+
+\begin{table}[h!]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    %\resizebox{\textwidth}{!}{%
+    \begin{tabular}{|llcp{6.7cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Dominio}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        TelefonoID & $\mathbb N$ & \cmark & Identificador del teléfono \\
+        AplicacionID & $\mathbb N$ & \cmark & Identificador de la aplicación asociada \\
+        Fecha & Fecha & \cmark & Fecha de creación \\
+        Numero & Alfanumérico & \cmark & Número de teléfono \\
+        Descripción & Alfanumérico & \cmark & Descripción del teléfono \\
+        Activo & Booleano & \cmark & Teléfono activo/inactivo \\
+        \hline
+    \end{tabular}%}
+    \caption{Atributos del tipo de entidad Teléfonos}
+    \label{cuadro:atributos-tipo-entidad-telefonos}
+\end{table}
+
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    %\resizebox{\textwidth}{!}{%
+    \begin{tabular}{|ll|}
+        \hline
+        \rowcolor[HTML]{9B9B9B} 
+        \multicolumn{1}{|c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Valor}} \\
+        \hline
+        TelefonoID & 27 \\
+        AplicacionID & 14 \\
+        Fecha & 2020-12-06 18:42:14 \\
+        Telefono & ``957159753'' \\
+        Descripción & ``Centro de salud''\\
+        Activo & Verdadero \\
+        \hline
+    \end{tabular}%}
+    \caption{Ejemplo de registro de tipo Teléfono}
+    \label{cuadro:ejemplo-telefono}
+\end{table}
+
+\subsection{Parámetros}
+
+\subsubsection*{Descripción}
+Esta entidad almacena parámetros de configuración del sistema. Un parámetro puede ser global o puede declararse para una determinada aplicación si se establece un valor en el campo AplicacionID.
+
+\subsection*{Restricciones}
+Ninguna
+
+\subsection*{Características}
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] Parametros
+    \item[Id. principal] ParametroID
+    \item[Id. alternativo] Nombre, AplicacionID
+    \item[Atrib. heredados] AplicacionID (Aplicaciones)
+\end{description}
+
+\subsubsection*{Atributos de la entidad}
+En la tabla \ref{cuadro:atributos-tipo-entidad-parametros} se describen todos los atributos de la entidad. Así mismo, en la tabla \ref{cuadro:ejemplo-parametro} se muestra un ejemplo de los valores que tendría un registro de parámetro.
+
+\begin{table}[h!]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    %\resizebox{\textwidth}{!}{%
+    \begin{tabular}{|llcp{6.7cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Dominio}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        ParámetroID & $\mathbb N$ & \cmark & Identificador del parámetro \\
+        AplicacionID & $\mathbb N$ & \xmark & Identificador de la aplicación asociada \\
+        Nombre & Alfanumérico & \cmark & Nombre del parámetro \\
+        Valor & Alfanumérico & \xmark & Valor del parámetro \\
+        Descripcion & Alfanumérico & \xmark & Descripción del parámetro \\
+        \hline
+    \end{tabular}%}
+    \caption{Atributos del tipo de entidad Parámetros}
+    \label{cuadro:atributos-tipo-entidad-parametros}
+\end{table}
+
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    %\resizebox{\textwidth}{!}{%
+    \begin{tabular}{|ll|}
+        \hline
+        \rowcolor[HTML]{9B9B9B} 
+        \multicolumn{1}{|c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Valor}} \\
+        \hline
+        ParámetroID & 27 \\
+        AplicacionID & 14 \\
+        Nombre & ``URLGeoloc'' \\
+        Valor & ``http://miservicio.geoloc.com/'' \\
+        Descripción & ``URL del servicio de geolocalización'' \\
+        \hline
+    \end{tabular}%}
+    \caption{Ejemplo de registro de tipo Parámetro}
+    \label{cuadro:ejemplo-parametro}
+\end{table}
+
 \subsection{Comunicaciones}
 
 \subsubsection*{Descripción}
