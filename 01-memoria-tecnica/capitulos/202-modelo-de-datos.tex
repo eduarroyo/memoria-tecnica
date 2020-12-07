@@ -28,7 +28,7 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-aplicaciones} se describen todos 
     \rowcolors{2}{gray!25}{white}
     \centering
     %\resizebox{\textwidth}{!}{%
-    \begin{tabular}{|llcp{7.5cm}|}
+    \begin{tabular}{|llcp{8.3cm}|}
         \hline
         \rowcolor[HTML]{9B9B9B}
         \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
@@ -104,7 +104,7 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-usuarios} se describen todos los 
     \rowcolors{2}{gray!25}{white}
     \centering
     %\resizebox{\textwidth}{!}{%
-    \begin{tabular}{|llcp{7.5cm}|}
+    \begin{tabular}{|llcp{6.5cm}|}
         \hline
         \rowcolor[HTML]{9B9B9B}
         \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
@@ -175,7 +175,7 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-categorias} se describen todos lo
     \rowcolors{2}{gray!25}{white}
     \centering
     %\resizebox{\textwidth}{!}{%
-    \begin{tabular}{|llcp{7.5cm}|}
+    \begin{tabular}{|llcp{8.3cm}|}
         \hline
         \rowcolor[HTML]{9B9B9B}
         \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
@@ -293,7 +293,7 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-terminales} se describen todos lo
     \rowcolors{2}{gray!25}{white}
     \centering
     %\resizebox{\textwidth}{!}{%
-    \begin{tabular}{|llcp{5.9cm}|}
+    \begin{tabular}{|llcp{5.5cm}|}
         \hline
         \rowcolor[HTML]{9B9B9B}
         \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
@@ -353,7 +353,7 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-documentos} se describen todos lo
     \rowcolors{2}{gray!25}{white}
     \centering
     %\resizebox{\textwidth}{!}{%
-    \begin{tabular}{|llcp{5.9cm}|}
+    \begin{tabular}{|llcp{6.2cm}|}
         \hline
         \rowcolor[HTML]{9B9B9B}
         \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
@@ -469,11 +469,11 @@ Ninguna
 \subsubsection*{Atributos de la entidad}
 En la tabla \ref{cuadro:atributos-tipo-entidad-localizaciones} se describen todos los atributos de la entidad. Así mismo, en la tabla \ref{cuadro:ejemplo-localizacion} se muestra un ejemplo de los valores que tendría un registro de localización.
 
-\begin{table}[h!]
+\begin{table}[h]
     \rowcolors{2}{gray!25}{white}
     \centering
     %\resizebox{\textwidth}{!}{%
-    \begin{tabular}{|llcp{6.7cm}|}
+    \begin{tabular}{|llcp{7.2cm}|}
         \hline
         \rowcolor[HTML]{9B9B9B}
         \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
@@ -483,8 +483,8 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-localizaciones} se describen todo
         LocalizacionID & $\mathbb N$ & \cmark & Identificador de la localización \\
         AplicacionID & $\mathbb N$ & \cmark & Identificador de la aplicación asociada \\
         Fecha & Fecha & \cmark & Fecha de creación \\
-        Longitud & $\mathbb R\in(-180, 180)$ & \cmark & Coordenadas: Longitud \\
-        Latitud & $\mathbb R\in(-90, 90)$ & \cmark & Coordenadas: Latitud \\
+        Longitud & $\mathbb R\in[-180, 180]$ & \cmark & Coordenadas: Longitud \\
+        Latitud & $\mathbb R\in[-90, 90]$ & \cmark & Coordenadas: Latitud \\
         Descripción & Alfanumérico & \cmark & Descripción de la localización \\
         Activo & Booleano & \cmark & Localización activa/inactiva \\
         \hline
@@ -533,11 +533,11 @@ Ninguna
 \subsubsection*{Atributos de la entidad}
 En la tabla \ref{cuadro:atributos-tipo-entidad-telefonos} se describen todos los atributos de la entidad. Así mismo, en la tabla \ref{cuadro:ejemplo-telefono} se muestra un ejemplo de los valores que tendría un registro de teléfono.
 
-\begin{table}[h!]
+\begin{table}[h]
     \rowcolors{2}{gray!25}{white}
     \centering
     %\resizebox{\textwidth}{!}{%
-    \begin{tabular}{|llcp{6.7cm}|}
+    \begin{tabular}{|llcp{7.2cm}|}
         \hline
         \rowcolor[HTML]{9B9B9B}
         \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
@@ -601,7 +601,7 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-parametros} se describen todos lo
     \rowcolors{2}{gray!25}{white}
     \centering
     %\resizebox{\textwidth}{!}{%
-    \begin{tabular}{|llcp{6.7cm}|}
+    \begin{tabular}{|llcp{7.2cm}|}
         \hline
         \rowcolor[HTML]{9B9B9B}
         \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
@@ -638,6 +638,99 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-parametros} se describen todos lo
     \end{tabular}%}
     \caption{Ejemplo de registro de tipo Parámetro}
     \label{cuadro:ejemplo-parametro}
+\end{table} 
+
+\subsection{Empresas}
+
+\subsubsection*{Descripción}
+Esta entidad almacena datos de empresas que se anuncian en la aplicación. Los datos almacenados son, por ejemplo, nombre, dirección, teléfono, coordenadas, email, banner, logotipo\dots
+
+\subsection*{Restricciones}
+Ninguna
+
+\subsection*{Características}
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] Empresas
+    \item[Id. principal] EmpresaID
+    \item[Id. alternativo] Ninguno
+    \item[Atrib. heredados]
+        AplicacionID (Aplicaciones)
+    
+        LogotipoDocumentoID (Documentos)
+        
+        BannerDocumentoID (Documentos)
+\end{description}
+
+\subsubsection*{Atributos de la entidad}
+En la tabla \ref{cuadro:atributos-tipo-entidad-empresas} se describen todos los atributos de la entidad. Así mismo, en la tabla \ref{cuadro:ejemplo-empresa} se muestra un ejemplo de los valores que tendría un registro de empresa.
+
+\begin{table}[h!]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    %\resizebox{\textwidth}{!}{%
+    \begin{tabular}{|llcp{6.5cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Dominio}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        EmpresaID & $\mathbb N$ & \cmark & Identificador de la empresa \\
+        AplicacionID & $\mathbb N$ & \xmark & Identificador de la aplicación asociada \\
+        Nombre & Alfanumérico & \cmark & Nombre del parámetro \\
+        Dirección & Alfanumérico & \xmark & Dirección postal \\
+        Localidad & Alfanumérico & \xmark & Localidad de la dirección \\
+        Provincia & Alfanumérico & \xmark & Provincia de la dirección \\
+        Latitud & Alfanumérico & \xmark & Latitud de la dirección \\
+        Longitud & Alfanumérico & \xmark & Longitud de la dirección \\
+        Telefono & Alfanumérico & \xmark & Número de teléfono \\
+        Email & Alfanumérico & \xmark & Email de contacto \\
+        Web & Alfanumérico & \xmark & URL de la web \\
+        Facebook & Alfanumérico & \xmark & URL de la página de Facebook \\
+        Twitter & Alfanumérico & \xmark & URL de la página de Twitter \\
+        LogotipoDocumentoID & $\mathbb N$ & \xmark & ID del documento con el logotipo \\
+        BannerDocumentoID & $\mathbb N$ & \xmark & ID del documento con el banner \\
+        Descripcion & $\mathbb N$ & \xmark & Descripción de la empresa \\
+        Tags & Alfanumérico & \xmark & Tags para clasificación \\
+        Activo & Booleano & \cmark & Empresa activa/inactiva \\
+        \hline
+    \end{tabular}%}
+    \caption{Atributos del tipo de entidad Empresas}
+    \label{cuadro:atributos-tipo-entidad-empresas}
+\end{table}
+
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    %\resizebox{\textwidth}{!}{%
+    \begin{tabular}{|ll|}
+        \hline
+        \rowcolor[HTML]{9B9B9B} 
+        \multicolumn{1}{|c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Valor}} \\
+        \hline
+        EmpresaID & 91 \\
+        AplicacionID & 14 \\
+        Nombre & ``Librería Gutemberg'' \\
+        Dirección & ``Calle Alborada 123'' \\
+        Localidad & ``Santaella'' \\
+        Provincia & ``Córdoba'' \\
+        Latitud & 37.913484 \\
+        Longitud & -4.721551 \\
+        Telefono & ``957456789'' \\
+        Email & ``info@gutemberglibreria.es'' \\
+        Web & ``http://www.gutemberglibreria.es'' \\
+        Facebook & ``http://facebook.com/gutemberglibreria'' \\
+        Twitter & ``http://twitter.com/gutemberglibreria'' \\
+        LogotipoDocumentoID & 467 \\
+        BannerDocumentoID & 236 \\
+        Descripcion & ``Librería Gutemberg, prensa y papelería.'' \\
+        Tags & ``libro,literatura,cultura,comercio'' \\
+        Activo & Verdadero \\
+        \hline
+    \end{tabular}%}
+    \caption{Ejemplo de registro de tipo Empresa}
+    \label{cuadro:ejemplo-empresa}
 \end{table}
 
 \subsection{Comunicaciones}
@@ -653,7 +746,14 @@ No habrá usuarios con el mismo email.
     \item[Nombre] Comunicaciones
     \item[Id. principal] ComunicacionID
     \item[Id. alternativo] Ninguno
-    \item[Atrib. heredados] UsuarioID (Usuarios), CategoriaID (Categorias), ImagenDocu\linebreak mentoID (Documentos), AdjuntoDocumentoID (Documentos)
+    \item[Atrib. heredados] 
+        UsuarioID (Usuarios)
+
+        CategoriaID (Categorias)
+
+        ImagenDocumentoID (Documentos)
+
+        AdjuntoDocumentoID (Documentos)
 \end{description}
 
 \subsubsection*{Atributos de la entidad}
@@ -767,13 +867,13 @@ Las interrelaciones fuertes si se dan entre dos entidades fuertes o débiles si 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% RELACIONES EN LAS QUE APLICACIÓN ES FUERTE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Aplicaciones-Características}
 \subsubsection*{Descripción}
-La relación entre las aplicaciones y las características representa cuáles son las características con las que cuenta cada aplicación. Cada característica representa una funcionalidad opcional que está disponible en las aplicaciones con la que se asocia.
+La relación entre las aplicaciones y las características representa cuáles son las características con las que cuenta cada aplicación. Cada característica representa una funcionalidad opcional que está disponible en las aplicaciones con la que se asocia. Dado que las características existen con independencia de si alguna aplicación la tiene, se trata de un tipo de interrelación fuerte.
 
 \subsubsection*{Características}
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
-    \item[Nombre] A-C
+    \item[Nombre] A-CR
     \item[Tipo] Fuerte
-    \item[Cardinalidad] M:N
+    \item[Cardinalidad] (0,M):(0,N)
 \end{description}
 
 \subsubsection*{Atributos de la interrelación}
@@ -805,7 +905,7 @@ Esta relación representa a qué aplicación accede cada terminal. Un terminal q
 
 \subsubsection*{Características}
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
-    \item[Nombre] A-t
+    \item[Nombre] A-TR
     \item[Tipo] Fuerte
     \item[Cardinalidad] 1:N
 \end{description}
@@ -871,7 +971,7 @@ Dado que las comunicaciones de una aplicación siempre se publican bajo una dete
 
 \subsubsection*{Características}
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
-    \item[Nombre] A-C
+    \item[Nombre] A-CT
     \item[Tipo] Fuerte
     \item[Cardinalidad] 1:N
 \end{description}
@@ -903,13 +1003,13 @@ La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicacion-categorias} muestra c
 La relación entre Aplicaciones y Usuarios indica a qué aplicaciones tiene acceso cada usuario editor. El mismo usuario puede tener acceso como editor a varias aplicaciones, lo que permite que una misma persona administre las comunicaciones de varias organizaciones.
 
 \subsubsection*{Características}
-La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicaciones-usuarios} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
     \item[Nombre] A-U
     \item[Tipo] Fuerte
     \item[Cardinalidad] M:N
 \end{description}
 \subsubsection*{Atributos de la interrelación}
+La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicaciones-usuarios} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
 \begin{table}[h]
     \rowcolors{2}{gray!25}{white}
     \centering
@@ -936,17 +1036,18 @@ La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicaciones-usuarios} muestra c
 Esta relación representa una localización vinculada a una aplicación.
 
 \subsubsection*{Características}
-La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicacion-localizaciones} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
     \item[Nombre] A-L
     \item[Tipo] Fuerte
     \item[Cardinalidad] 1:N
 \end{description}
+
 \subsubsection*{Atributos de la interrelación}
+La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicacion-localizaciones} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
 \begin{table}[h]
     \rowcolors{2}{gray!25}{white}
     \centering
-    \begin{tabular}{|llclp{6.5cm}|}
+    \begin{tabular}{|llclp{6.2cm}|}
         \hline
         \rowcolor[HTML]{9B9B9B}
         \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
@@ -970,7 +1071,7 @@ Esta relación representa un teléfono vinculado a una aplicación.
 \subsubsection*{Características}
 La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicacion-telefonos} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
-    \item[Nombre] A-L
+    \item[Nombre] A-TL
     \item[Tipo] Fuerte
     \item[Cardinalidad] 1:N
 \end{description}
@@ -978,7 +1079,7 @@ La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicacion-telefonos} muestra c�
 \begin{table}[h]
     \rowcolors{2}{gray!25}{white}
     \centering
-    \begin{tabular}{|llclp{6.5cm}|}
+    \begin{tabular}{|llclp{7.2cm}|}
         \hline
         \rowcolor[HTML]{9B9B9B}
         \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
@@ -991,6 +1092,70 @@ La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicacion-telefonos} muestra c�
     \end{tabular}
     \caption{Ejemplo de interrelación Aplicación-Teléfonos}
     \label{cuadro:ejemplo-tipo-interrelacion-aplicacion-telefonos}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Aplicación-Parámetros}
+\subsubsection*{Descripción}
+Esta relación representa un parámetro vinculado a una aplicación.
+
+\subsubsection*{Características}
+La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicacion-parametros} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] A-P
+    \item[Tipo] Fuerte
+    \item[Cardinalidad] (0,1):N
+\end{description}
+\subsubsection*{Atributos de la interrelación}
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    \begin{tabular}{|llclp{6.9cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        Parametros & AplicacionID & \cmark & 14 & ID de la aplicación con la que se asocia un parámetro \\
+        \hline
+    \end{tabular}
+    \caption{Ejemplo de interrelación Aplicación-Parámetros}
+    \label{cuadro:ejemplo-tipo-interrelacion-aplicacion-parametros}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Aplicación-Empresas}
+\subsubsection*{Descripción}
+Esta relación representa una empresa vinculada a una aplicación.
+
+\subsubsection*{Características}
+La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicacion-empresas} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] A-E
+    \item[Tipo] Fuerte
+    \item[Cardinalidad] 1:N
+\end{description}
+\subsubsection*{Atributos de la interrelación}
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    \begin{tabular}{|llclp{7.2cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        Empresas & AplicacionID & \cmark & 14 & ID de la aplicación con la que se asocia una empresa \\
+        \hline
+    \end{tabular}
+    \caption{Ejemplo de interrelación Aplicación-Empresas}
+    \label{cuadro:ejemplo-tipo-interrelacion-aplicacion-empresas}
 \end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% RELACIONES EN LAS QUE USUARIO ES FUERTE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1045,7 +1210,7 @@ La tabla \ref{cuadro:ejemplo-tipo-interrelacion-categoria-comunicaciones} muestr
 \begin{table}[h]
     \rowcolors{2}{gray!25}{white}
     \centering
-    \begin{tabular}{|llclp{5.5cm}|}
+    \begin{tabular}{|llclp{6.1cm}|}
         \hline
         \rowcolor[HTML]{9B9B9B}
         \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
@@ -1147,7 +1312,7 @@ La tabla \ref{cuadro:tipo-interrelacion-documento-aplicaciones} muestra cómo se
     \rowcolors{2}{gray!25}{white}
     \centering
     %\resizebox{\textwidth}{!}{%
-    \begin{tabular}{|llclp{4.2cm}|}
+    \begin{tabular}{|llclp{5cm}|}
         \hline
         \rowcolor[HTML]{9B9B9B}
         \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
@@ -1162,15 +1327,117 @@ La tabla \ref{cuadro:tipo-interrelacion-documento-aplicaciones} muestra cómo se
     \label{cuadro:tipo-interrelacion-documento-aplicaciones}
 \end{table}
 
+%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Documento-Empresas (a)}
+\subsubsection*{Descripción}
+Esta relación representa un documento asociado a una empresa como su logotipo.
+
+\subsubsection*{Características}
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] E-DL
+    \item[Tipo] Fuerte
+    \item[Cardinalidad] (0,1):1
+\end{description}
+
+\subsubsection*{Atributos de la interrelación}
+La tabla \ref{cuadro:tipo-interrelacion-documento-empresas-a} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    %\resizebox{\textwidth}{!}{%
+    \begin{tabular}{|llclp{5cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        Empresas & LogotipoDocumentoID & \xmark & 415 & ID del documento adjunto \\
+        \hline
+    \end{tabular}%}
+    \caption{Ejemplo de interrelación Documento-Empresas (a)}
+    \label{cuadro:tipo-interrelacion-documento-empresas-a}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Documento-Empresas (b)}
+\subsubsection*{Descripción}
+Esta relación representa un documento asociado a una empresa como su banner.
+
+\subsubsection*{Características}
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] E-DB
+    \item[Tipo] Fuerte
+    \item[Cardinalidad] (0,1):1
+\end{description}
+
+\subsubsection*{Atributos de la interrelación}
+La tabla \ref{cuadro:tipo-interrelacion-documento-empresas-b} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    %\resizebox{\textwidth}{!}{%
+    \begin{tabular}{|llclp{5cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        Empresas & BannerDocumentoID & \xmark & 415 & ID del documento adjunto \\
+        \hline
+    \end{tabular}%}
+    \caption{Ejemplo de interrelación Documento-Empresas (b)}
+    \label{cuadro:tipo-interrelacion-documento-empresas-b}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% RELACIONES EN LAS QUE ROL ES FUERTE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Rol-Usuarios}
+\subsubsection*{Descripción}
+Esta relación representa el rol que desempeña un usuario dentro de la aplicación.
+
+\subsubsection*{Características}
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] R-U
+    \item[Tipo] Fuerte
+    \item[Cardinalidad] 1:N
+\end{description}
+
+\subsubsection*{Atributos de la interrelación}
+La tabla \ref{cuadro:tipo-interrelacion-rol-usuarios} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    %\resizebox{\textwidth}{!}{%
+    \begin{tabular}{|llclp{4cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        Usuarios & RolID & \cmark & 1 & ID del rol del usuario \\
+        \hline
+    \end{tabular}%}
+    \caption{Ejemplo de interrelación Rol-Usuarios}
+    \label{cuadro:tipo-interrelacion-rol-usuarios}
+\end{table}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% RELACIONES EN LAS QUE COMUNICACIÓN ES FUERTE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Comunicaciones-Accesos-Terminales}
+\subsection{Comunicaciones-Terminales}
 \subsubsection*{Descripción}
 Esta relación representa un acceso a una comunicación realizado por un terminal.
 
 \subsubsection*{Características}
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
-    \item[Nombre] C-A-T
+    \item[Nombre] C-T
     \item[Tipo] Fuerte
     \item[Cardinalidad] 1:N:N
 \end{description}
@@ -1181,7 +1448,7 @@ La tabla \ref{cuadro:tipo-interrelacion-comunicaciones-accesos-terminales} muest
     \rowcolors{2}{gray!25}{white}
     \centering
     %\resizebox{\textwidth}{!}{%
-    \begin{tabular}{|llcp{2cm}p{3.5cm}|}
+    \begin{tabular}{|p{3.4cm}p{3.2cm}cp{2cm}p{4.4cm}|}
         \hline
         \rowcolor[HTML]{9B9B9B}
         \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
@@ -1191,8 +1458,8 @@ La tabla \ref{cuadro:tipo-interrelacion-comunicaciones-accesos-terminales} muest
         \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
         Comunicaciones & ComunicacionID & \cmark & 618 & ID de la comunicación que es accedida \\
         Terminales & TerminalID & \cmark & 123 & ID del terminal que realiza el acceso \\
-         & ComunicacionAccesoID & \cmark & 531 & ID del acceso \\
-         & Fecha & \cmark & 2020-11-20 10:37 & Fecha y hora del acceso \\
+        Comunicaciones-Accesos & Comunicacion-AccesoID & \cmark & 531 & ID del acceso \\
+        Comunicaciones-Accesos  & Fecha & \cmark & 2020-11-20 10:37 & Fecha y hora del acceso \\
         \hline
     \end{tabular}%}
     \caption{Ejemplo de interrelación Comunicaciones-Accesos-Terminales}
@@ -1207,5 +1474,11 @@ La tabla \ref{cuadro:tipo-interrelacion-comunicaciones-accesos-terminales} muest
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Modelo Entidad-Interrelación}
-Hola
+\section{Diagrama Entidad-Interrelación}
+\begin{figure}[ht]
+    \centering
+    %https://app.creately.com/diagram/7MA84mDHIzz/edit
+    \includegraphics[scale=.31]{PushNews E-R 1}
+    \caption{Diagrama Entidad-Interrelación 1}
+    \label{fig:diagram-entidad-interrelacion-1}
+\end{figure}
