@@ -865,138 +865,6 @@ Las relaciones entre los tipos de entidad generan información. Estas relaciones
 Las interrelaciones fuertes si se dan entre dos entidades fuertes o débiles si participa al menos una entidad débil.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% RELACIONES EN LAS QUE APLICACIÓN ES FUERTE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Aplicaciones-Características}
-\subsubsection*{Descripción}
-La relación entre las aplicaciones y las características representa cuáles son las características con las que cuenta cada aplicación. Cada característica representa una funcionalidad opcional que está disponible en las aplicaciones con la que se asocia. Dado que las características existen con independencia de si alguna aplicación la tiene, se trata de un tipo de interrelación fuerte.
-
-\subsubsection*{Características}
-\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
-    \item[Nombre] A-CR
-    \item[Tipo] Fuerte
-    \item[Cardinalidad] (0,M):(0,N)
-\end{description}
-
-\subsubsection*{Atributos de la interrelación}
-La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicaciones-caracteristicas} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
-\begin{table}[h]
-    \rowcolors{2}{gray!25}{white}
-    \centering
-    \begin{tabular}{|llclp{5.8cm}|}
-        \hline
-        \rowcolor[HTML]{9B9B9B}
-        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
-        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
-        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
-        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
-        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
-        Aplicaciones & AplicacionID & \cmark & 14 & ID de la aplicación que tiene la característica asociada. \\
-        Características & CaracteristicaID & \cmark & 25 & ID de la característica que se asocia a la aplicación. \\
-        \hline
-    \end{tabular}
-    \caption{Ejemplo de interrelación Aplicaciones-Características}
-    \label{cuadro:ejemplo-tipo-interrelacion-aplicaciones-caracteristicas}
-\end{table}
-
-%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Aplicación-Terminales}
-\subsubsection*{Descripción}
-Esta relación representa a qué aplicación accede cada terminal. Un terminal que tuviera instaladas diferentes apps de PushNews generaría un registro por cada aplicación con igual nombre pero distinto AplicacionID.
-
-\subsubsection*{Características}
-\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
-    \item[Nombre] A-TR
-    \item[Tipo] Fuerte
-    \item[Cardinalidad] 1:N
-\end{description}
-
-\subsubsection*{Atributos de la interrelación}
-La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicacion-terminales} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
-\begin{table}[h]
-    \rowcolors{2}{gray!25}{white}
-    \centering
-    \begin{tabular}{|llclp{6.9cm}|}
-        \hline
-        \rowcolor[HTML]{9B9B9B}
-        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
-        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
-        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
-        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
-        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
-        Terminales & AplicacionID & \cmark & 14 & Identificador de la aplicación a la que accede el terminal \\
-        \hline
-    \end{tabular}
-    \caption{Ejemplo de interrelación Aplicación-Terminales}
-    \label{cuadro:ejemplo-tipo-interrelacion-aplicacion-terminales}
-\end{table}
-
-%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Aplicación-Documentos}
-\subsubsection*{Descripción}
-Esta relación representa que cada documento pertenece a una aplicación. Cualquiera que sea la naturaleza del documento, este siempre estará asociado a una determinada aplicación.
-
-\subsubsection*{Características}
-\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
-    \item[Nombre] A-D
-    \item[Tipo] Fuerte
-    \item[Cardinalidad] 1:N
-\end{description}
-
-\subsubsection*{Atributos de la interrelación}
-La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicacion-documentos} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
-\begin{table}[h]
-    \rowcolors{2}{gray!25}{white}
-    \centering
-    \begin{tabular}{|llclp{6.6cm}|}
-        \hline
-        \rowcolor[HTML]{9B9B9B}
-        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
-        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
-        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
-        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
-        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
-        Documentos & AplicacionID & \cmark & 14 & ID de la aplicación con la que se asocia un documento. \\
-        \hline
-    \end{tabular}
-    \caption{Ejemplo de interrelación Aplicación-Documentos}
-    \label{cuadro:ejemplo-tipo-interrelacion-aplicacion-documentos}
-\end{table}
-
-%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Aplicación-Categorías}
-\subsubsection*{Descripción}
-Dado que las comunicaciones de una aplicación siempre se publican bajo una determinada categoría, es necesario definir para cada aplicación el conjunto de categorías de que dispone. Esta relación representa a qué aplicación pertenece cada categoría.
-
-\subsubsection*{Características}
-\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
-    \item[Nombre] A-CT
-    \item[Tipo] Fuerte
-    \item[Cardinalidad] 1:N
-\end{description}
-
-\subsubsection*{Atributos de la interrelación}
-La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicacion-categorias} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
-\begin{table}[h]
-    \rowcolors{2}{gray!25}{white}
-    \centering
-    \begin{tabular}{|llclp{7cm}|}
-        \hline
-        \rowcolor[HTML]{9B9B9B}
-        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
-        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
-        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
-        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
-        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
-        Categorías & AplicacionID & \cmark & 14 & ID de la aplicación con la que se asocia una categoría. \\
-        \hline
-    \end{tabular}
-    \caption{Ejemplo de interrelación Aplicación-Categorías}
-    \label{cuadro:ejemplo-tipo-interrelacion-aplicacion-categorias}
-\end{table}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Aplicaciones-Usuarios}
 \subsubsection*{Descripción}
@@ -1031,6 +899,171 @@ La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicaciones-usuarios} muestra c
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\subsection{Aplicaciones-Características}
+\subsubsection*{Descripción}
+La relación entre las aplicaciones y las características representa cuáles son las características con las que cuenta cada aplicación. Cada característica representa una funcionalidad opcional que está disponible en las aplicaciones con la que se asocia. Dado que las características existen con independencia de si alguna aplicación la tiene, se trata de un tipo de interrelación fuerte.
+
+\subsubsection*{Características}
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] A-CR
+    \item[Tipo] Fuerte
+    \item[Cardinalidad] M:N
+\end{description}
+
+\subsubsection*{Atributos de la interrelación}
+La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicaciones-caracteristicas} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    \begin{tabular}{|llclp{5.8cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        Aplicaciones & AplicacionID & \cmark & 14 & ID de la aplicación que tiene la característica asociada. \\
+        Características & CaracteristicaID & \cmark & 25 & ID de la característica que se asocia a la aplicación. \\
+        \hline
+    \end{tabular}
+    \caption{Ejemplo de interrelación Aplicaciones-Características}
+    \label{cuadro:ejemplo-tipo-interrelacion-aplicaciones-caracteristicas}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Aplicación-Parámetros}
+\subsubsection*{Descripción}
+Esta relación representa un parámetro vinculado a una aplicación.
+
+\subsubsection*{Características}
+La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicacion-parametros} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] A-P
+    \item[Tipo] Fuerte
+    \item[Cardinalidad] (0,1):(0,M)
+\end{description}
+\subsubsection*{Atributos de la interrelación}
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    \begin{tabular}{|llclp{6.9cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        Parametros & AplicacionID & \cmark & 14 & ID de la aplicación con la que se asocia un parámetro \\
+        \hline
+    \end{tabular}
+    \caption{Ejemplo de interrelación Aplicación-Parámetros}
+    \label{cuadro:ejemplo-tipo-interrelacion-aplicacion-parametros}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Aplicación-Terminales}
+\subsubsection*{Descripción}
+Esta relación representa a qué aplicación accede cada terminal. Un terminal que tuviera instaladas diferentes apps de PushNews generaría un registro por cada aplicación con igual nombre pero distinto AplicacionID.
+
+\subsubsection*{Características}
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] A-TR
+    \item[Tipo] Fuerte
+    \item[Cardinalidad] 1:(0,M)
+\end{description}
+
+\subsubsection*{Atributos de la interrelación}
+La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicacion-terminales} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    \begin{tabular}{|llclp{6.9cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        Terminales & AplicacionID & \cmark & 14 & Identificador de la aplicación a la que accede el terminal \\
+        \hline
+    \end{tabular}
+    \caption{Ejemplo de interrelación Aplicación-Terminales}
+    \label{cuadro:ejemplo-tipo-interrelacion-aplicacion-terminales}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Aplicación-Documentos}
+\subsubsection*{Descripción}
+Esta relación representa que cada documento pertenece a una aplicación. Cualquiera que sea la naturaleza del documento, este siempre estará asociado a una determinada aplicación.
+
+\subsubsection*{Características}
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] A-D
+    \item[Tipo] Fuerte
+    \item[Cardinalidad] 1:(0,M)
+\end{description}
+
+\subsubsection*{Atributos de la interrelación}
+La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicacion-documentos} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    \begin{tabular}{|llclp{6.6cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        Documentos & AplicacionID & \cmark & 14 & ID de la aplicación con la que se asocia un documento. \\
+        \hline
+    \end{tabular}
+    \caption{Ejemplo de interrelación Aplicación-Documentos}
+    \label{cuadro:ejemplo-tipo-interrelacion-aplicacion-documentos}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Aplicación-Categorías}
+\subsubsection*{Descripción}
+Dado que las comunicaciones de una aplicación siempre se publican bajo una determinada categoría, es necesario definir para cada aplicación el conjunto de categorías de que dispone. Esta relación representa a qué aplicación pertenece cada categoría.
+
+\subsubsection*{Características}
+\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
+    \item[Nombre] A-CT
+    \item[Tipo] Fuerte
+    \item[Cardinalidad] 1:(0,M)
+\end{description}
+
+\subsubsection*{Atributos de la interrelación}
+La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicacion-categorias} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
+\begin{table}[h]
+    \rowcolors{2}{gray!25}{white}
+    \centering
+    \begin{tabular}{|llclp{7cm}|}
+        \hline
+        \rowcolor[HTML]{9B9B9B}
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
+        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
+        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
+        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
+        Categorías & AplicacionID & \cmark & 14 & ID de la aplicación con la que se asocia una categoría. \\
+        \hline
+    \end{tabular}
+    \caption{Ejemplo de interrelación Aplicación-Categorías}
+    \label{cuadro:ejemplo-tipo-interrelacion-aplicacion-categorias}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Aplicación-Localizaciones}
 \subsubsection*{Descripción}
 Esta relación representa una localización vinculada a una aplicación.
@@ -1039,7 +1072,7 @@ Esta relación representa una localización vinculada a una aplicación.
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
     \item[Nombre] A-L
     \item[Tipo] Fuerte
-    \item[Cardinalidad] 1:N
+    \item[Cardinalidad] 1:(0,M)
 \end{description}
 
 \subsubsection*{Atributos de la interrelación}
@@ -1073,7 +1106,7 @@ La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicacion-telefonos} muestra c�
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
     \item[Nombre] A-TL
     \item[Tipo] Fuerte
-    \item[Cardinalidad] 1:N
+    \item[Cardinalidad] 1:(0,M)
 \end{description}
 \subsubsection*{Atributos de la interrelación}
 \begin{table}[h]
@@ -1096,38 +1129,6 @@ La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicacion-telefonos} muestra c�
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Aplicación-Parámetros}
-\subsubsection*{Descripción}
-Esta relación representa un parámetro vinculado a una aplicación.
-
-\subsubsection*{Características}
-La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicacion-parametros} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
-\begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
-    \item[Nombre] A-P
-    \item[Tipo] Fuerte
-    \item[Cardinalidad] (0,1):N
-\end{description}
-\subsubsection*{Atributos de la interrelación}
-\begin{table}[h]
-    \rowcolors{2}{gray!25}{white}
-    \centering
-    \begin{tabular}{|llclp{6.9cm}|}
-        \hline
-        \rowcolor[HTML]{9B9B9B}
-        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Entidad}} & 
-        \multicolumn{1}{|l}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & 
-        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
-        \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
-        \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
-        Parametros & AplicacionID & \cmark & 14 & ID de la aplicación con la que se asocia un parámetro \\
-        \hline
-    \end{tabular}
-    \caption{Ejemplo de interrelación Aplicación-Parámetros}
-    \label{cuadro:ejemplo-tipo-interrelacion-aplicacion-parametros}
-\end{table}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \subsection{Aplicación-Empresas}
 \subsubsection*{Descripción}
 Esta relación representa una empresa vinculada a una aplicación.
@@ -1137,7 +1138,7 @@ La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicacion-empresas} muestra có
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
     \item[Nombre] A-E
     \item[Tipo] Fuerte
-    \item[Cardinalidad] 1:N
+    \item[Cardinalidad] 1:(0,M)
 \end{description}
 \subsubsection*{Atributos de la interrelación}
 \begin{table}[h]
@@ -1168,7 +1169,7 @@ Esta relación indica el usuario editor que ha publicado cada comunicación.
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
     \item[Nombre] U-C
     \item[Tipo] Fuerte
-    \item[Cardinalidad] 1:N 
+    \item[Cardinalidad] 1:(0,M)
 \end{description}
 
 \subsubsection*{Atributos de la interrelación}
@@ -1202,7 +1203,7 @@ Esta relación representa la pertenencia de una determinada comunicación a una 
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
     \item[Nombre] C-C
     \item[Tipo] Fuerte
-    \item[Cardinalidad] 1:N 
+    \item[Cardinalidad] 1:(0,M)
 \end{description}
 
 \subsubsection*{Atributos de la interrelación}
@@ -1225,7 +1226,7 @@ La tabla \ref{cuadro:ejemplo-tipo-interrelacion-categoria-comunicaciones} muestr
     \label{cuadro:ejemplo-tipo-interrelacion-categoria-comunicaciones}
 \end{table}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% RELACIONES EN LAS QUE DOCUMENTO ES FUERTE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% RELACIONES EN LAS QUE DOCUMENTOS ES FUERTE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Documento-Comunicaciones (a)}
 
@@ -1234,7 +1235,7 @@ Esta relación representa un documento adjunto a una comunicación.
 
 \subsubsection*{Características}
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
-    \item[Nombre] C-DA
+    \item[Nombre] D-CA
     \item[Tipo] Fuerte
     \item[Cardinalidad] (0,1):1
 \end{description}
@@ -1267,7 +1268,7 @@ Esta relación representa una imagen adjunta a una comunicación.
 
 \subsubsection*{Características}
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
-    \item[Nombre] C-DI
+    \item[Nombre] D-CI
     \item[Tipo] Fuerte
     \item[Cardinalidad] (0,1):1
 \end{description}
@@ -1335,7 +1336,7 @@ Esta relación representa un documento asociado a una empresa como su logotipo.
 
 \subsubsection*{Características}
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
-    \item[Nombre] E-DL
+    \item[Nombre] D-EL
     \item[Tipo] Fuerte
     \item[Cardinalidad] (0,1):1
 \end{description}
@@ -1369,7 +1370,7 @@ Esta relación representa un documento asociado a una empresa como su banner.
 
 \subsubsection*{Características}
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
-    \item[Nombre] E-DB
+    \item[Nombre] D-EB
     \item[Tipo] Fuerte
     \item[Cardinalidad] (0,1):1
 \end{description}
@@ -1475,10 +1476,26 @@ La tabla \ref{cuadro:tipo-interrelacion-comunicaciones-accesos-terminales} muest
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Diagrama Entidad-Interrelación}
-\begin{figure}[ht]
+\begin{figure}[h]
     \centering
-    %https://app.creately.com/diagram/7MA84mDHIzz/edit
+    % https://app.creately.com/diagram/7MA84mDHIzz/edit
     \includegraphics[scale=.31]{PushNews E-R 1}
-    \caption{Diagrama Entidad-Interrelación 1}
+    \caption{Aplicación como entidad fuerte}
     \label{fig:diagram-entidad-interrelacion-1}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    % https://app.creately.com/diagram/FGzbpRaBqk7/edit
+    \includegraphics[scale=.31]{PushNews E-R 2}
+    \caption{Documento como entidad fuerte}
+    \label{fig:diagram-entidad-interrelacion-2}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    % https://app.creately.com/diagram/rUhAbYQdpj2/edit
+    \includegraphics[scale=.31]{PushNews E-R 3}
+    \caption{Resto de relaciones}
+    \label{fig:diagram-entidad-interrelacion-2}
 \end{figure}
