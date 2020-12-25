@@ -12,22 +12,22 @@ En este apartado se identificarán los requisitos del sistema. Los requisitos so
 Un lector puede ser cualquier usuario, incluso sin estar previamente registrado o identificado en el sistema. Los objetivos de los lectores son encontrar y visualizar las comunicaciones publicadas y sus recursos adjuntos como fotografías, documentos, mapas, etc.
 
 \subsection{Editor}
-Un editor se encarga de redactar y publicar comunicaciones, tiene acceso a las métricas de éstas y también puede administrar algunos aspectos de las organizaciones de las que forme parte. Debe ser un usuario registrado en el sistema e identificarse antes de tener acceso a las funciones propias de su perfil.
+Un editor pertenece generalmente a la organización del cliente. Se encarga de redactar y publicar comunicaciones y tiene acceso a las métricas de éstas. Debe ser un usuario registrado en el sistema e identificarse antes de tener acceso a las funciones propias de su perfil.
 
 \subsection{Administrador}
-El administrador es el encargado del mantenimiento del sistema. Gestiona y configura el servicio, administra las organizaciones y puede actuar como editor de cualquier aplicación.
+El administrador es el encargado del mantenimiento del sistema y forma parte de la organización de \emph{PushNews}. Gestiona y configura el servicio, administra las organizaciones y puede actuar como editor de cualquier aplicación.
 
 \section{Descripción modular}
 Conceptualmente, el sistema PushNews se puede descomponer en varios módulos que agrupan funcionalidades relacionadas entre si. A continuación se describen los módulos en que se divide el sistema.
 
 \subsection{Comunicaciones}
-Las comunicaciones son el concepto fundamental del sistema. La comunicación es una pieza de contenido que una aplicación publica para informar a sus lectores. El módulo de comunicaciones engloba todas las funcionalidades relacionadas con este concepto como la creación, publicación, consulta, etc.
+Las comunicaciones son el concepto fundamental del sistema. La comunicación es una pieza de contenido que se publica en una aplicación. El módulo de comunicaciones engloba todas las funcionalidades relacionadas con este concepto como la creación, publicación, consulta, etc.
 
 \subsection{Usuarios}
 En este módulo recae la responsabilidad de definir quién tiene acceso a la parte privada del sistema y qué funciones puede realizar cada uno dentro de éste. Algunas de sus funciones son la creación de usuarios, cambio de perfil de un usuario, cambio de clave de acceso, etc.
 
 \subsection{Aplicaciones}
-Cada aplicación representa un cliente, una aplicación móvil en el mercado. El módulo de organizaciones es el responsable de registrar los datos necesarios de cada una de ellas como las ApiKeys, las URLs de la tienda de aplicaciones, el nombre o el logotipo. Además, de la aplicación dependen la mayoría de las operaciones del sistema, que se realizan dentro del ámbito de una aplicación.
+Una aplicación es una app cliente de PushNews. El módulo de organizaciones es el responsable de registrar los datos necesarios de cada una de ellas como las ApiKeys, las URLs de la tienda de aplicaciones, el nombre o el logotipo. Además, de la aplicación dependen la mayoría de las operaciones del sistema, que se realizan dentro del ámbito de una aplicación.
 
 \subsection{Características de aplicación}
 El módulo de características de aplicación es el encargado de definir el conjunto de funcionalidades opcionales disponibles para las organizaciones que lo soliciten.
