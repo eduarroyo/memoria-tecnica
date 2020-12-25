@@ -1,4 +1,53 @@
 \chapter{Análisis funcional}
+En este capítulo se detalla el funcionamiento del sistema. Primero se identificará a los actores que intervienen en el sistema, indicando los objetivos de cada uno. A continuación se presentarán los escenarios empleando casos de uso. Por último se detallarán las interacciones entre los actores y los demás elementos del sistema en los principales escenarios mediante diagramas de secuencia.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Identificación de actores}
+Como ya se introdujo en \ref{objetivos-especificos-gestor-contenidos}, en \emph{PushNews} existen tres tipos de actores o tres perfiles. A continuación se profundizará en los objetivos de cada uno de ellos.
+
+\subsection{Lector}
+Cualquier usuario que, incluso sin estar previamente registrado y sin haberse identificado en el sistema, consulte una comunicación. Los principales objetivos de los lectores son:
+\begin{enumerate}
+    \item Visualizar las comunicaciones publicadas.
+    \item Obtener los recursos adjuntos a las comunicaciones (imágenes, documentos\dots).
+    \item Saber cuando una nueva comunicación es publicada.
+\end{enumerate}
+
+\subsection{Editor}
+Generalmente, los editores pertenecerán a la organizaciones de los clientes y su misión es publicar y mantener las comunicaciones así como consultar las métricas. Sus objetivos más importantes son:
+\begin{enumerate}
+    \item Publicar comunicaciones
+    \item Gestión o mantenimiento de las comunicaciones (modificación, eliminación\dots)
+    \item Gestión de las categorías de comunicaciones de la aplicación.
+    \item Gestión de otros datos de las aplicaciones como lugares de interés, teléfonos, etc.
+    \item Ver las métricas de accesos a las comunicaciones
+\end{enumerate}
+
+\subsection{Administrador}
+Los administradores se encargan del mantenimiento del sistema desde la organización de \emph{PushNews}. Entre sus objetivos principales encontramos:
+\begin{enumerate}
+    \item Mantenimiento general del servicio.
+    \item Administrar las aplicaciones (altas, bajas, etc\dots).
+    \item Administrar las características asociadas a las aplicaciones.
+    \item Administración de los usuarios (editores) de las aplicaciones. 
+    \item Realizar labores de editor de cualquier aplicación.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Análisis de casos de uso}
+Según Larman, un caso de uso es ``una colección de escenarios con éxito y fallo relacionados, que describe a los actores utilizando un sistema para satisfacer un objetivo.'' \cite{Larman2004}. En este apartado se detallarán los principales casos de uso del sistema.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Diagramas de secuencia}
