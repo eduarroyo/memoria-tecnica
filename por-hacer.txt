@@ -4,12 +4,6 @@ PARTE I - PRESENTACIÓN
     1.1 El mercado de las aplicaciones para móviles
 
  3. Antecedentes
-
-PARTE II - ANÁLISIS DEL SISTEMA
- 6. Análisis funcional
-    6.2 Análisis de casos de uso
-        ... añadir más casos de uso
-
 PARTE III - DISEÑO
  7. Diseño de datos
  8. Diseño de clases
