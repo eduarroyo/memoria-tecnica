@@ -43,11 +43,91 @@ Los administradores se encargan del mantenimiento del sistema desde la organizac
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Análisis de casos de uso}
-Según Larman, un caso de uso es ``una colección de escenarios con éxito y fallo relacionados, que describe a los actores utilizando un sistema para satisfacer un objetivo.'' \cite{Larman2004}. En este apartado se detallarán los principales casos de uso del sistema.
+Larman define caso de uso como ``una colección de escenarios con éxito y fallo relacionados, que describe a los actores utilizando un sistema para satisfacer un objetivo.'' \cite{Larman2004}. En este apartado se presentarán algunos casos de uso del sistema que requieren una atención especial y se omitirán los que, por su simplicidad, quedan suficientemente descritos en el apartado \ref{requisitos-funcionales} de requisitos funcionales.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Diagramas de secuencia}
+\subsection{Consulta de una comunicación}
+
+\subsubsection*{Descripción}
+Un lector consulta un comunicado. El sistema contabiliza la consulta para las estadísticas de acceso.
+
+\subsubsection*{Actores}
+\begin{itemize}
+    \item Lector: quiere leer el contenido del comunicado.
+    \item Sistema: tiene que registrar el acceso para que se refleje en las estadísticas.
+\end{itemize}
+
+\subsubsection*{Precondiciones}
+\begin{itemize}
+    \item El comunicado existe y está activo y publicado.
+\end{itemize}
+
+\subsubsection*{Descripción}
+
+\begin{enumerate}
+    \item El lector solicita la lectura de un comunicado.
+    \item El sistema carga el comunicado.
+    \item El sistema comprueba que el comunicado está activo y publicado.
+    \item El sistema comprueba si el terminal del lector está dado de alta.
+    \begin{enumerate}
+        \item Si el terminal está dado de alta actualiza la fecha de último acceso.
+        \item Si el terminal no está dado de alta, lo registra.
+    \end{enumerate}
+    \item El sistema registra el acceso del terminal al comunicado.
+    \item El sistema muestra el contenido del comunicado al lector.
+\end{enumerate}
+
+\subsubsection*{Escenarios alternativos}
+\begin{itemize}
+    \item Si el comunicado no existe, no está activo o no está publicado, el lector verá un mensaje de error y este suceso quedará reflejado en el log.
+    \item Si se produce un error al actualizar los datos del terminal o del acceso al comunicado, el lector verá el contenido del comunicado igualmente pero este suceso quedará reflejado en el log.
+\end{itemize}
+
+\subsubsection*{Postcondiciones}
+\begin{itemize}
+    \item El comunicado se muestra al lector.
+    \item La visita queda contabilizada en el sistema.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Publicación de una comunicación}
+
+\subsubsection*{Descripción}
+Un editor escribe un comunicado en la web y el sistema lo registra y envía las notificaciones correspondientes.
+
+\subsubsection*{Actores}
+\begin{itemize}
+    \item Editor: quiere publicar un comunicado
+    \item Sistema: tiene que registrar el comunicado y enviar las notificaciones oportunas.
+\end{itemize}
+
+\subsubsection*{Precondiciones}
+\begin{itemize}
+    \item El editor está registrado el sistema y asociado a la aplicación en la que se publica el comunicado.
+    \item La aplicación está activa.
+\end{itemize}
+
+\subsubsection*{Descripción}
+
+\begin{enumerate}
+    \item El editor crea un comunicado inmediato (con fecha-hora de publicación igual o anterior a la fecha y hora actuales).
+    \item El sistema registra el comunicado.
+    \item El sistema comprueba la fecha de publicación.
+    \begin{enumerate}
+        \item Si la fecha es anterior o igual a la actual (publicación instantánea) se envía el mensaje push y se marca la comunicación con el flag de push enviada y la fecha de envío.
+        \item Si la publicación no es inmediata
+    \end{enumerate}
+    \item El sistema envía la notificación push.
+    \item El sistema actualiza el comunicado con la fecha de envío de la notificación push y la marca de push enviada.
+\end{enumerate}
+
+\subsubsection*{Escenarios alternativos}
+\begin{itemize}
+    \item Si el editor ha añadido archivo adjunto o imagen, estos se cargan, se almacenan en disco y se registran en la tabla de Documentos para posteriormente ser vinculados a la comunicación al ser creada.
+    \item Si el editor especifica un recordatorio, el sistema enviará una segunda notificación push una vez llegada la fecha y hora del recordatorio.
+\end{itemize}
+
+\subsubsection*{Postcondiciones}
+\begin{itemize}
+    \item El comunicado queda registrado y aparece en la rejilla de comunicados en la web.
+\end{itemize}
