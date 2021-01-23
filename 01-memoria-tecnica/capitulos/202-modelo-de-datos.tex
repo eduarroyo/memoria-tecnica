@@ -2,7 +2,7 @@
 En este capítulo se estudiará la estructura de datos del sistema mediante un \textit{Modelo Entidad-Interrelación} (E-R).
 Primero se identificarán y detallarán los tipos de entidad, luego los tipos de interrelación y finalmente se sintetizará todo el modelo en un diagrama E-R.
 
-\section {Análisis de los tipos de entidad}
+\section {Análisis de los tipos de entidad}\label{analisis-tipos-entidad}
 Los tipos de entidad representan conceptos del mundo real. Las entidades son son instancias de dichos tipos. Una entidad se diferencia de cualquier otra incluso si las dos son del mismo tipo.
 Los tipos de entidad pueden ser fuertes, si la existencia de sus entidades no depende de la existencia de otras en el dominio del problema, o débiles si para existir necesitan la existencia de una entidad fuerte. Así mismo, las entidades débiles pueden serlo por identificación o por existencia.
 
@@ -455,10 +455,10 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-roles} se describen todos los atr
 \subsubsection*{Descripción}
 Las localizaciones representan lugares de interés para los usuarios de la aplicación. Por ejemplo, para la aplicación de un Ayuntamiento, ejemplos de localizaciones serían la oficina de información turística, la dirección del propio Ayuntamiento, la comisaría de policía, etc. Las localizaciones contienen datos como las coordenadas, la dirección y la descripción de un lugar.
 
-\subsection*{Restricciones}
+\subsubsection*{Restricciones}
 Ninguna
 
-\subsection*{Características}
+\subsubsection*{Características}
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
     \item[Nombre] Localizaciones
     \item[Id. principal] LocalizacionID
@@ -519,10 +519,10 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-localizaciones} se describen todo
 \subsubsection*{Descripción}
 Los teléfonos representan teléfonos de interés para los usuarios de la aplicación. Por ejemplo, para la aplicación de un Ayuntamiento, ejemplos de localizaciones serían el teléfono de información turística, el de atención al público del Ayuntamiento, el del museo municipal\dots Los datos que contiene un registro de esta entidad son el número telefónico y la descripción.
 
-\subsection*{Restricciones}
+\subsubsection*{Restricciones}
 Ninguna
 
-\subsection*{Características}
+\subsubsection*{Características}
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
     \item[Nombre] Telefonos
     \item[Id. principal] TelefonoID
@@ -583,10 +583,10 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-telefonos} se describen todos los
 \subsubsection*{Descripción}
 Esta entidad almacena parámetros de configuración del sistema. Un parámetro puede ser global o puede declararse para una determinada aplicación si se establece un valor en el campo AplicacionID.
 
-\subsection*{Restricciones}
+\subsubsection*{Restricciones}
 Ninguna
 
-\subsection*{Características}
+\subsubsection*{Características}
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
     \item[Nombre] Parametros
     \item[Id. principal] ParametroID
@@ -645,10 +645,10 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-parametros} se describen todos lo
 \subsubsection*{Descripción}
 Esta entidad almacena datos de empresas que se anuncian en la aplicación. Los datos almacenados son, por ejemplo, nombre, dirección, teléfono, coordenadas, email, banner, logotipo\dots
 
-\subsection*{Restricciones}
+\subsubsection*{Restricciones}
 Ninguna
 
-\subsection*{Características}
+\subsubsection*{Características}
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
     \item[Nombre] Empresas
     \item[Id. principal] EmpresaID
