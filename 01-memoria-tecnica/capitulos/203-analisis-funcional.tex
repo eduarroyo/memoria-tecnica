@@ -1,5 +1,5 @@
 \chapter{Análisis funcional}
-En este capítulo se detalla el funcionamiento del sistema. Primero se identificará a los actores que intervienen en el sistema, indicando los objetivos de cada uno. A continuación se presentarán los escenarios empleando casos de uso. Por último se detallarán las interacciones entre los actores y los demás elementos del sistema en los principales escenarios mediante diagramas de secuencia.
+En este capítulo se detalla el funcionamiento del sistema. Primero se identificará a los actores que intervienen en el sistema, indicando los objetivos de cada uno. Después se presentarán los principales escenarios del sistema utilizando casos de uso.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -10,21 +10,21 @@ En este capítulo se detalla el funcionamiento del sistema. Primero se identific
 Como ya se introdujo en \ref{objetivos-especificos-gestor-contenidos}, en \emph{PushNews} existen tres tipos de actores o tres perfiles. A continuación se profundizará en los objetivos de cada uno de ellos.
 
 \subsection{Lector}
-Cualquier usuario que, incluso sin estar previamente registrado y sin haberse identificado en el sistema, consulte una comunicación. Los principales objetivos de los lectores son:
+Cualquier usuario que, incluso sin estar previamente registrado y sin haberse identificado en el sistema, consulte un comunicado. Los principales objetivos de los lectores son:
 \begin{enumerate}
-    \item Visualizar las comunicaciones publicadas.
-    \item Obtener los recursos adjuntos a las comunicaciones (imágenes, documentos\dots).
-    \item Saber cuando una nueva comunicación es publicada.
+    \item Visualizar los comunicados publicadas.
+    \item Obtener los recursos adjuntos a los comunicados (imágenes, documentos\dots).
+    \item Saber cuando un nuevo comunicado ha sido publicado.
 \end{enumerate}
 
 \subsection{Editor}
-Generalmente, los editores pertenecerán a la organizaciones de los clientes y su misión es publicar y mantener las comunicaciones así como consultar las métricas. Sus objetivos más importantes son:
+Generalmente, los editores pertenecerán a la organizaciones de los clientes y su misión es publicar y mantener los comunicados así como consultar las métricas. Sus objetivos más importantes son:
 \begin{enumerate}
-    \item Publicar comunicaciones
-    \item Gestión o mantenimiento de las comunicaciones (modificación, eliminación\dots)
-    \item Gestión de las categorías de comunicaciones de la aplicación.
+    \item Publicar comunicados
+    \item Gestión o mantenimiento de los comunicados (modificación, eliminación\dots)
+    \item Gestión de las categorías de comunicados de la aplicación.
     \item Gestión de otros datos de las aplicaciones como lugares de interés, teléfonos, etc.
-    \item Ver las métricas de accesos a las comunicaciones
+    \item Ver las métricas de accesos a los comunicados
 \end{enumerate}
 
 \subsection{Administrador}
@@ -45,7 +45,7 @@ Los administradores se encargan del mantenimiento del sistema desde la organizac
 \section{Análisis de casos de uso}
 Larman define caso de uso como ``una colección de escenarios con éxito y fallo relacionados, que describe a los actores utilizando un sistema para satisfacer un objetivo.'' \cite{Larman2004}. En este apartado se presentarán algunos casos de uso del sistema que requieren una atención especial y se omitirán los que, por su simplicidad, quedan suficientemente descritos en el apartado \ref{requisitos-funcionales} de requisitos funcionales.
 
-\subsection{Consulta de una comunicación}
+\subsection{Consulta de un comunicado}
 
 \subsubsection*{Descripción}
 Un lector consulta un comunicado. El sistema contabiliza la consulta para las estadísticas de acceso.
@@ -90,9 +90,9 @@ Un lector consulta un comunicado. El sistema contabiliza la consulta para las es
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Publicación de una comunicación}
+\subsection{Publicación de un comunicado}
 
-\subsubsection*{Descripción}
+\subsubsection*{Definición}
 Un editor escribe un comunicado en la web y el sistema lo registra y envía las notificaciones correspondientes.
 
 \subsubsection*{Actores}
@@ -114,7 +114,7 @@ Un editor escribe un comunicado en la web y el sistema lo registra y envía las 
     \item El sistema registra el comunicado.
     \item El sistema comprueba la fecha de publicación.
     \begin{enumerate}
-        \item Si la fecha es anterior o igual a la actual (publicación instantánea) se envía el mensaje push y se marca la comunicación con el flag de push enviada y la fecha de envío.
+        \item Si la fecha es anterior o igual a la actual (publicación instantánea) se envía el mensaje push y se marca el comunicado con el flag de push enviada y la fecha de envío.
         \item Si la publicación no es inmediata
     \end{enumerate}
     \item El sistema envía la notificación push.
@@ -123,11 +123,49 @@ Un editor escribe un comunicado en la web y el sistema lo registra y envía las 
 
 \subsubsection*{Escenarios alternativos}
 \begin{itemize}
-    \item Si el editor ha añadido archivo adjunto o imagen, estos se cargan, se almacenan en disco y se registran en la tabla de Documentos para posteriormente ser vinculados a la comunicación al ser creada.
-    \item Si el editor especifica un recordatorio, el sistema enviará una segunda notificación push una vez llegada la fecha y hora del recordatorio.
+    \item Si el editor ha añadido archivo adjunto o imagen, estos se cargan, se almacenan en disco y se registran en la tabla de Documentos para posteriormente ser vinculados al comunicado al ser creado.
+    \item Si el envío de la notificación push falla, no se actualizan la marca ni la fecha correspondientes.
 \end{itemize}
 
 \subsubsection*{Postcondiciones}
 \begin{itemize}
     \item El comunicado queda registrado y aparece en la rejilla de comunicados en la web.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Envío de notificaciones push programadas}
+
+\subsubsection*{Definición}
+El sistema comprueba periódicamente las las notificaciones push de publicación o recordatorio que estén pendientes de enviar y las envía.
+
+Un comunicado tiene notificación de publicación pendiente de envío cuando, estando activo, no borrado y con fecha de publicación anterior a la actual, no está marcado como ``notificado'' (atributo PushEnviado). Esto puede darse en dos circunstancias: cuando al publicar el comunicado, el envío de la notificación push falla y cuando el comunicado tiene fecha de publicación futura (no inmediata) y no se envía la notificación justo al ser publicado. Se considera que un comunicado tiene notificación de recordatorio pendiente de envío si está activo, no borrado, con fecha de recordatorio no nula y anterior a la actual y no está marcado como ``recordatorio enviado'' (atributo PushRecordatorio).
+
+\subsubsection*{Actores}
+\begin{itemize}
+    \item Sistema: Envía las notificaciones push de publicación o recordatorio pendientes de los comunicados.
+\end{itemize}
+
+\subsubsection*{Precondiciones}
+Ninguna
+
+\subsubsection*{Descripción}
+
+\begin{enumerate}
+    \item El sistema recorre los comunicados con notificaciones pendientes de envío ordenados por aplicación.
+    \item Para cada comunicado con notificación de publicación o recordatorio pendiente:
+    \begin{itemize}
+        \item Se envía la notificación push que corresponda (de publicación o recordatorio) utilizando las credenciales y el canal de la aplicación.
+        \item Se actualiza el comunicado con la fecha de envío de la notificación push y la marca de push enviada.
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection*{Escenarios alternativos}
+\begin{itemize}
+    \item Si falla el envío de una notificación push, no se actualizará el comunicado correspondiente.
+\end{itemize}
+
+\subsubsection*{Postcondiciones}
+\begin{itemize}
+    \item El comunicado refleja que el envío de la notificación push se ha realizado y la fecha y hora del envío.
 \end{itemize}

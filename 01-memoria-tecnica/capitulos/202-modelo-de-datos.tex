@@ -84,7 +84,7 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-aplicaciones} se describen todos 
 \subsubsection*{Descripción}
 Los usuarios del sistema tienen un email único y una clave para acceder. Además, se almacena su nombre y una marca para indicar si el email ha sido confirmado.
 
-Los usuarios tienen un rol de editor o administrador. Un editor se vincula a una o varias aplicaciones en las que puede administrar las comunicaciones, categorías, etc. Los administradores gestionan las aplicaciones existentes, usuarios, parámetros del sistema\dots y también pueden actuar como editores dentro de cualquier aplicación.
+Los usuarios tienen un rol de editor o administrador. Un editor se vincula a una o varias aplicaciones en las que puede administrar los comunicados, categorías, etc. Los administradores gestionan las aplicaciones existentes, usuarios, parámetros del sistema\dots y también pueden actuar como editores dentro de cualquier aplicación.
 
 \subsubsection*{Restricciones}
 No habrá usuarios con el mismo email.
@@ -155,7 +155,7 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-usuarios} se describen todos los 
 \subsection{Categorías}
 
 \subsubsection*{Descripción}
-Las categorías se definen para cada aplicación y agrupan las comunicaciones por temática. Tienen un nombre y un icono que las representa. Se ordenan según el criterio de los editores, para lo que cuentan con un campo orden. Pueden estar activas o inactivas. Si una categoría está inactiva, las comunicaciones de esta categoría no serán visibles ni se podrán crear nuevas comunicaciones en esta categoría.
+Las categorías se definen para cada aplicación y agrupan los comunicados por temática. Tienen un nombre y un icono que las representa. Se ordenan según el criterio de los editores, para lo que cuentan con un campo orden. Pueden estar activas o inactivas. Si una categoría está inactiva, los comunicados de esta categoría no serán visibles ni se podrán crear nuevos comunicados en esta categoría.
 
 \subsubsection*{Restricciones}
 Ninguna
@@ -187,7 +187,7 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-categorias} se describen todos lo
         Nombre & Alfanumérico & \cmark & Nombre de la categoría \\
         Icono & Alfanumérico & \cmark & Icono (fontawesome) de la categoría \\
         Orden & $\mathbb N$ & \cmark & Orden de la categoría \\
-        Activo & Booleano & \cmark & Comunicación activa/inactiva \\
+        Activo & Booleano & \cmark & Comunicado activo/inactivo \\
         \hline
     \end{tabular}%}
     \caption{Atributos del tipo de entidad Categorías}
@@ -217,7 +217,7 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-categorias} se describen todos lo
 \subsection{Características de aplicaciones}
 
 \subsubsection*{Descripción}
-Las características son funcionalidades que se pueden habilitar o deshabilitar para cada aplicación. Ejemplos de características serían la posibilidad de incrustar un vídeo de Youtube en las comunicaciones o el acceso al módulo de directorio comercial.
+Las características son funcionalidades que se pueden habilitar o deshabilitar para cada aplicación. Ejemplos de características serían la posibilidad de incrustar un vídeo de Youtube en los comunicados o el acceso al módulo de directorio comercial.
 
 \subsubsection*{Restricciones}
 No habrá dos características con el mismo nombre.
@@ -273,7 +273,7 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-caracteristicas} se describen tod
 \subsection{Terminales}
 
 \subsubsection*{Descripción}
-Los terminales son los dispositivos o navegadores que utilizan los lectores para acceder a las comunicaciones. Un terminal se registra en el sistema la primera vez que solicita la lectura de una comunicación, relacionado con la aplicación que está utilizando. Se guarda la fecha y la IP de la última conexión del dispositivo.
+Los terminales son los dispositivos o navegadores que utilizan los lectores para acceder a los comunicados. Un terminal se registra en el sistema la primera vez que solicita la lectura de un comunicado, relacionado con la aplicación que está utilizando. Se guarda la fecha y la IP de la última conexión del dispositivo.
 
 \subsubsection*{Restricciones}
 Ninguna.
@@ -333,7 +333,7 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-terminales} se describen todos lo
 \subsection{Documentos}
 
 \subsubsection*{Descripción}
-Documento es cualquier archivo que se adjunte a otras entidades como Comunicaciones, Aplicaciones (logotipo), etc. Este tipo de entidad es el catálogo de los archivos en disco que están asociados a contenidos del sistema. Los documentos se registran asociados a la aplicación a la que pertenecen y mantienen información sobre la ruta en disco, el nombre del recurso, el tipo MIME, el tamaño y la fecha de creación. Los documentos pueden ser de dos tipos: Adjunto e Imagen. La lista de tipos está pensada para añadir fácilmente otros tipos en caso de que surja la necesidad.
+Documento es cualquier archivo que se adjunte a otras entidades como Comunicados, Aplicaciones (logotipo), etc. Este tipo de entidad es el catálogo de los archivos en disco que están asociados a contenidos del sistema. Los documentos se registran asociados a la aplicación a la que pertenecen y mantienen información sobre la ruta en disco, el nombre del recurso, el tipo MIME, el tamaño y la fecha de creación. Los documentos pueden ser de dos tipos: Adjunto e Imagen. La lista de tipos está pensada para añadir fácilmente otros tipos en caso de que surja la necesidad.
 
 \subsubsection*{Restricciones}
 Ninguna
@@ -733,18 +733,18 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-empresas} se describen todos los 
     \label{cuadro:ejemplo-empresa}
 \end{table}
 
-\subsection{Comunicaciones}
+\subsection{Comunicados}
 
 \subsubsection*{Descripción}
-Una comunicación es una publicación realizada por un editor en una aplicación. La comunicación contiene datos sobre su contenido como título, cuerpo, categoría y recursos adjuntos como enlaces, documentos o imágenes, fecha de publicación, etc. Además, tiene otros datos como su estado (publicada, borrada, activa...), estado de notificaciones push (notificada o no, recordatorio...). Las comunicaciones podrán ser inmediatas si se publican inmediatamente o programadas, cuando se programan para ser publicadas en una fecha y hora concretas.
+Un comunicado es una publicación realizada por un editor en una aplicación. El comunicado contiene datos sobre su contenido como título, cuerpo, categoría y recursos adjuntos como enlaces, documentos o imágenes, fecha de publicación, etc. Además, tiene otros datos como su estado (publicada, borrada, activa...), estado de notificaciones push (notificada o no, recordatorio...). Los comunicados podrán ser inmediatas si se publican inmediatamente o programadas, cuando se programan para ser publicadas en una fecha y hora concretas.
 
 \subsubsection*{Restricciones}
 No habrá usuarios con el mismo email.
 
 \subsubsection*{Características}
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
-    \item[Nombre] Comunicaciones
-    \item[Id. principal] ComunicacionID
+    \item[Nombre] Comunicados
+    \item[Id. principal] ComunicadoID
     \item[Id. alternativo] Ninguno
     \item[Atrib. heredados] 
         UsuarioID (Usuarios)
@@ -757,7 +757,7 @@ No habrá usuarios con el mismo email.
 \end{description}
 
 \subsubsection*{Atributos de la entidad}
-En la tabla \ref{cuadro:atributos-tipo-entidad-comunicaciones} se describen todos los atributos de la entidad. Así mismo, en la tabla \ref{cuadro:ejemplo-comunicacion} se muestra un ejemplo de los valores que tendría un registro de característica.
+En la tabla \ref{cuadro:atributos-tipo-entidad-comunicados} se describen todos los atributos de la entidad. Así mismo, en la tabla \ref{cuadro:ejemplo-comunicado} se muestra un ejemplo de los valores que tendría un registro de característica.
 
 \begin{table}[h!]
     \rowcolors{2}{gray!25}{white}
@@ -770,19 +770,19 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-comunicaciones} se describen todo
         \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Dominio}} &
         \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
         \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
-        ComunicacionID & $\mathbb N$ & \cmark & Identificador de la comunicación \\
+        ComunicadoID & $\mathbb N$ & \cmark & Identificador del comunicado \\
         UsuarioID & $\mathbb N$ & \cmark & Identificador del usuario editor \\
-        CategoriaID & $\mathbb N$ & \cmark & Identificador de la categoría de la comunicación \\
+        CategoriaID & $\mathbb N$ & \cmark & Identificador de la categoría del comunicado \\
         FechaCreacion & Fecha & \cmark & Fecha de creación \\
         FechaPublicacion & Fecha & \cmark & Fecha de publicación \\
-        Activo & Booleano & \cmark & Comunicación activa/inactiva \\
-        Borrado & Booleano & \cmark & Marca de borrado de la comunicación \\
-        FechaBorrado & Fecha & \xmark & Fecha de borrado de la comunicación \\
+        Activo & Booleano & \cmark & Comunicado activo/inactivo \\
+        Borrado & Booleano & \cmark & Marca de borrado del comunicado \\
+        FechaBorrado & Fecha & \xmark & Fecha de borrado del comunicado \\
         TimeStamp & $\mathbb N$ & \xmark & Marca de tiempo de la publicación \\
         PushEnviada & Booleano & \cmark & Notificación push enviada/no enviada \\
         PushFecha & Fecha & \xmark & Fecha de notificación push \\
-        Titulo & Alfanumérico & \cmark & Título de la comunicación \\
-        Descripcion & Booleano & \cmark & Cuerpo de la comunicación \\
+        Titulo & Alfanumérico & \cmark & Título del comunicado \\
+        Descripcion & Booleano & \cmark & Cuerpo del comunicado \\
         UltimaEdicionIP & Alfanumérico & \xmark & IP desde la que se realizó la última edición \\
         Autor & Alfanumérico & \cmark & Nombre del autor \\
         Destacado & Booleano & \cmark & Publicación destacada/no destacada \\
@@ -807,8 +807,8 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-comunicaciones} se describen todo
         GeoPosicionPais & Alfanumérico & \xmark & País de la localización adjunta \\
         \hline
     \end{tabular}%}
-    \caption{Atributos del tipo de entidad Comunicaciones}
-    \label{cuadro:atributos-tipo-entidad-comunicaciones}
+    \caption{Atributos del tipo de entidad Comunicados}
+    \label{cuadro:atributos-tipo-entidad-comunicados}
 \end{table}
 
 \begin{table}[h!]
@@ -819,7 +819,7 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-comunicaciones} se describen todo
         \hline
         \rowcolor[HTML]{9B9B9B} 
         \multicolumn{1}{|c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Atributo}} & \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Valor}} \\ \hline
-        ComunicacionID & 19547 \\
+        ComunicadoID & 19547 \\
         UsuarioID & 549 \\
         CategoriaID & 17 \\
         FechaCreacion & 2020-11-08 15:48:14 \\
@@ -856,8 +856,8 @@ En la tabla \ref{cuadro:atributos-tipo-entidad-comunicaciones} se describen todo
         GeoPosicionPais & España \\
         \hline
     \end{tabular}%}
-    \caption{Atributos del tipo de entidad Comunicaciones}
-    \label{cuadro:ejemplo-comunicacion}
+    \caption{Atributos del tipo de entidad Comunicados}
+    \label{cuadro:ejemplo-comunicados}
 \end{table}
 
 \section {Análisis de los tipos de interrelación}
@@ -868,7 +868,7 @@ Las interrelaciones fuertes si se dan entre dos entidades fuertes o débiles si 
 
 \subsection{Aplicaciones-Usuarios}
 \subsubsection*{Descripción}
-La relación entre Aplicaciones y Usuarios indica a qué aplicaciones tiene acceso cada usuario editor. El mismo usuario puede tener acceso como editor a varias aplicaciones, lo que permite que una misma persona administre las comunicaciones de varias organizaciones.
+La relación entre Aplicaciones y Usuarios indica a qué aplicaciones tiene acceso cada usuario editor. El mismo usuario puede tener acceso como editor a varias aplicaciones, lo que permite que una misma persona administre los comunicados de varias organizaciones.
 
 \subsubsection*{Características}
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
@@ -1033,7 +1033,7 @@ La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicacion-documentos} muestra c
 
 \subsection{Aplicación-Categorías}
 \subsubsection*{Descripción}
-Dado que las comunicaciones de una aplicación siempre se publican bajo una determinada categoría, es necesario definir para cada aplicación el conjunto de categorías de que dispone. Esta relación representa a qué aplicación pertenece cada categoría.
+Dado que los comunicados de una aplicación siempre se publican bajo una determinada categoría, es necesario definir para cada aplicación el conjunto de categorías de que dispone. Esta relación representa a qué aplicación pertenece cada categoría.
 
 \subsubsection*{Características}
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
@@ -1161,9 +1161,9 @@ La tabla \ref{cuadro:ejemplo-tipo-interrelacion-aplicacion-empresas} muestra có
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% RELACIONES EN LAS QUE USUARIO ES FUERTE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Usuario-Comunicaciones}
+\subsection{Usuario-Comunicados}
 \subsubsection*{Descripción}
-Esta relación indica el usuario editor que ha publicado cada comunicación.
+Esta relación indica el usuario editor que ha publicado cada comunicado.
 
 \subsubsection*{Características}
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
@@ -1173,7 +1173,7 @@ Esta relación indica el usuario editor que ha publicado cada comunicación.
 \end{description}
 
 \subsubsection*{Atributos de la interrelación}
-La tabla \ref{cuadro:ejemplo-tipo-interrelacion-usuario-comunicaciones} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
+La tabla \ref{cuadro:ejemplo-tipo-interrelacion-usuario-comunicados} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
 \begin{table}[h]
     \rowcolors{2}{gray!25}{white}
     \centering
@@ -1185,19 +1185,19 @@ La tabla \ref{cuadro:ejemplo-tipo-interrelacion-usuario-comunicaciones} muestra 
         \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
         \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
         \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
-        Comunicaciones & UsuarioID & \cmark & 79 & ID del usuario que publica la comunicación \\
+        Comunicados & UsuarioID & \cmark & 79 & ID del usuario que publica el comunicado \\
         \hline
     \end{tabular}
-    \caption{Ejemplo de interrelación Usuario-Comunicaciones}
-    \label{cuadro:ejemplo-tipo-interrelacion-usuario-comunicaciones}
+    \caption{Ejemplo de interrelación Usuario-Comunicados}
+    \label{cuadro:ejemplo-tipo-interrelacion-usuario-comunicados}
 \end{table}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% RELACIONES EN LAS QUE CATEGORÍA ES FUERTE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Categoría-Comunicaciones}
+\subsection{Categoría-Comunicados}
 \subsubsection*{Descripción}
-Esta relación representa la pertenencia de una determinada comunicación a una categoría (por ejemplo "Noticias", "Deportes", etc.).
+Esta relación representa la pertenencia de un determinado comunicado a una categoría (por ejemplo "Noticias", "Deportes", etc.).
 
 \subsubsection*{Características}
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
@@ -1207,7 +1207,7 @@ Esta relación representa la pertenencia de una determinada comunicación a una 
 \end{description}
 
 \subsubsection*{Atributos de la interrelación}
-La tabla \ref{cuadro:ejemplo-tipo-interrelacion-categoria-comunicaciones} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
+La tabla \ref{cuadro:ejemplo-tipo-interrelacion-categoria-comunicados} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
 \begin{table}[h]
     \rowcolors{2}{gray!25}{white}
     \centering
@@ -1219,11 +1219,11 @@ La tabla \ref{cuadro:ejemplo-tipo-interrelacion-categoria-comunicaciones} muestr
         \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
         \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
         \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
-        Comunicaciones & CategoriaID & \cmark & 8 & ID de la categoría a la que pertenece una publicación \\
+        Comunicados & CategoriaID & \cmark & 8 & ID de la categoría a la que pertenece una publicación \\
         \hline
     \end{tabular}
-    \caption{Ejemplo de interrelación Categoría-Comunicaciones}
-    \label{cuadro:ejemplo-tipo-interrelacion-categoria-comunicaciones}
+    \caption{Ejemplo de interrelación Categoría-Comunicados}
+    \label{cuadro:ejemplo-tipo-interrelacion-categoria-comunicados}
 \end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% RELACIONES EN LAS QUE DOCUMENTOS ES FUERTE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1296,10 +1296,10 @@ La tabla \ref{cuadro:tipo-interrelacion-documento-empresas-b} muestra cómo se f
 
 %%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Documento-Comunicaciones (a)}
+\subsection{Documento-Comunicados (a)}
 
 \subsubsection*{Descripción}
-Esta relación representa un documento adjunto a una comunicación.
+Esta relación representa un documento adjunto a un comunicado.
 
 \subsubsection*{Características}
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
@@ -1308,7 +1308,7 @@ Esta relación representa un documento adjunto a una comunicación.
     \item[Cardinalidad] (0,1):1
 \end{description}
 \subsubsection*{Atributos de la interrelación}
-La tabla \ref{cuadro:tipo-interrelacion-documento-comunicaciones-a} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
+La tabla \ref{cuadro:tipo-interrelacion-documento-comunicados-a} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
 \begin{table}[h]
     \rowcolors{2}{gray!25}{white}
     \centering
@@ -1321,11 +1321,11 @@ La tabla \ref{cuadro:tipo-interrelacion-documento-comunicaciones-a} muestra cóm
         \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
         \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
         \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
-        Comunicaciones & AdjuntoDocumentoID & \xmark & 249 & ID del documento adjunto \\
+        Comunicados & AdjuntoDocumentoID & \xmark & 249 & ID del documento adjunto \\
         \hline
     \end{tabular}%}
-    \caption{Ejemplo de interrelación Documento-Comunicaciones (a)}
-    \label{cuadro:tipo-interrelacion-documento-comunicaciones-a}
+    \caption{Ejemplo de interrelación Documento-Comunicados (a)}
+    \label{cuadro:tipo-interrelacion-documento-comunicados-a}
 \end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%
@@ -1364,9 +1364,9 @@ La tabla \ref{cuadro:tipo-interrelacion-documento-aplicaciones} muestra cómo se
 
 %%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Documento-Comunicaciones (b)}
+\subsection{Documento-Comunicados (b)}
 \subsubsection*{Descripción}
-Esta relación representa una imagen adjunta a una comunicación.
+Esta relación representa una imagen adjunta a un comunicado.
 
 \subsubsection*{Características}
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
@@ -1376,7 +1376,7 @@ Esta relación representa una imagen adjunta a una comunicación.
 \end{description}
 
 \subsubsection*{Atributos de la interrelación}
-La tabla \ref{cuadro:tipo-interrelacion-documento-comunicaciones-b} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
+La tabla \ref{cuadro:tipo-interrelacion-documento-comunicados-b} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
 \begin{table}[h]
     \rowcolors{2}{gray!25}{white}
     \centering
@@ -1389,11 +1389,11 @@ La tabla \ref{cuadro:tipo-interrelacion-documento-comunicaciones-b} muestra cóm
         \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
         \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
         \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
-        Comunicaciones & ImagenDocumentoID & \xmark & 249 & ID del documento adjunto \\
+        Comunicados & ImagenDocumentoID & \xmark & 249 & ID del documento adjunto \\
         \hline
     \end{tabular}%}
-    \caption{Ejemplo de interrelación Documento-Comunicaciones (b)}
-    \label{cuadro:tipo-interrelacion-documento-comunicaciones-b}
+    \caption{Ejemplo de interrelación Documento-Comunicados (b)}
+    \label{cuadro:tipo-interrelacion-documento-comunicados-b}
 \end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% RELACIONES EN LAS QUE ROL ES FUERTE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1430,11 +1430,11 @@ La tabla \ref{cuadro:tipo-interrelacion-rol-usuarios} muestra cómo se forma la 
     \label{cuadro:tipo-interrelacion-rol-usuarios}
 \end{table}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% RELACIONES EN LAS QUE COMUNICACIÓN ES FUERTE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% RELACIONES EN LAS QUE COMUNICADO ES FUERTE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Comunicaciones-Terminales}
+\subsection{Comunicados-Terminales}
 \subsubsection*{Descripción}
-Esta relación representa un acceso a una comunicación realizado por un terminal.
+Esta relación representa un acceso o una consulta de un comunicado realizado desde un terminal.
 
 \subsubsection*{Características}
 \begin{description}[nosep,style=multiline,labelindent=0.8cm,leftmargin=4.5cm,font=\normalfont]
@@ -1444,7 +1444,7 @@ Esta relación representa un acceso a una comunicación realizado por un termina
 \end{description}
 
 \subsubsection*{Atributos de la interrelación}
-La tabla \ref{cuadro:tipo-interrelacion-comunicaciones-accesos-terminales} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
+La tabla \ref{cuadro:tipo-interrelacion-comunicados-accesos-terminales} muestra cómo se forma la interrelación, así como ejemplos de valores de los atributos implicados.
 \begin{table}[h]
     \rowcolors{2}{gray!25}{white}
     \centering
@@ -1457,14 +1457,14 @@ La tabla \ref{cuadro:tipo-interrelacion-comunicaciones-accesos-terminales} muest
         \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Obl.}} &
         \multicolumn{1}{c}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Ejemplo}} &
         \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{FFFFFF} Descripción}} \\
-        Comunicaciones & ComunicacionID & \cmark & 618 & ID de la comunicación que es accedida \\
+        Comunicados & ComunicadoID & \cmark & 618 & ID del comunicado que es consultado \\
         Terminales & TerminalID & \cmark & 123 & ID del terminal que realiza el acceso \\
-        Comunicaciones-Accesos & Comunicacion-AccesoID & \cmark & 531 & ID del acceso \\
-        Comunicaciones-Accesos  & Fecha & \cmark & 2020-11-20 10:37 & Fecha y hora del acceso \\
+        Comunicados-Accesos & Comunicado-AccesoID & \cmark & 531 & ID del acceso \\
+        Comunicados-Accesos  & Fecha & \cmark & 2020-11-20 10:37 & Fecha y hora del acceso \\
         \hline
     \end{tabular}%}
-    \caption{Ejemplo de interrelación Comunicaciones-Accesos-Terminales}
-    \label{cuadro:tipo-interrelacion-comunicaciones-accesos-terminales}
+    \caption{Ejemplo de interrelación Comunicados-Accesos-Terminales}
+    \label{cuadro:tipo-interrelacion-comunicados-accesos-terminales}
 \end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

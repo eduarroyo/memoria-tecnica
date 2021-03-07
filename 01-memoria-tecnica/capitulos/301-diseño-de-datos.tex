@@ -15,12 +15,9 @@ Es un conjunto formado por un valor de cada atributo de la tabla. No pueden exis
 \subsubsection*{Clave}
 Es el atributo o conjunto de atributos de una tabla por cuyos valores identifica unívocamente a cada tupla.
 
-Para generar el modelo relacional a partir del esquema entidad-interelación se utilizan las reglas de normalización y transformación que se indican en \textit{Bases de datos: desde Chen hasta Codd con Oracle} \cite{basesdedatos-rama} que evitan redundancias y problemas de integridad en los datos. En este caso se han tomado algunas decisiones de diseño que facilitarán más adelante la implementación y que se indican a continuación:
+Para generar el modelo relacional a partir del esquema entidad-interrelación se utilizan las reglas de normalización y transformación que se indican en \textit{Bases de datos: desde Chen hasta Codd con Oracle} \cite{basesdedatos-rama} que evitan redundancias y problemas de integridad en los datos.
 
-\begin{enumerate}
-    \item Se utilizan claves autonuméricas para todas las tablas.
-\end{enumerate}
-
+Para facilitar la posterior implementación de la capa de negocio y simplificar la referencia a registros en la solicitudes HTTP se ha tomado la decisión de crear claves auto-numéricas en la mayoría de tablas.
 
 En la figura \ref{fig:esquema-relacional} se representan todas las tablas, relaciones, atributos y claves del esquema relacional de la base de datos de \emph{PushNews}.
 

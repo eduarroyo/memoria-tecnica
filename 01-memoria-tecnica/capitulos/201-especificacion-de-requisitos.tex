@@ -9,10 +9,10 @@ En este apartado se identificarán los requisitos del sistema. Los requisitos so
 \emph{PushNews} ofrece diferentes funciones dependiendo del perfil del usuario que esté accediendo. Por lo tanto, antes de presentar la lista de requisitos clasificados, es interesante identificar los diferentes perfiles de usuario.
 
 \subsection{Lector}
-Un lector puede ser cualquier usuario, incluso sin estar previamente registrado o identificado en el sistema. Los objetivos de los lectores son encontrar y visualizar las comunicaciones publicadas y sus recursos adjuntos como fotografías, documentos, mapas, etc.
+Un lector puede ser cualquier usuario, incluso sin estar previamente registrado o identificado en el sistema. Los objetivos de los lectores son encontrar y visualizar los comunicados publicados y sus recursos adjuntos como fotografías, documentos, mapas, etc.
 
 \subsection{Editor}
-Un editor pertenece generalmente a la organización del cliente. Se encarga de redactar y publicar comunicaciones y tiene acceso a las métricas de éstas. Debe ser un usuario registrado en el sistema e identificarse antes de tener acceso a las funciones propias de su perfil.
+Un editor pertenece generalmente a la organización del cliente. Se encarga de redactar y publicar comunicados y tiene acceso a las métricas de éstas. Debe ser un usuario registrado en el sistema e identificarse antes de tener acceso a las funciones propias de su perfil.
 
 \subsection{Administrador}
 El administrador es el encargado del mantenimiento del sistema y forma parte de la organización de \emph{PushNews}. Gestiona y configura el servicio, administra las organizaciones y puede actuar como editor de cualquier aplicación.
@@ -20,8 +20,8 @@ El administrador es el encargado del mantenimiento del sistema y forma parte de 
 \section{Descripción modular}
 Conceptualmente, el sistema PushNews se puede descomponer en varios módulos que agrupan funcionalidades relacionadas entre si. A continuación se describen los módulos en que se divide el sistema.
 
-\subsection{Comunicaciones}
-Las comunicaciones son el concepto fundamental del sistema. La comunicación es una pieza de contenido que se publica en una aplicación. El módulo de comunicaciones engloba todas las funcionalidades relacionadas con este concepto como la creación, publicación, consulta, etc.
+\subsection{Comunicados}
+Los comunicados son el elemento fundamental del sistema. Cada comunicado es una pieza de contenido que se publica en una aplicación. El módulo de comunicados engloba todas las funcionalidades relacionadas con este concepto como la creación, publicación, consulta, etc.
 
 \subsection{Usuarios}
 En este módulo recae la responsabilidad de definir quién tiene acceso a la parte privada del sistema y qué funciones puede realizar cada uno dentro de éste. Algunas de sus funciones son la creación de usuarios, cambio de perfil de un usuario, cambio de clave de acceso, etc.
@@ -33,10 +33,10 @@ Una aplicación es una app cliente de PushNews. El módulo de organizaciones es 
 El módulo de características de aplicación es el encargado de definir el conjunto de funcionalidades opcionales disponibles para las organizaciones que lo soliciten.
 
 \subsection{Módulos de listado genérico}
-Es un tipo de módulo para realizar las operaciones básicas de listado, creación, eliminación y modificación sobre un tipo de entidad cualquiera que no tenga procesos de negocio asociados. En esta definición entran módulos como el de lista de teléfonos de interés o el de lista de localizaciones geográficas.
+Es un tipo de módulo para realizar las operaciones básicas de listado, creación, eliminación y modificación sobre un tipo de entidad cualquiera que puede tener o no procesos de negocio asociados. En esta definición entran módulos como el de lista de teléfonos de interés o el de lista de localizaciones geográficas.
 
 \section{Requisitos funcionales}\label{requisitos-funcionales}
-En esta sección se expondrá la relación de requisitos funcionales del sistema clasificados módulo. Además, para cada requisito se indicará el perfil o los perfiles de usuario que participan en la operación: ``A'' para administrador, ``E'' para editor y ``L'' para lector.
+En esta sección se expondrá la relación de requisitos funcionales del sistema clasificados módulo. Además, para cada requisito se indicará el perfil o los perfiles de usuario que participan en la operación: ``A'' para administrador, ``E'' para editor, ``L'' para lector y ``S'' para el sistema \emph{PushNews}.
 
 
 \renewcommand{\arraystretch}{1.5} % Aumentar la separación entre filas para las tablas de esta sección.
@@ -49,22 +49,24 @@ En esta sección se expondrá la relación de requisitos funcionales del sistema
   \caption{Requisitos funcionales de seguridad} \\
 \end{longtable}
 
-\subsection{Requisitos funcionales de comunicaciones}
-\label{cuadro:requisitos-funcionales-de-comunicaciones}
+\subsection{Requisitos funcionales de comunicados}
+\label{cuadro:requisitos-funcionales-de-comunicados}
 \begin{longtable}{l|p{13cm}|r}
-  RF201\label{RF201} & Listado de las comunicaciones publicadas de la aplicación actual, mostrando únicamente los atributos públicos de las comunicaciones. & L \\
-  RF202\label{RF202} & Listado de las comunicaciones publicadas de la aplicación actual, mostrando además los atributos no públicos como por ejemplo el estado de las notificaciones, el nº de visitas, etc. & A, E \\
-  RF203\label{RF203} & Consulta pública de una comunicación publicada. Cada vez que se realice esta operación, se contabilizará la visita de cara a las métricas de impacto de la comunicación. & L \\
-  RF204\label{RF204} & Cada vista pública de una comunicación será accesible desde un navegador mediante una URL específica. & L \\
-  RF205\label{RF205} & Previsualización de comunicación sin que esta operación se contabilice de cara a las métricas de impacto. & A, E \\
-  RF206\label{RF206} & Compartición de comunicaciones en redes sociales. & L \\
-  RF207\label{RF207} & Creación de comunicaciones dentro de una aplicación y publicación instantánea. & A, E \\
-  RF208\label{RF208} & Creación de comunicaciones con publicación programada para un momento posterior. & A, E \\
+  RF201\label{RF201} & Listado de los comunicados publicados de la aplicación actual, mostrando únicamente sus atributos públicos. & L \\
+  RF202\label{RF202} & Listado de los comunicados publicados de la aplicación actual, mostrando además los atributos no públicos como por ejemplo el estado de las notificaciones, el nº de visitas, etc. & A, E \\
+  RF203\label{RF203} & Consulta pública de un comunicado publicado contabilizando el acceso de cara a las métricas de impacto del comunicado. & L \\
+  RF204\label{RF204} & Cada comunicado tendrá una vista pública de lectura asociada a una URL específica. & L \\
+  RF205\label{RF205} & Previsualización de comunicado sin que esta operación se contabilice de cara a las métricas de impacto. & A, E \\
+  RF206\label{RF206} & Compartición de comunicados en redes sociales. & L \\
+  RF207\label{RF207} & Creación de comunicados dentro de una aplicación y publicación instantánea. & A, E \\
+  RF208\label{RF208} & Creación de comunicados con publicación programada para un momento posterior. & A, E \\
   RF209\label{RF209} & Modificación del contenido de una publicación. & A, E \\
   RF210\label{RF210} & Eliminación de una publicación. & A, E \\
-  RF211\label{RF211} & Desactivación/Activación de una comunicación. Una publicación desactivada no es visible públicamente. & A, E \\
-  RF212\label{RF212} & Consulta de métricas de impacto de comunicaciones. & A, E \\
-  \caption{Requisitos funcionales de comunicaciones} \\
+  RF211\label{RF211} & Desactivación/Activación de un comunicado. Una publicación desactivada no es visible públicamente. & A, E \\
+  RF212\label{RF212} & Consulta de métricas de impacto de comunicados. & A, E \\
+  RF213\label{RF213} & Notificación de publicación de un comunicado mediante mensajería PUSH. & S \\
+  RF213\label{RF213} & Notificación de recordatorio de un comunicado mediante mensajería PUSH. & S \\
+  \caption{Requisitos funcionales de comunicados} \\
 \end{longtable}
 
 \subsection{Requisitos funcionales de usuarios}
@@ -116,9 +118,8 @@ En esta sección se expondrá la relación de requisitos funcionales del sistema
   RNF103\label{RNF103} & La parte WEB y las aplicaciones auxiliares deben desarrollarse usando tecnología .NET de Microsoft. \\
   RNF105\label{RNF104} & El sistema deberá tener controlados y responder correctamente ante posibles errores, mediante mensajes descriptivos que identifiquen el problema causado y su posible solución. \\
   RNF106\label{RNF105} & El sistema deberá responder robustamente antes posibles intentos de acceso no autorizados. \\
-  RNF107\label{RNF106} & La interfaz del sistema deberá ser sencilla e intuitiva para el usuario. \\
-  RNF108\label{RNF107} & Siempre que sea posible, se usarán estándares en el desarrollo de la aplicación informática. \\
-  RNF109\label{RNF108} & El tiempo de respuesta del sistema deberá ser el menor posible. \\
+  RNF107\label{RNF107} & Siempre que sea posible, se usarán estándares en el desarrollo de la aplicación informática. \\
+  RNF108\label{RNF108} & El tiempo de respuesta del sistema deberá ser el menor posible. \\
   \caption{Requisitos no funcionales} \\
 \end{longtable}
 
@@ -132,12 +133,13 @@ A continuación se definen los requisitos de la interfaz:
 
 \label{cuadro:requisitos-de-la-interfaz}
 \begin{longtable}{l|p{13.7cm}}
-  RIF101\label{RIF101} & Será agradable y simple. \\
+  RIF101\label{RIF101} & Será agradable, simple e intuitiva. \\
   RIF102\label{RIF102} & Se dividirá en módulos funcionales accesibles desde un menú lateral. \\
   RIF103\label{RIF103} & Los nombres de las secciones serán simples y descriptivos. \\
-  RIF104\label{RIF104} & Los menús mostrarán sólo los elementos permitidos para el perfil del usuario. \\
-  RIF105\label{RIF105} & Se mostrarán mensajes informativos, de confirmación o de error al usuario. \\
-  RIF106\label{RIF106} & Se limitará la entrada de datos en los campos de formularios a formatos válidos siempre que sea posible. \\
+  RIF104\label{RIF104} & Los elementos de la interfaz se adaptará a los diferentes tamaños de pantalla. \\
+  RIF105\label{RIF105} & Los menús mostrarán sólo los elementos permitidos para el perfil del usuario. \\
+  RIF106\label{RIF106} & Se mostrarán mensajes informativos, de confirmación o de error al usuario. \\
+  RIF107\label{RIF107} & Se limitará la entrada de datos en los campos de formularios a formatos válidos siempre que sea posible. \\
   \caption{Requisitos de la interfaz de usuario} \\
 \end{longtable}
 
@@ -151,12 +153,12 @@ En la franja horizontal superior de la interfaz se podrán ver el nombre de la a
 El menú se dispondrá verticalmente en la zona izquierda de la interfaz. En él deberán mostrarse ordenados los módulos de la herramienta que sean accesibles para el usuario actual. Dichos módulos se clasificarán en, al menos dos apartados: 
 
 \begin{enumerate}
-  \item \textbf{Comunicaciones}, que agrupará los módulos de gestión de comunicaciones accesibles para editores. En este apartado del menú aparecerían módulos como ``Comunicaciones'' o ``Categorías''.
+  \item \textbf{Comunicados}, que agrupará los módulos de gestión de comunicados accesibles para editores. En este apartado del menú aparecerían módulos como ``Comunicados'' o ``Categorías''.
   \item \textbf{Administración}, que contendrá los módulos administrativos, disponibles sólo para administradores. Ejemplos de elementos de este apartado serían ``Aplicaciones'' o ``Usuarios''.
 \end{enumerate}
 
 \subsubsection*{Bloque central}
-La zona restante de la interfaz se denominará ``Bloque central''. En ella se visualizará el contenido del módulo actual que el usuario esté utilizando, Su contenido podrá ser un listado o rejilla, un formulario o una previsualización de una comunicación correspondientes a alguno de los módulos existentes.
+La zona restante de la interfaz se denominará ``Bloque central''. En ella se visualizará el contenido del módulo actual que el usuario esté utilizando, Su contenido podrá ser un listado o rejilla, un formulario o una previsualización de un comunicado correspondientes a alguno de los módulos existentes.
 
 \subsection{Características de la interfaz}
 \subsubsection*{Apariencia}
@@ -165,16 +167,17 @@ La interfaz será de tipo aplicación web, dividida en módulos accesibles desde
 La entrada de datos se realizará a través de componentes comunes como botones, enlaces, cajas de texto, listas, etc. Los listados estarán paginados para facilitar la lectura y no incurrir en exceso de información.
 \subsubsection*{Seguridad}
 La interfaz prevendrá el uso de elementos no autorizados para el perfil actual. Se solicitará confirmación al usuario antes de realizar una acción  destructiva (borrado, desactivación, etc.).
-
+\subsubsection*{Adaptabilidad}
+Los elementos de la interfaz se ajustarán en tamaño y se posicionarán adaptándose lo mejor posible a la pantalla de visualización que se esté utilizando, permitiendo una correcta visualización y una experiencia de usuario adecuada con independencia del dispositivo que se utilice.
 
 \section{Requisitos de la información}
 En este apartado se detalla la información relevante con la que trabajará el sistema.
 \label{cuadro:requisitos-de-la-informacion}
 \begin{longtable}{lp{13.7cm}}
-  RIN101\label{RIN101} & Aplicaciones: son las aplicaciones móviles que muestran las comunicaciones y demás datos que se gestionan con la aplicación WEB. \\
-  RIN102\label{RIN102} & Usuarios: son los editores y administradores que intervienen en el sistema. Los editores se vinculan con una o más aplicaciones a cuyos comunicaciones tienen acceso. \\
-  RIN103\label{RIN103} & Comunicaciones: son los artículos que se muestran en las aplicaciones y en el área pública de la WEB. Las comunicaciones son creadas y mantenidas por los editores y visualizadas por los lectores. \\
-  RIN104\label{RIN104} & Terminales y accesos: son los dispositivos que acceden a las comunicaciones de una aplicación y los accesos concretos que realizan. Sirven para medir el impacto de una comunicación.\\
+  RIN101\label{RIN101} & Aplicaciones: son las aplicaciones móviles que muestran los comunicados y demás datos que se gestionan con la aplicación WEB. \\
+  RIN102\label{RIN102} & Usuarios: son los editores y administradores que intervienen en el sistema. Los editores se vinculan con una o más aplicaciones a cuyos comunicados tienen acceso. \\
+  RIN103\label{RIN103} & Comunicados: son los artículos que se muestran en las aplicaciones y en el área pública de la WEB. Los comunicados son creados y mantenidas por los editores y visualizadas por los lectores. \\
+  RIN104\label{RIN104} & Terminales y accesos: son los dispositivos que acceden a los comunicados de una aplicación y los accesos concretos que realizan. Sirven para medir el impacto de un comunicado.\\
   RIN105\label{RIN105} & Características de aplicaciones: son las funcionalidades opcionales que pueden añadirse a las aplicaciones. \\
   \caption{Requisitos de la información} \\
 \end{longtable}
