@@ -2,30 +2,30 @@
 PARTE I - PRESENTACIÓN
  1. Definición del problema
     1.1 El mercado de las aplicaciones para móviles
-
+ 2. Objetivos
  3. Antecedentes
+
 PARTE III - DISEÑO
- 7. Diseño de datos
- 8. Diseño de clases
- 9. Arquitectura
-10. Bibliotecas de negocio
-11. Aplicación WEB
-12. Servicio WEB
-13. Programas auxiliares
-14. Aplicación móvil tipo
+ 4. Especificación de requisitos (X)
+ 5. 
+ 7. Diseño de datos (X)
+ 8. Arquitectura
+ 9. Bibliotecas de negocio
+10. Aplicación WEB
+11. Servicio WEB
+12. Programas auxiliares
+13. Aplicación móvil tipo
 
 PARTE IV - PRUEBAS
 
 PARTE V - CONCLUSIONES Y FUTURAS MEJORAS
-16. Conclusiones
-17. Futuras mejoras
-    17.1 Capa de servicios
-    17.2 Aplicación WEB
-
+14. Conclusiones
+15. Futuras mejoras
+    15.1 Capa de servicios
+    15.2 Aplicación WEB
 
 
 ##### MANUAL DE CÓDIGO #####
-
 
 
 ##### MANUAL DE USUARIO #####
